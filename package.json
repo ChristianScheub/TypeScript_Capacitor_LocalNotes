@@ -51,7 +51,6 @@
     ]
   },
   "devDependencies": {
-    "@types/crypto-js": "^4.2.1",
-    "nyc": "^15.1.0"
+    "@types/crypto-js": "^4.2.1"
   }
 }

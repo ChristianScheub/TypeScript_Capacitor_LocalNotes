@@ -44,15 +44,15 @@ All files                          |   93.45 |    80.88 |   88.37 |    94.3 |
 
 ## Architecture
 The components used are divided into two categories:
-- `custom_components`: Components which I only use in this project
-- `modules`: Components/functions that I also use in other projects, which are therefore kept generic. (Possibly, however, slightly adapted e.g. the colors here)
+- `custom_components`: Components which I only use in this project. These are on the left and in the middle of the architecture diagram.
+- `modules`: Components/functions that I also use in other projects, which are therefore kept generic. (Possibly, however, slightly adapted e.g. the colors here)  These components can be seen on the right of the architecture diagram. 
 
-As a result, there is also the following configuration file under modules:
+As a result of the use from the modules, there is also one configuration file:
 - `app_texts`: Contains texts such as the description, imprint text, data protection text etc.
 
-# Getting Started with Create React App
+![Local Notes Architecture](/LocalNotesArchitecture.jpeg)
+Note: The cookie banner and footer text are already present here as they may be used in the future for the web version.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -90,9 +90,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
