@@ -1,7 +1,7 @@
 
 # LocalNotes
 
-Last Edit: 13.2023 <br>
+Last Edit: 12.2023 <br>
 Language: Typescript React Capacitor<br>
 
 This is a simple Typescript React application which is to be used as an iOS and Android app with the help of Capacitor. 
