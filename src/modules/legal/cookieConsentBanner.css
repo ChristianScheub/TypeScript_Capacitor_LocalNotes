@@ -1,0 +1,44 @@
+/* CookieConsentBanner.css */
+
+.cookie-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 9999;
+  }
+  
+  .cookie-overlay-content {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .cookie-overlay-text {
+    margin-bottom: 20px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .button-group button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .button-group button:first-child {
+    margin-left: 0;
+  }
+  
+  .button-group button:last-child {
+    margin-right: 0;
+  }
+  
