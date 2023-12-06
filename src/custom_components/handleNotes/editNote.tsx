@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import CryptoJS from "crypto-js";
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { FaRegSave, FaTrash } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 

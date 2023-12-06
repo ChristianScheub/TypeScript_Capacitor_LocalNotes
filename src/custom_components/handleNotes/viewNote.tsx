@@ -1,10 +1,9 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { FaPlusCircle } from "react-icons/fa";
 import useNotes from "./getNotes";
-
 
 interface ViewNoteProps {
   encryptionKey: string;
@@ -27,42 +26,41 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
   return (
     <div>
       {notes.length > 0 ? (
-        notes.map((note) => (
-          <div key={note.id}>
-            <br />
-            <Card
-              style={{
-                margin: "2vw",
-                backgroundColor: "#49454F",
-                color: "white",
-                minHeight: "10vh",
-              }}
-              onClick={() => navigate(`/edit/${note.id}`)}
-            >
-              <Card.Body>
-                <Card.Text>{truncateText(note.content, 150)}</Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-        ))
+        <Row xs={2} md={2} lg={3} style={{
+          margin: "1vw"}}> {/* Definiert das Grid mit einer Spalte für kleine Bildschirme, zwei Spalten für mittlere Bildschirme und drei Spalten für größere Bildschirme */}
+          {notes.map((note) => (
+            <Col key={note.id}>
+              <Card
+                style={{
+                  margin: "2vw",
+                  backgroundColor: "#49454F",
+                  color: "white",
+                  minHeight: "25vh",
+                }}
+                onClick={() => navigate(`/edit/${note.id}`)}
+              >
+                <Card.Body>
+                  <Card.Text>{truncateText(note.content, 100)}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       ) : (
         <Card
-              style={{
-                margin: "2vw",
-                backgroundColor: "#49454F",
-                color: "white",
-                minHeight: "10vh",
-              }}
-            >
-              <Card.Body>
-                <Card.Text>{truncateText("Noch keine Notizen vorhanden!", 150)}</Card.Text>
-              </Card.Body>
-            </Card>
+          style={{
+            margin: "2vw",
+            backgroundColor: "#49454F",
+            color: "white",
+            minHeight: "25vh",
+          }}
+        >
+          <Card.Body>
+            <Card.Text>{truncateText("Noch keine Notizen vorhanden!", 150)}</Card.Text>
+          </Card.Body>
+        </Card>
       )}
-      <br />
-      <br />
-      <br />
-      <br />
+      
       <div style={{ position: "fixed", bottom: "28vw", left: "20px" }}>
         <Button
           style={{ backgroundColor: "#001D32", height: "8vh" }}

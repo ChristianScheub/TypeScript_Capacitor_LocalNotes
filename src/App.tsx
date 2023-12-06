@@ -8,15 +8,20 @@ import Datenschutz from "./modules/legal/datenschutz";
 import EncryptionKeyModal from "./custom_components/encryption_modal";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 const App: React.FC = () => {
   const [encryptionKey, setEncryptionKey] = useState<string>("");
   const [keyModalVisible, setKeyModalVisible] = useState<boolean>(true);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
+
   const handleKeySubmit = (key: string) => {
     setEncryptionKey(key);
     setKeyModalVisible(false);
   };
+
+
+  
 
   return (
     <Router>
