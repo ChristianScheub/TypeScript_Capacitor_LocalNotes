@@ -13,9 +13,11 @@ Deutsche Kurzbeschreibung:
 Das ist eine einfache Typescript React Anwendung welche mithilfe von Capacitor anschließend als iOS sowie Android App verwendet werden soll. 
 Mit ihr ist es möglich sicher Notizen mit einer AES Verschlüsselung lokal zu speichern, diese zu bearbeiten/löschen und zu durchsuchen.
 
-<img src="startScreen.jpeg" alt="Start Screen" height="350">
-<img src="notesOverview.jpeg" alt="Notes Overview" height="350">
-<img src="editScreen.jpeg" alt="Note Edit" height="350">
+| Start Screen | Notes Overview | Note Edit |
+|--------------|----------------|-----------|
+| <img src="startScreen.jpeg" alt="Start Screen" height="250"> | <img src="notesOverview.jpeg" alt="Notes Overview" height="250"> | <img src="editScreen.jpeg" alt="Note Edit" height="250"> |
+
+
 
 
 ## Testing
