@@ -24,7 +24,7 @@ test('renders encryption key modal on start', () => {
 
 test('closes modal on submit', async () => {
   const { getByText, queryByText } = renderWithRouter(<App />);
-  const submitButton = getByText('Los!');
+  const submitButton = getByText('Weiter');
   fireEvent.click(submitButton);
 
   await waitFor(() => {

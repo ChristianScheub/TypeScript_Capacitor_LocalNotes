@@ -39,7 +39,7 @@ describe("EditNote", () => {
         <EditNote encryptionKey={encryptionKey} />
       </BrowserRouter>
     );
-    expect(screen.getByText("Notiz bearbeiten")).toBeInTheDocument();
+    expect(screen.getByTestId("floating-btn")).toBeInTheDocument();
   });
 
   it("renders the EditNote component with empty localStorage", () => {
@@ -49,7 +49,7 @@ describe("EditNote", () => {
         <EditNote encryptionKey={encryptionKey} />
       </BrowserRouter>
     );
-    expect(screen.getByText("Notiz bearbeiten")).toBeInTheDocument();
+    expect(screen.getByTestId("floating-btn")).toBeInTheDocument();
   });
 
   it("loads a note if noteId is present", () => {
@@ -67,7 +67,7 @@ describe("EditNote", () => {
         <EditNote encryptionKey={encryptionKey} />
       </BrowserRouter>
     );
-    const saveButton = screen.getByTestId("save-note-button");
+    const saveButton = screen.getByTestId("floating-btn");
     fireEvent.click(saveButton);
     expect(mockedNavigate).toHaveBeenCalledWith(-1);
   });
@@ -83,7 +83,7 @@ describe("EditNote", () => {
     const inputElement = screen.getByRole("textbox") as HTMLTextAreaElement;
     fireEvent.change(inputElement, { target: { value: "new note content" } });
     expect(inputElement.value).toBe("new note content");
-    const saveButton = screen.getByTestId("save-note-button");
+    const saveButton = screen.getByTestId("floating-btn");
     fireEvent.click(saveButton);
     expect(mockedNavigate).toHaveBeenCalledWith(-1);
     expect(localStorage.getItem(testNoteId)).not.toBe(oldValue);
@@ -141,7 +141,7 @@ describe("EditNote", () => {
         <EditNote encryptionKey={encryptionKey} />
       </BrowserRouter>
     );
-    fireEvent.click(screen.getByTestId("save-note-button"));
+    fireEvent.click(screen.getByTestId("floating-btn"));
     expect(mockedNavigate).toHaveBeenCalledWith(-1);
   });
 });

@@ -18,7 +18,7 @@ const Datenschutz: React.FC = () => {
               onClick={() => navigate(-1)}
               data-testid="backButton"
             />
-            Unsere Datenschutzerklärung:
+            Infos
           </Card.Header>
           <Card.Body>
             <CodeToTextParser code={datenschutz_text} />

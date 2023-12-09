@@ -28,13 +28,13 @@ describe("NavBar Component", () => {
 
   it("should render the NavBar", () => {
     renderNavBar();
-    expect(screen.getByPlaceholderText("Notizen suchen")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Notizen suchen...")).toBeInTheDocument();
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
   it("should render the NavBar with search bar", () => {
     renderNavBar();
-    expect(screen.getByPlaceholderText("Notizen suchen")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Notizen suchen...")).toBeInTheDocument();
     expect(screen.queryByTestId("back-button")).not.toBeInTheDocument();
   });
 
@@ -45,7 +45,7 @@ describe("NavBar Component", () => {
       </MemoryRouter>
     );
     expect(
-      screen.queryByPlaceholderText("Notizen suchen")
+      screen.queryByPlaceholderText("Notizen suchen...")
     ).not.toBeInTheDocument();
     expect(screen.getByTestId("back-button")).toBeInTheDocument();
   });
@@ -66,14 +66,14 @@ describe("NavBar Component", () => {
 
   it("should handle input change", () => {
     renderNavBar();
-    const input = screen.getByPlaceholderText("Notizen suchen");
+    const input = screen.getByPlaceholderText("Notizen suchen...");
     fireEvent.change(input, { target: { value: "Neue Notiz" } });
     expect(mockSetSearchQuery).toHaveBeenCalledWith("Neue Notiz");
   });
 
   it("should handle form submit", () => {
     renderNavBar();
-    const input = screen.getByPlaceholderText("Notizen suchen");
+    const input = screen.getByPlaceholderText("Notizen suchen...");
     fireEvent.change(input, { target: { value: "Neue Notiz" } });
     fireEvent.submit(input);
     expect(mockSetSearchQuery).toHaveBeenCalledWith("Neue Notiz");

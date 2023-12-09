@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Navbar, Container, Button, Form, FormControl } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { FaInfoCircle } from "react-icons/fa";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { useLocation } from "react-router-dom"; // Importieren Sie useLocation
+import { useLocation } from "react-router-dom";
+import { FaAngleLeft } from "react-icons/fa";
 
 interface NavBarProps {
   setSearchQuery: (query: string) => void;
@@ -41,45 +41,54 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
       variant="dark"
       className="justify-content-between"
       style={{
-        position: "sticky",
-        bottom: 0,
-        height: "10vh",
-        zIndex: 1000,
-        marginTop: "auto",
-        backgroundColor: "#006399",
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        backgroundColor: "#161616",
+        borderBottom: "1px solid #6c757d",
       }}
     >
       <Container>
         {showBackButton ? (
           <Button
-            variant="outline-light"
             onClick={handleBackClick}
-            style={{ height: "8vh", width: "20vw" }}
+            style={{
+              left: "0vw",
+              backgroundColor: "transparent",
+              border: "none",
+              height: "6vh",
+              width: "20vw",
+            }}
             data-testid="back-button"
           >
-            <IoMdArrowRoundBack size="4vh" />
+            <FaAngleLeft size="4vh" />
           </Button>
         ) : (
           <Form onSubmit={handleSubmit}>
-            <FormControl
-              type="text"
-              placeholder="Notizen suchen"
-              className="mr-sm-2"
+            <input
+              type="search"
+              aria-label="Search"
+              placeholder="Notizen suchen..."
               onChange={handleSearchChange}
               value={tempSearch}
               style={{
-                width: "80vw",
-                height: "8vh",
-                backgroundColor: "#CDE5FF",
+                flex: 1,
+                border: "none",
+                padding: "0.75rem 1rem",
+                marginLeft: "10vw",
+                borderRadius: "30px",
+                color: "#fff",
+                backgroundColor: "#25262B",
+                width: "70vw",
               }}
             />
           </Form>
         )}
 
         <Button
-          variant="outline-light"
+          variant="link"
           onClick={handleImpressumClick}
-          style={{ height: "8vh" }}
+          style={{ height: "6vh" }}
         >
           <FaInfoCircle size="2.5vh" />
         </Button>

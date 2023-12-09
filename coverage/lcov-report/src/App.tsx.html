@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -127,8 +127,13 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,21 +143,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -192,65 +204,71 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from "react";
-import NavBar from "./custom_components/navBar";
-import EditNote from "./custom_components/handleNotes/editNote";
-import ViewNote from "./custom_components/handleNotes/viewNote";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Impressum from "./modules/legal/impressum";
 import Datenschutz from "./modules/legal/datenschutz";
 import EncryptionKeyModal from "./custom_components/encryption_modal";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./custom_components/navBar";
+import ViewNote from "./custom_components/handleNotes/viewNote";
+import EditNote from "./custom_components/handleNotes/editNote";
 &nbsp;
 const App: React.FC = () =&gt; {
   const [encryptionKey, setEncryptionKey] = useState&lt;string&gt;("");
-  const [keyModalVisible, setKeyModalVisible] = useState&lt;boolean&gt;(true);
   const [searchQuery, setSearchQuery] = useState&lt;string&gt;("");
 &nbsp;
-  const handleKeySubmit = (key: string) =&gt; {
-    setEncryptionKey(key);
-    setKeyModalVisible(false);
-  };
-&nbsp;
   return (
-    &lt;Router&gt;
-      &lt;div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor:"#1D1B20", color:"white" }}&gt;
-        &lt;EncryptionKeyModal
-          show={keyModalVisible}
-          onHide={() =&gt; setKeyModalVisible(false)}
-          onSubmit={handleKeySubmit}
-        /&gt;
-&nbsp;
-&nbsp;
-        &lt;Routes&gt;
-          &lt;Route
-            path="/edit/:noteId"
-            element={
-              &lt;EditNote encryptionKey={encryptionKey}  /&gt;
-            }
-          /&gt;
-          &lt;Route
-            path="/"
-            element={
-              &lt;ViewNote
-                encryptionKey={encryptionKey}
-                searchQuery={searchQuery}
+    &lt;div&gt;
+      {!encryptionKey ? (
+        &lt;div&gt;
+          &lt;Router&gt;
+            &lt;Routes&gt;
+              &lt;Route path="/datenschutz" element={&lt;Datenschutz /&gt;} /&gt;
+              &lt;Route
+                path="/"
+                element={&lt;EncryptionKeyModal onSubmit={setEncryptionKey} /&gt;}
               /&gt;
-            }
-          /&gt;
-&nbsp;
-          &lt;Route
-            path="/edit/new"
-            element={
-              &lt;EditNote encryptionKey={encryptionKey} /&gt;
-            }
-          /&gt;
-          &lt;Route path="/impressum" element={&lt;Impressum /&gt;} /&gt;
-          &lt;Route path="/datenschutz" element={&lt;Datenschutz /&gt;} /&gt;
-        &lt;/Routes&gt;
-        &lt;NavBar setSearchQuery={setSearchQuery} /&gt;
-&nbsp;
-      &lt;/div&gt;
-    &lt;/Router&gt;
+            &lt;/Routes&gt;
+          &lt;/Router&gt;
+        &lt;/div&gt;
+      ) : (
+<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;div</span>
+          className="App"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+            backgroundColor: "#1E1E1E",
+            color: "white",
+          }}
+        &gt;
+          &lt;div style={{ marginTop: "8vh" }}&gt;
+            &lt;Router&gt;
+              &lt;Routes&gt;
+                &lt;Route path="/datenschutz" element={&lt;Datenschutz /&gt;} /&gt;
+                &lt;Route
+                  path="/edit/:noteId"
+                  element={&lt;EditNote encryptionKey={encryptionKey} /&gt;}
+                /&gt;
+                &lt;Route
+                  path="/"
+                  element={
+                    &lt;ViewNote
+                      encryptionKey={encryptionKey}
+                      searchQuery={searchQuery}
+                    /&gt;
+                  }
+                /&gt;
+                &lt;Route
+                  path="/edit/new"
+                  element={&lt;EditNote encryptionKey={encryptionKey} /&gt;}
+                /&gt;
+              &lt;/Routes&gt;
+              &lt;NavBar setSearchQuery={setSearchQuery} /&gt;
+            &lt;/Router&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      )}
+    &lt;/div&gt;
   );
 };
 &nbsp;
@@ -262,7 +280,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-06T13:55:20.388Z
+                at 2023-12-09T04:12:14.333Z
             </div>
         <script src="../prettify.js"></script>
         <script>

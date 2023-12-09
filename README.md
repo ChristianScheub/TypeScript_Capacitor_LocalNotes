@@ -13,21 +13,25 @@ Deutsche Kurzbeschreibung:
 Das ist eine einfache Typescript React Anwendung welche mithilfe von Capacitor anschließend als iOS sowie Android App verwendet werden soll. 
 Mit ihr ist es möglich sicher Notizen mit einer AES Verschlüsselung lokal zu speichern, diese zu bearbeiten/löschen und zu durchsuchen.
 
+<img src="startScreen.jpeg" alt="Start Screen" height="350">
+<img src="notesOverview.jpeg" alt="Notes Overview" height="350">
+<img src="editScreen.jpeg" alt="Note Edit" height="350">
+
+
 ## Testing
 The Jest testing framework is used for testing.
 The tests here are always written in Typescript. 
 
 Under modules are modules from other projects of mine for which I have not written further tests. (Otherwise we would be almost at 100% test coverage ;) )
 
-
 File                               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 -----------------------------------|---------|----------|---------|---------|---------------------
-All files                          |   93.45 |    80.88 |   88.37 |    94.3 |                     
- src                               |   81.81 |      100 |     100 |   81.81 |                     
-  App.tsx                          |     100 |      100 |     100 |     100 |                     
+All files                          |   92.59 |    79.72 |   85.71 |   93.58 |                     
+ src                               |   66.66 |       50 |     100 |   66.66 |                     
+  App.tsx                          |     100 |       50 |     100 |     100 | 16                  
   index.tsx                        |       0 |      100 |     100 |       0 | 6-9                 
- src/custom_components             |     100 |      100 |     100 |     100 |                     
-  encryption_modal.tsx             |     100 |      100 |     100 |     100 |                     
+ src/custom_components             |      96 |    83.33 |    87.5 |      96 |                     
+  encryption_modal.tsx             |   88.88 |       50 |   66.66 |   88.88 | 85                  
   navBar.tsx                       |     100 |      100 |     100 |     100 |                     
  src/custom_components/handleNotes |     100 |      100 |     100 |     100 |                     
   editNote.tsx                     |     100 |      100 |     100 |     100 |                     
@@ -40,7 +44,8 @@ All files                          |   93.45 |    80.88 |   88.37 |    94.3 |
   cookieConsentBanner.tsx          |   79.54 |    65.78 |   54.54 |   83.33 | 23,45,50,56,198-217 
   datenschutz.tsx                  |     100 |      100 |     100 |     100 |                     
   impressum.tsx                    |     100 |      100 |     100 |     100 |                     
-
+ src/modules/ui                    |     100 |      100 |     100 |     100 |                     
+  floatingBtn.tsx                  |     100 |      100 |     100 |     100 |                    
 
 ## Architecture
 The components used are divided into two categories:

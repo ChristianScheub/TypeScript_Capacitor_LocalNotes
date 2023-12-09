@@ -1,68 +1,69 @@
 import React, { useState } from "react";
-import NavBar from "./custom_components/navBar";
-import EditNote from "./custom_components/handleNotes/editNote";
-import ViewNote from "./custom_components/handleNotes/viewNote";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Impressum from "./modules/legal/impressum";
 import Datenschutz from "./modules/legal/datenschutz";
 import EncryptionKeyModal from "./custom_components/encryption_modal";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import NavBar from "./custom_components/navBar";
+import ViewNote from "./custom_components/handleNotes/viewNote";
+import EditNote from "./custom_components/handleNotes/editNote";
 
 const App: React.FC = () => {
   const [encryptionKey, setEncryptionKey] = useState<string>("");
-  const [keyModalVisible, setKeyModalVisible] = useState<boolean>(true);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-
-  const handleKeySubmit = (key: string) => {
-    setEncryptionKey(key);
-    setKeyModalVisible(false);
-  };
-
-
-  
-
   return (
-    <Router>
-      <div className="App" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor:"#1D1B20", color:"white" }}>
-        <EncryptionKeyModal
-          show={keyModalVisible}
-          onHide={() => setKeyModalVisible(false)}
-          onSubmit={handleKeySubmit}
-        />
-
-
-        <Routes>
-          <Route
-            path="/edit/:noteId"
-            element={
-              <EditNote encryptionKey={encryptionKey}  />
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <ViewNote
-                encryptionKey={encryptionKey}
-                searchQuery={searchQuery}
+    <div>
+      {!encryptionKey ? (
+        <div>
+          <Router>
+            <Routes>
+              <Route path="/datenschutz" element={<Datenschutz />} />
+              <Route
+                path="/"
+                element={<EncryptionKeyModal onSubmit={setEncryptionKey} />}
               />
-            }
-          />
-
-          <Route
-            path="/edit/new"
-            element={
-              <EditNote encryptionKey={encryptionKey} />
-            }
-          />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
-        </Routes>
-        <NavBar setSearchQuery={setSearchQuery} />
-
-      </div>
-    </Router>
+            </Routes>
+          </Router>
+        </div>
+      ) : (
+        <div
+          className="App"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+            backgroundColor: "#1E1E1E",
+            color: "white",
+          }}
+        >
+          <div style={{ marginTop: "8vh" }}>
+            <Router>
+              <Routes>
+                <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route
+                  path="/edit/:noteId"
+                  element={<EditNote encryptionKey={encryptionKey} />}
+                />
+                <Route
+                  path="/"
+                  element={
+                    <ViewNote
+                      encryptionKey={encryptionKey}
+                      searchQuery={searchQuery}
+                    />
+                  }
+                />
+                <Route
+                  path="/edit/new"
+                  element={<EditNote encryptionKey={encryptionKey} />}
+                />
+              </Routes>
+              <NavBar setSearchQuery={setSearchQuery} />
+            </Router>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

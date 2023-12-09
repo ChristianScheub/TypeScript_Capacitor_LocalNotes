@@ -22,7 +22,7 @@ describe('Datenschutz Card Tests', () => {
             <Datenschutz />
         </Router>
         );
-        expect(screen.getByText('Unsere Datenschutzerklärung:')).toBeInTheDocument();
+        expect(screen.getByText('Infos')).toBeInTheDocument();
     });
 
     it('renders with config texts', () => {

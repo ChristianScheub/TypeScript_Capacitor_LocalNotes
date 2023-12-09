@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -139,7 +139,12 @@
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
 <a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,19 +157,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
-<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,6 +186,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,8 +216,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,6 +229,7 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { FaPlusCircle } from "react-icons/fa";
 import useNotes from "./getNotes";
+import FloatingBtn from "../../modules/ui/floatingBtn";
 &nbsp;
 interface ViewNoteProps {
   encryptionKey: string;
@@ -231,10 +240,6 @@ const ViewNote: React.FC&lt;ViewNoteProps&gt; = ({ encryptionKey, searchQuery })
   const notes = useNotes(encryptionKey, searchQuery);
   const navigate = useNavigate();
 &nbsp;
-  const handleAddNote = () =&gt; {
-    navigate("/edit/new");
-  };
-&nbsp;
   const truncateText = (text: string, maxLength: number): string =&gt; {
     if (text.length &lt;= maxLength) return text;
     return text.substr(0, maxLength) + "...";
@@ -243,16 +248,24 @@ const ViewNote: React.FC&lt;ViewNoteProps&gt; = ({ encryptionKey, searchQuery })
   return (
     &lt;div&gt;
       {notes.length &gt; 0 ? (
-        &lt;Row xs={2} md={2} lg={3} style={{
-          margin: "1vw"}}&gt; {/* Definiert das Grid mit einer Spalte für kleine Bildschirme, zwei Spalten für mittlere Bildschirme und drei Spalten für größere Bildschirme */}
+        &lt;Row
+          xs={2}
+          md={2}
+          lg={3}
+          style={{
+            margin: "1vw",
+          }}
+        &gt;
+          {" "}
           {notes.map((note) =&gt; (
-            &lt;Col key={note.id}&gt;
+            &lt;Col key={note.id} style={{marginBottom:"5vw"}}&gt;
               &lt;Card
                 style={{
-                  margin: "2vw",
                   backgroundColor: "#49454F",
                   color: "white",
-                  minHeight: "25vh",
+                  height: "100%",
+                  margin: "2vw",
+                  minHeight: "20vh",
                 }}
                 onClick={() =&gt; navigate(`/edit/${note.id}`)}
               &gt;
@@ -273,19 +286,18 @@ const ViewNote: React.FC&lt;ViewNoteProps&gt; = ({ encryptionKey, searchQuery })
           }}
         &gt;
           &lt;Card.Body&gt;
-            &lt;Card.Text&gt;{truncateText("Noch keine Notizen vorhanden!", 150)}&lt;/Card.Text&gt;
+            &lt;Card.Text&gt;
+              {truncateText("Noch keine Notizen vorhanden!", 150)}
+            &lt;/Card.Text&gt;
           &lt;/Card.Body&gt;
         &lt;/Card&gt;
       )}
-      
-      &lt;div style={{ position: "fixed", bottom: "28vw", left: "20px" }}&gt;
-        &lt;Button
-          style={{ backgroundColor: "#001D32", height: "8vh" }}
-          onClick={handleAddNote}
-        &gt;
-          &lt;FaPlusCircle size={30} /&gt;
-        &lt;/Button&gt;
-      &lt;/div&gt;
+&nbsp;
+      &lt;FloatingBtn
+        centered={true}
+        icon={FaPlusCircle}
+        onClick={() =&gt; navigate("/edit/new")}
+      /&gt;
     &lt;/div&gt;
   );
 };
@@ -298,7 +310,7 @@ export default ViewNote;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-06T13:55:20.388Z
+                at 2023-12-09T04:12:14.333Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

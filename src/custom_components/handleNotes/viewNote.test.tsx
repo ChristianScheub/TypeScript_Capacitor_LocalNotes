@@ -36,7 +36,7 @@ describe("ViewNote Component", () => {
       </Router>
     );
     expect(screen.getByText("Test Note 1")).toBeInTheDocument();
-    expect(screen.getByText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volu...")).toBeInTheDocument();
+    expect(screen.getByText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l...")).toBeInTheDocument();
   });
 
   test("should navigate to edit page on note click", async () => {

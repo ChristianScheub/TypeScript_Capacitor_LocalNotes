@@ -3,6 +3,7 @@ import { Form, Button, Card } from "react-bootstrap";
 import CryptoJS from "crypto-js";
 import { FaRegSave, FaTrash } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
+import FloatingBtn from "../../modules/ui/floatingBtn";
 
 interface EditNoteProps {
   encryptionKey: string;
@@ -16,7 +17,9 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
   const loadNote = (noteId: string, encryptionKey: string) => {
     const encryptedNote = localStorage.getItem(noteId);
     if (encryptedNote) {
-      return CryptoJS.AES.decrypt(encryptedNote, encryptionKey).toString(CryptoJS.enc.Utf8);
+      return CryptoJS.AES.decrypt(encryptedNote, encryptionKey).toString(
+        CryptoJS.enc.Utf8
+      );
     }
     return "";
   };
@@ -47,29 +50,52 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
   };
 
   return (
-    <Card style={{ margin: "2vw", marginTop:"20vw",backgroundColor: "#49454F", color: "white",minHeight:"70vh" }}>
-      <Card.Body>
-        <Card.Title>Notiz bearbeiten</Card.Title>
-        <Form>
-          <Form.Group>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              value={noteContent}
-              onChange={(e) => setNoteContent(e.target.value)}
-              style={{ backgroundColor: "#1D1B20",color:"white",minHeight:"55vh" }}
-            />
-          </Form.Group>
-          <br />
-          <Button variant="primary" onClick={handleSave} data-testid="save-note-button" style={{height:"7vh",width:"7vh"}}> 
-            <FaRegSave size="4vh" />
-          </Button>{" "}
-          <Button variant="danger" onClick={handleDelete} data-testid="delete-note-button" style={{height:"7vh",width:"7vh", marginLeft:"55vw"}}>
-            <FaTrash size="4vh"/>
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+    <div
+      style={{
+        margin: "2vw",
+        color: "white",
+        minHeight: "70vh",
+      }}
+    >
+      <Button
+        onClick={handleDelete}
+        data-testid="delete-note-button"
+        style={{
+          position: "absolute",
+          top: "0.5vh",
+          height: "7vh",
+          width: "7vh",
+          backgroundColor: "transparent",
+          border: "none",
+          marginLeft: "65vw",
+          zIndex:"101"
+        }}
+      >
+        <FaTrash size="2.5vh" style={{color:"#DA5353"}}/>
+      </Button>
+
+      <Form>
+        <Form.Group>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            value={noteContent}
+            onChange={(e) => setNoteContent(e.target.value)}
+            style={{
+              backgroundColor: "#1D1B20",
+              color: "white",
+              border: "0",
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+              padding: "10px",
+              minHeight: "80vh",
+            }}
+          />
+        </Form.Group>
+        <br />
+
+        <FloatingBtn centered={false} icon={FaRegSave} onClick={handleSave} />
+      </Form>
+    </div>
   );
 };
 
