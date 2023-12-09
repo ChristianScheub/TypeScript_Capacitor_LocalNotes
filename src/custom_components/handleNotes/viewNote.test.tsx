@@ -3,30 +3,23 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import ViewNote from "./viewNote";
 import { BrowserRouter as Router } from "react-router-dom";
 import CryptoJS from "crypto-js";
+import { encryptAndStore } from "./encryptionEngine";
+
 
 const mockEncryptionKey = "some-encryption-key";
 const mockSearchQuery = "";
 
-const saveNoteToLocalStorage = (
-  id: string,
-  content: string,
-  encryptionKey: string
-): void => {
-  const encryptedNote: string = CryptoJS.AES.encrypt(
-    content,
-    encryptionKey
-  ).toString();
-  localStorage.setItem(id, encryptedNote);
-};
 
 describe("ViewNote Component", () => {
   beforeEach(() => {
     localStorage.clear();
-    saveNoteToLocalStorage("note1", "Test Note 1", mockEncryptionKey);
-    saveNoteToLocalStorage("note2", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.nfjsnfwejfnefdjnsedsdnsendisediindis", mockEncryptionKey);
+    encryptAndStore('{"title":"FirstTitle","date":"2023-12-09T12:35:44.679Z","content":"Test1"}', mockEncryptionKey,"note1",);
+    encryptAndStore( '{"title":"SecondTitle","date":"2023-12-09T14:35:44.679Z","content":"Test2"}', mockEncryptionKey,"note2",);
   });
 
   test("should render notes from local storage", () => {
+    encryptAndStore('{"title":"FirstTitle","date":"2023-12-09T12:35:44.679Z","content":"Test1"}', mockEncryptionKey,"note1",);
+    encryptAndStore( '{"title":"SecondTitle","date":"2023-12-09T14:35:44.679Z","content":"Test2"}', mockEncryptionKey,"note2",);
     render(
       <Router>
         <ViewNote
@@ -35,8 +28,12 @@ describe("ViewNote Component", () => {
         />
       </Router>
     );
-    expect(screen.getByText("Test Note 1")).toBeInTheDocument();
-    expect(screen.getByText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l...")).toBeInTheDocument();
+    expect(screen.getByText("FirstTitle")).toBeInTheDocument();
+    expect(screen.getByText("Test1")).toBeInTheDocument();
+    expect(screen.getByText("Test2")).toBeInTheDocument();
+    expect(screen.getByText("SecondTitl...")).toBeInTheDocument();
+
+
   });
 
   test("should navigate to edit page on note click", async () => {
@@ -49,7 +46,7 @@ describe("ViewNote Component", () => {
       </Router>
     );
 
-    fireEvent.click(screen.getByText("Test Note 1"));
+    fireEvent.click(screen.getByText("FirstTitle"));
     await waitFor(() => {
       expect(window.location.pathname).toBe("/edit/note1");
     });

@@ -3,7 +3,7 @@ import { Card, Button, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { FaPlusCircle } from "react-icons/fa";
-import useNotes from "./getNotes";
+import getAllNotes from "./getNotes";
 import FloatingBtn from "../../modules/ui/floatingBtn";
 
 interface ViewNoteProps {
@@ -12,7 +12,7 @@ interface ViewNoteProps {
 }
 
 const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
-  const notes = useNotes(encryptionKey, searchQuery);
+  const notes = getAllNotes(encryptionKey, searchQuery);
   const navigate = useNavigate();
 
   const truncateText = (text: string, maxLength: number): string => {
@@ -45,6 +45,8 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
                 onClick={() => navigate(`/edit/${note.id}`)}
               >
                 <Card.Body>
+                <Card.Title>{truncateText(note.title, 10)}</Card.Title>
+
                   <Card.Text>{truncateText(note.content, 100)}</Card.Text>
                 </Card.Body>
               </Card>

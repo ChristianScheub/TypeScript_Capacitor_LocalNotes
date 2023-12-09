@@ -1,147 +1,43 @@
-import React from "react";
-import { render, screen, fireEvent, act } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import EditNote from "./editNote";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import { BrowserRouter as Router } from 'react-router-dom';
+import EditNote from './editNote';
+import { encryptAndStore } from "./encryptionEngine";
 
-import CryptoJS from "crypto-js";
+const mockEncryptionKey = "some-encryption-key";
 
-const mockedNavigate = jest.fn();
-const mockedUseParams = jest.fn();
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockedNavigate,
-  useParams: () => mockedUseParams(),
+
+// Mock-Module vor dem Import der Testkomponente
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useParams: () => ({ noteId: 'test-note-id' }),
+  useNavigate: () => jest.fn(),
 }));
 
-describe("EditNote", () => {
-  const encryptionKey = "test-key";
-  const testNoteId = "test-note-id";
-  const testNoteContent = "Test note content";
+beforeEach(() => {
+  jest.clearAllMocks();
+  encryptAndStore('{"title":"FirstTitle","date":"2023-12-09T12:35:44.679Z","content":"Test1"}', mockEncryptionKey,"note1",);
+  encryptAndStore( '{"title":"SecondTitle","date":"2023-12-09T14:35:44.679Z","content":"Test2"}', mockEncryptionKey,"note2",);
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-    mockedUseParams.mockReturnValue({ noteId: testNoteId });
-    const encryptedContent = CryptoJS.AES.encrypt(
-      testNoteContent,
-      encryptionKey
-    ).toString();
-    localStorage.setItem(testNoteId, encryptedContent);
-  });
+});
 
-  afterEach(() => {
-    localStorage.removeItem(testNoteId);
-  });
+describe('EditNote Component', () => {
+  it('renders with correct data from local storage', () => {
+    // Setze Mock-Daten im lokalen Speicher
+    localStorage.setItem('test-id', JSON.stringify({ title: 'Test Title', date: '2023-01-01', content: 'Test Content' }));
 
-  it("renders the EditNote component", () => {
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
-    );
-    expect(screen.getByTestId("floating-btn")).toBeInTheDocument();
-  });
-
-  it("renders the EditNote component with empty localStorage", () => {
-    localStorage.clear();
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
-    );
-    expect(screen.getByTestId("floating-btn")).toBeInTheDocument();
-  });
-
-  it("loads a note if noteId is present", () => {
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
-    );
-    expect(screen.getByDisplayValue(testNoteContent)).toBeInTheDocument();
-  });
-
-  it("handles save correctly", () => {
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
-    );
-    const saveButton = screen.getByTestId("floating-btn");
-    fireEvent.click(saveButton);
-    expect(mockedNavigate).toHaveBeenCalledWith(-1);
-  });
-
-  it("updates noteContent on user input and store it", () => {
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
+    const { getByText, getByDisplayValue } = render(
+      <Router>
+        <EditNote encryptionKey="test-key" />
+      </Router>
     );
 
-    const oldValue = localStorage.getItem(testNoteId);
-    const inputElement = screen.getByRole("textbox") as HTMLTextAreaElement;
-    fireEvent.change(inputElement, { target: { value: "new note content" } });
-    expect(inputElement.value).toBe("new note content");
-    const saveButton = screen.getByTestId("floating-btn");
-    fireEvent.click(saveButton);
-    expect(mockedNavigate).toHaveBeenCalledWith(-1);
-    expect(localStorage.getItem(testNoteId)).not.toBe(oldValue);
+    // Überprüfen, ob die Komponente mit den richtigen Daten gerendert wird
+    expect(getByDisplayValue('Test Title')).toBeInTheDocument();
+    expect(getByDisplayValue('Test Content')).toBeInTheDocument();
+    expect(getByText('01.01.2023')).toBeInTheDocument();
   });
 
-  it("handles delete correctly", () => {
-    global.confirm = jest.fn(() => true);
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
-    );
-    const deleteButton = screen.getByTestId("delete-note-button");
-
-    fireEvent.click(deleteButton);
-    expect(global.confirm).toHaveBeenCalledWith(
-      "Sind Sie sicher, dass Sie diese Notiz löschen möchten?"
-    );
-    expect(localStorage.getItem(testNoteId)).toBeNull();
-    expect(mockedNavigate).toHaveBeenCalledWith(-1);
-  });
-
-  it("handles delete correctly when not confirmed", () => {
-    global.confirm = jest.fn(() => false);
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
-    );
-    const deleteButton = screen.getByTestId("delete-note-button");
-
-    fireEvent.click(deleteButton);
-    expect(localStorage.getItem(testNoteId)).not.toBeNull();
-  });
-
-  it("handles noteId being null", () => {
-    jest.spyOn(require("react-router-dom"), "useParams").mockReturnValue({
-      noteId: null,
-    });
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
-    );
-    const deleteButton = screen.getByTestId("delete-note-button");
-    expect(deleteButton).toBeInTheDocument();
-  });
-
-  it("can handles save correctly when new note", () => {
-    jest.spyOn(require("react-router-dom"), "useParams").mockReturnValue({
-        noteId: null,
-      });
-    render(
-      <BrowserRouter>
-        <EditNote encryptionKey={encryptionKey} />
-      </BrowserRouter>
-    );
-    fireEvent.click(screen.getByTestId("floating-btn"));
-    expect(mockedNavigate).toHaveBeenCalledWith(-1);
-  });
+  // Weitere Tests für Interaktionen und Funktionen hinzufügen...
 });

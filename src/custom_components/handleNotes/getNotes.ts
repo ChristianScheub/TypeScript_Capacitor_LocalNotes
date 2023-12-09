@@ -1,12 +1,15 @@
-import { useState, useEffect } from 'react';
-import CryptoJS from 'crypto-js';
+import { useState, useEffect } from "react";
+import CryptoJS from "crypto-js";
+import { decryptFromStorage } from "./encryptionEngine";
 
 interface Note {
   id: string;
   content: string;
+  title: string;
+  date: Date;
 }
 
-const useNotes = (encryptionKey: string, searchQuery: string): Note[] => {
+const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
   const [notes, setNotes] = useState<Note[]>([]);
 
   useEffect(() => {
@@ -14,20 +17,27 @@ const useNotes = (encryptionKey: string, searchQuery: string): Note[] => {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key) {
-        const encryptedNote = localStorage.getItem(key);
-        if (encryptedNote) {
-          try {
-            const bytes = CryptoJS.AES.decrypt(encryptedNote, encryptionKey);
-            const originalText = bytes.toString(CryptoJS.enc.Utf8);
-            loadedNotes.push({ id: key, content: originalText });
-          } catch (error) {
-          }
+        try {
+          const originalText = decryptFromStorage(encryptionKey, key);
+          const noteData = JSON.parse(originalText);
+
+          console.log(originalText);
+          loadedNotes.push({
+            id: key,
+            content: noteData.content,
+            title: noteData.title,
+            date: new Date(noteData.date),
+          });
+        } catch (error) {
+          console.error("Decryption failed", error);
         }
       }
     }
-    const filteredNotes = loadedNotes.filter(note =>
+    const filteredNotes = loadedNotes.filter((note) =>
       note.content.toLowerCase().includes(searchQuery.toLowerCase())
     );
+    filteredNotes.sort((a, b) => b.date.getTime() - a.date.getTime());
+
 
     setNotes(filteredNotes);
   }, [encryptionKey, searchQuery]);
@@ -35,4 +45,4 @@ const useNotes = (encryptionKey: string, searchQuery: string): Note[] => {
   return notes;
 };
 
-export default useNotes;
+export default useAllNotes;

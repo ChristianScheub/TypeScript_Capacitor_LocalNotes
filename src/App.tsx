@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Datenschutz from "./modules/legal/datenschutz";
-import EncryptionKeyModal from "./custom_components/encryption_modal";
+import EncryptionKeyModal from "./custom_components/notNotesRelated/encryption_modal";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./custom_components/navBar";
+import NavBar from "./custom_components/notNotesRelated/navBar";
 import ViewNote from "./custom_components/handleNotes/viewNote";
 import EditNote from "./custom_components/handleNotes/editNote";
 
