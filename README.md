@@ -15,7 +15,7 @@ Mit ihr ist es möglich sicher Notizen mit einer AES Verschlüsselung lokal zu s
 
 | Start Screen | Notes Overview | Note Edit |
 |--------------|----------------|-----------|
-| <img src="startScreen.jpeg" alt="Start Screen" height="250"> | <img src="notesOverview.jpeg" alt="Notes Overview" height="250"> | <img src="editScreen.jpeg" alt="Note Edit" height="250"> |
+| <img src="startScreen.jpeg" alt="Start Screen" height="300"> | <img src="notesOverview.jpeg" alt="Notes Overview" height="300"> | <img src="editScreen.jpeg" alt="Note Edit" height="300"> |
 
 
 
@@ -26,28 +26,30 @@ The tests here are always written in Typescript.
 
 Under modules are modules from other projects of mine for which I have not written further tests. (Otherwise we would be almost at 100% test coverage ;) )
 
-File                               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
------------------------------------|---------|----------|---------|---------|---------------------
-All files                          |   92.59 |    79.72 |   85.71 |   93.58 |                     
- src                               |   66.66 |       50 |     100 |   66.66 |                     
-  App.tsx                          |     100 |       50 |     100 |     100 | 16                  
-  index.tsx                        |       0 |      100 |     100 |       0 | 6-9                 
- src/custom_components             |      96 |    83.33 |    87.5 |      96 |                     
-  encryption_modal.tsx             |   88.88 |       50 |   66.66 |   88.88 | 85                  
-  navBar.tsx                       |     100 |      100 |     100 |     100 |                     
- src/custom_components/handleNotes |     100 |      100 |     100 |     100 |                     
-  editNote.tsx                     |     100 |      100 |     100 |     100 |                     
-  getNotes.ts                      |     100 |      100 |     100 |     100 |                     
-  viewNote.tsx                     |     100 |      100 |     100 |     100 |                     
- src/modules/app_configuration     |     100 |      100 |     100 |     100 |                     
-  app_texts.ts                     |     100 |      100 |     100 |     100 |                     
- src/modules/legal                 |   87.83 |    70.45 |   72.22 |   90.27 |                     
-  codeToTextParser.tsx             |     100 |      100 |     100 |     100 |                     
-  cookieConsentBanner.tsx          |   79.54 |    65.78 |   54.54 |   83.33 | 23,45,50,56,198-217 
-  datenschutz.tsx                  |     100 |      100 |     100 |     100 |                     
-  impressum.tsx                    |     100 |      100 |     100 |     100 |                     
- src/modules/ui                    |     100 |      100 |     100 |     100 |                     
-  floatingBtn.tsx                  |     100 |      100 |     100 |     100 |                    
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------------|---------|----------|---------|---------|-------------------
+All files                    |   94.87 |    81.94 |   89.36 |   95.74 |                   
+ src                         |     100 |      100 |     100 |     100 |                   
+  App.tsx                    |     100 |      100 |     100 |     100 |                   
+  index.tsx                  |     100 |      100 |     100 |     100 |                   
+ ...m_components/handleNotes |   98.82 |      100 |     100 |   98.78 |                   
+  editNote.tsx               |     100 |      100 |     100 |     100 |                   
+  encryptionEngine.ts        |     100 |      100 |     100 |     100 |                   
+  getNotes.ts                |      96 |      100 |     100 |   95.65 | 18                
+  viewNote.tsx               |     100 |      100 |     100 |     100 |                   
+ ...mponents/notNotesRelated |     100 |      100 |     100 |     100 |                   
+  encryption_modal.tsx       |     100 |      100 |     100 |     100 |                   
+  navBar.tsx                 |     100 |      100 |     100 |     100 |                   
+ ...odules/app_configuration |     100 |      100 |     100 |     100 |                   
+  app_texts.ts               |     100 |      100 |     100 |     100 |                   
+ src/modules/legal           |   87.83 |    70.45 |   72.22 |   90.27 |                   
+  codeToTextParser.tsx       |     100 |      100 |     100 |     100 |                   
+  cookieConsentBanner.tsx    |   79.54 |    65.78 |   54.54 |   83.33 | ...,50,56,198-217 
+  datenschutz.tsx            |     100 |      100 |     100 |     100 |                   
+  impressum.tsx              |     100 |      100 |     100 |     100 |                   
+ src/modules/ui              |     100 |      100 |     100 |     100 |                   
+  floatingBtn.tsx            |     100 |      100 |     100 |     100 |                   
+                
 
 ## Architecture
 The components used are divided into two categories:
@@ -57,7 +59,7 @@ The components used are divided into two categories:
 As a result of the use from the modules, there is also one configuration file:
 - `app_texts`: Contains texts such as the description, imprint text, data protection text etc.
 
-![Local Notes Architecture](/LocalNotesArchitecture.jpeg)
+![Local Notes Architecture](/LocalNotesArchitecture.png)
 Note: The cookie banner and footer text are already present here as they may be used in the future for the web version.
 
 

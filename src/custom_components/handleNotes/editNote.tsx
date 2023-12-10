@@ -10,7 +10,8 @@ interface EditNoteProps {
 }
 
 const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
-  const noteId = useParams<{ noteId: string }>()?.noteId ?? null;
+  let noteId = useParams<{ noteId?: string }>().noteId;
+
   const [noteTitle, setNoteTitle] = useState("");
   const [noteDate, setNoteDate] = useState(new Date());
   const [noteContent, setNoteContent] = useState("");
@@ -18,12 +19,17 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
 
   useEffect(() => {
     if (noteId) {
-      const decryptedContent = decryptFromStorage(encryptionKey, noteId);
-      const noteData = JSON.parse(decryptedContent);
-      console.log(decryptedContent);
-      setNoteTitle(noteData.title);
-      setNoteDate(new Date(noteData.date));
-      setNoteContent(noteData.content);
+      try {
+        const decryptedContent = decryptFromStorage(encryptionKey, noteId);
+        const noteData = JSON.parse(decryptedContent);
+        setNoteTitle(noteData.title);
+        setNoteDate(new Date(noteData.date));
+        setNoteContent(noteData.content);
+      } catch (error) {
+        setNoteTitle("");
+        setNoteDate(new Date());
+        setNoteContent("");
+      }
     }
   }, [noteId, encryptionKey]);
 
@@ -37,16 +43,9 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
     encryptAndStore(
       noteDataString,
       encryptionKey,
-      noteId || Date.now().toString()
+      noteId || Date.now().toString(),
     );
     navigate(-1);
-  };
-
-  const formatDate = (date: Date): string => {
-    const pad = (num: number) => num.toString().padStart(2, "0");
-    return `${pad(date.getDate())}.${pad(
-      date.getMonth() + 1
-    )}.${date.getFullYear()}`;
   };
 
   const handleDelete = () => {
@@ -92,6 +91,7 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
           <Form.Control
             type="text"
             value={noteTitle}
+            data-testid="noteTitleTest"
             onChange={(e) => setNoteTitle(e.target.value)}
             style={{
               backgroundColor: "transparent",
@@ -132,6 +132,7 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
             as="textarea"
             rows={5}
             value={noteContent}
+            data-testid="noteTextTest"
             onChange={(e) => setNoteContent(e.target.value)}
             style={{
               backgroundColor: "#1D1B20",

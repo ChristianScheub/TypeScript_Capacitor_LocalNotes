@@ -35,8 +35,6 @@ export const decryptFromStorage = (
   password: string,
   storageKey: string
 ): string => {
-  console.log(password);
-  console.log(storageKey);
   const encryptedData = localStorage.getItem(storageKey);
 
   if (!encryptedData) {

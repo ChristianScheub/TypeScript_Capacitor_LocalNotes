@@ -9,6 +9,16 @@ interface Note {
   date: Date;
 }
 
+const isJsonString = (str: string): boolean => {
+  try {
+    const data = JSON.parse(str);
+    const test = (data.content+data.title);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
   const [notes, setNotes] = useState<Note[]>([]);
 
@@ -19,17 +29,17 @@ const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
       if (key) {
         try {
           const originalText = decryptFromStorage(encryptionKey, key);
-          const noteData = JSON.parse(originalText);
-
-          console.log(originalText);
-          loadedNotes.push({
-            id: key,
-            content: noteData.content,
-            title: noteData.title,
-            date: new Date(noteData.date),
-          });
+          if (originalText && isJsonString(originalText)) {
+            const noteData = JSON.parse(originalText);
+            loadedNotes.push({
+              id: key,
+              content: noteData.content,
+              title: noteData.title,
+              date: new Date(noteData.date),
+            });
+          }
         } catch (error) {
-          console.error("Decryption failed", error);
+          //console.log("Decryption or JSON parsing failed", error);
         }
       }
     }
@@ -38,7 +48,6 @@ const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
     );
     filteredNotes.sort((a, b) => b.date.getTime() - a.date.getTime());
 
-
     setNotes(filteredNotes);
   }, [encryptionKey, searchQuery]);
 
@@ -46,3 +55,4 @@ const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
 };
 
 export default useAllNotes;
+

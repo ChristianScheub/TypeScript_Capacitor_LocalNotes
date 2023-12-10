@@ -27,4 +27,19 @@ describe("<EncryptionKeyModal />", () => {
     fireEvent.click(screen.getByText("Weiter"));
     expect(onSubmitMock).toHaveBeenCalledWith("test123");
   });
+
+  it('navigates to privacy policy page on privacy button click', () => {
+    render(
+      <Router>
+        <EncryptionKeyModal onSubmit={() => {}} />
+      </Router>
+    );
+
+
+    const privacyButton2 = screen.getByTestId("floating-btn")
+    fireEvent.click(privacyButton2);
+
+    expect(window.location.pathname).toBe("/datenschutz");
+
+  });
 });
