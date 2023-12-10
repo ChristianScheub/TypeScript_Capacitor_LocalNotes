@@ -6,7 +6,10 @@ import { FaInfoCircle } from "react-icons/fa";
 import { PiFingerprintThin } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { NativeBiometric } from "capacitor-native-biometric";
+import { Plugins } from '@capacitor/core';
+import CryptoJS from "crypto-js";
 
+import { Device } from '@capacitor/device';
 
 interface EncryptionKeyModalProps {
   onSubmit: (encryptionKey: string) => void;
@@ -43,7 +46,8 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
 
         if (credentials && inputRef.current) {
           if(credentials.password!==""){
-            inputRef.current.value = credentials.password;
+            const hashedDeviceId = await getDeviceIdHash();
+            inputRef.current.value = CryptoJS.TripleDES.decrypt(credentials.password, hashedDeviceId).toString(CryptoJS.enc.Utf8);
             onSubmit(inputRef.current!.value);
           }
           else{
@@ -64,10 +68,11 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
 
       if (available.isAvailable) {
         if (inputRef.current) {
+          const hashedDeviceId = await getDeviceIdHash();
           await NativeBiometric.setCredentials({
             server: "www.LocalNotes.com",
             username: "user",
-            password: inputRef.current.value,
+            password: CryptoJS.TripleDES.encrypt(inputRef.current.value, hashedDeviceId).toString(),
           });
 
           alert("Passwort gespeichert!");
@@ -81,6 +86,22 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
       console.error("Fehler beim Speichern des Passworts:", e);
     }
   };
+
+  
+
+  const getDeviceIdHash = async (): Promise<string> => {
+    const info = await Device.getId();
+    if (!info) {
+      throw new Error('Info-Komponente nicht verfügbar');
+    }
+  
+    if (!info.identifier) {
+      throw new Error('UUID nicht verfügbar');
+    }
+  
+    return CryptoJS.SHA256(info.identifier).toString();
+  };
+  
 
   return (
     <div
@@ -145,7 +166,6 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
             Weiter
           </Button>
           <br />
-          <Button onClick={storePassword}>Passwort Speichern</Button>
         </Form>
         <FloatingBtn
           alignment={ButtonAlignment.LEFT}

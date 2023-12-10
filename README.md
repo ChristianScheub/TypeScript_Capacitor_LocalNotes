@@ -17,38 +17,51 @@ Mit ihr ist es möglich sicher Notizen mit einer AES Verschlüsselung lokal zu s
 |--------------|----------------|-----------|
 | <img src="startScreen.jpeg" alt="Start Screen" height="300"> | <img src="notesOverview.jpeg" alt="Notes Overview" height="300"> | <img src="editScreen.jpeg" alt="Note Edit" height="300"> |
 
+## Security
+- All notes are stored encrypted with AES256. 
+- The key for the notes is the user's password which has been edited with PBKDF2/KDF to make it ready for AES256.
+- No data is transferred to a cloud or similar. 
+- All data is processed and stored locally on the device.
+<br /><br /><br />
+- The password is stored in the KeyStore on Android and in the keychain on iOS if biometric authentication is enabled. These stores are secure according to the OS publisher. 
+If this is not used, the password is not saved either.
+- The password is encrypted with TripleDES as it does not usually need to be decrypted frequently.
+- The password is encrypted with a SHA256 hash from the deviceID/identifier of the device provided by Capacitor before it is stored. (Just to be safe and independent of OS security.)
 
-
+    <i>On iOS, the identifier is a UUID that uniquely identifies a device to the app’s vendor ([read more](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor)).
+     
+    On Android 8+, __the identifier is a 64-bit number (expressed as a hexadecimal string)__, unique to each combination of app-signing key, user, and device ([read more](https://developer.android.com/reference/android/provider/Settings.Secure#ANDROID_ID)).</i>
 
 ## Testing
 The Jest testing framework is used for testing.
 The tests here are always written in Typescript. 
 
-Under modules are modules from other projects of mine for which I have not written further tests. (Otherwise we would be almost at 100% test coverage ;) )
+Under modules are modules from other projects of mine for which I have not written further tests. 
 
-File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------------|---------|----------|---------|---------|-------------------
-All files                    |   94.87 |    81.94 |   89.36 |   95.74 |                   
- src                         |     100 |      100 |     100 |     100 |                   
-  App.tsx                    |     100 |      100 |     100 |     100 |                   
-  index.tsx                  |     100 |      100 |     100 |     100 |                   
- ...m_components/handleNotes |   98.82 |      100 |     100 |   98.78 |                   
-  editNote.tsx               |     100 |      100 |     100 |     100 |                   
-  encryptionEngine.ts        |     100 |      100 |     100 |     100 |                   
-  getNotes.ts                |      96 |      100 |     100 |   95.65 | 18                
-  viewNote.tsx               |     100 |      100 |     100 |     100 |                   
- ...mponents/notNotesRelated |     100 |      100 |     100 |     100 |                   
-  encryption_modal.tsx       |     100 |      100 |     100 |     100 |                   
-  navBar.tsx                 |     100 |      100 |     100 |     100 |                   
- ...odules/app_configuration |     100 |      100 |     100 |     100 |                   
-  app_texts.ts               |     100 |      100 |     100 |     100 |                   
- src/modules/legal           |   87.83 |    70.45 |   72.22 |   90.27 |                   
-  codeToTextParser.tsx       |     100 |      100 |     100 |     100 |                   
-  cookieConsentBanner.tsx    |   79.54 |    65.78 |   54.54 |   83.33 | ...,50,56,198-217 
-  datenschutz.tsx            |     100 |      100 |     100 |     100 |                   
-  impressum.tsx              |     100 |      100 |     100 |     100 |                   
- src/modules/ui              |     100 |      100 |     100 |     100 |                   
-  floatingBtn.tsx            |     100 |      100 |     100 |     100 |                   
+
+File                                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------------------|---------|----------|---------|---------|-------------------
+All files                            |   81.43 |    65.93 |   79.24 |   82.09 |                   
+ src                                 |     100 |      100 |     100 |     100 |                   
+  App.tsx                            |     100 |      100 |     100 |     100 |                   
+  index.tsx                          |     100 |      100 |     100 |     100 |                   
+ src/custom_components/handleNotes   |    98.8 |      100 |     100 |   98.76 |                   
+  editNote.tsx                       |     100 |      100 |     100 |     100 |                   
+  encryptionEngine.ts                |     100 |      100 |     100 |     100 |                   
+  getNotes.ts                        |      96 |      100 |     100 |   95.65 | 18                
+  viewNote.tsx                       |     100 |      100 |     100 |     100 |                   
+ ...ustom_components/notNotesRelated |   44.26 |    18.18 |   57.14 |      45 |                   
+  encryption_modal.tsx               |   24.44 |        0 |   33.33 |      25 | ...-86,93-102,173 
+  navBar.tsx                         |     100 |      100 |     100 |     100 |                   
+ src/modules/app_configuration       |     100 |      100 |     100 |     100 |                   
+  app_texts.ts                       |     100 |      100 |     100 |     100 |                   
+ src/modules/legal                   |   87.83 |    70.45 |   72.22 |   90.27 |                   
+  codeToTextParser.tsx               |     100 |      100 |     100 |     100 |                   
+  cookieConsentBanner.tsx            |   79.54 |    65.78 |   54.54 |   83.33 | ...,50,56,198-217 
+  datenschutz.tsx                    |     100 |      100 |     100 |     100 |                   
+  impressum.tsx                      |     100 |      100 |     100 |     100 |                   
+ src/modules/ui                      |     100 |      100 |     100 |     100 |                   
+  floatingBtn.tsx                    |     100 |      100 |     100 |     100 |                  
                 
 
 ## Architecture
