@@ -2,6 +2,12 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import ReactDOM from 'react-dom/client';
 
+jest.mock('capacitor-native-biometric', () => ({
+  NativeBiometric: {
+    isAvailable: jest.fn(),
+  },
+}));
+
 
 describe('App Component Tests', () => {
   test('renders App component', () => {

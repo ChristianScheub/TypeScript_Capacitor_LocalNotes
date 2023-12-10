@@ -13,6 +13,12 @@ const renderWithRouter = (component: React.ReactElement) => {
   return render(component);
 };
 
+jest.mock('capacitor-native-biometric', () => ({
+  NativeBiometric: {
+    isAvailable: jest.fn(),
+  },
+}));
+
 describe("App Component", () => {
   test("renders without crashing", () => {
     const renderResult = () => renderWithRouter(<App />);

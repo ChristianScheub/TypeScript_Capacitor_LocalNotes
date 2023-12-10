@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { FaPlusCircle } from "react-icons/fa";
 import getAllNotes from "./getNotes";
-import FloatingBtn from "../../modules/ui/floatingBtn";
+import FloatingBtn, { ButtonAlignment } from "../../modules/ui/floatingBtn";
 
 interface ViewNoteProps {
   encryptionKey: string;
@@ -33,7 +33,7 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
         >
           {" "}
           {notes.map((note) => (
-            <Col key={note.id} style={{marginBottom:"5vw"}}>
+            <Col key={note.id} style={{ marginBottom: "5vw" }}>
               <Card
                 style={{
                   backgroundColor: "#49454F",
@@ -45,7 +45,7 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
                 onClick={() => navigate(`/edit/${note.id}`)}
               >
                 <Card.Body>
-                <Card.Title>{truncateText(note.title, 10)}</Card.Title>
+                  <Card.Title>{truncateText(note.title, 10)}</Card.Title>
 
                   <Card.Text>{truncateText(note.content, 100)}</Card.Text>
                 </Card.Body>
@@ -71,7 +71,7 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
       )}
 
       <FloatingBtn
-        centered={true}
+        alignment={ButtonAlignment.CENTER}
         icon={FaPlusCircle}
         onClick={() => navigate("/edit/new")}
       />

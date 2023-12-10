@@ -2,30 +2,56 @@ import React, { CSSProperties } from "react";
 import { Button } from "react-bootstrap";
 import { IconType } from "react-icons";
 
+
+export enum ButtonAlignment {
+  LEFT = "LEFT",
+  CENTER = "CENTER",
+  RIGHT = "RIGHT",
+}
+
 interface FloatingBtnProps {
-  centered: boolean;
+  alignment: ButtonAlignment;
   icon: IconType;
   onClick: () => void;
 }
 
-const FloatingBtn: React.FC<FloatingBtnProps> = ({ centered, icon, onClick }) => {
 
-  const positionStyle: CSSProperties = centered ? {
-    position: "fixed",
-    bottom: "10vw",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    zIndex: 100,
-  } : {
-    position: "fixed",
-    bottom: "10vw",
-    right: "0rem",
-    transform: "translate(-50%, -50%)",
-    zIndex: 100,
-  };
+const FloatingBtn: React.FC<FloatingBtnProps> = ({ alignment, icon, onClick }) => {
+
+  let positionStyle: CSSProperties;
+
+  switch (alignment) {
+    case ButtonAlignment.LEFT:
+      positionStyle = {
+        position: "fixed",
+        bottom: "10vw",
+        left: "0rem",
+        transform: "translate(50%, -50%)",
+        zIndex: 100,
+      };
+      break;
+    case ButtonAlignment.CENTER:
+      positionStyle = {
+        position: "fixed",
+        bottom: "10vw",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: 100,
+      };
+      break;
+    case ButtonAlignment.RIGHT:
+      positionStyle = {
+        position: "fixed",
+        bottom: "10vw",
+        right: "0rem",
+        transform: "translate(-50%, -50%)",
+        zIndex: 100,
+      };
+      break;
+  }
 
   return (
-    <div style={positionStyle} data-testid="floating-btnDiv" >
+    <div style={positionStyle} data-testid="floating-btnDiv">
       <Button
         style={{
           backgroundColor: "#49454F",

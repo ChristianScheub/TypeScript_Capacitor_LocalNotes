@@ -1,9 +1,12 @@
 import React, { FormEvent, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import FloatingBtn from "../../modules/ui/floatingBtn";
+import FloatingBtn ,{ ButtonAlignment }  from "../../modules/ui/floatingBtn";
 import { FaInfoCircle } from "react-icons/fa";
+import { PiFingerprintThin } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
+import { NativeBiometric } from "capacitor-native-biometric";
+
 
 interface EncryptionKeyModalProps {
   onSubmit: (encryptionKey: string) => void;
@@ -20,6 +23,65 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
     onSubmit(inputRef.current!.value);
   };
 
+  const getPassword = async () => {
+    try {
+      const available = await NativeBiometric.isAvailable();
+
+      if (available.isAvailable) {
+        const verified = await NativeBiometric.verifyIdentity({
+          reason: "Bitte bestätige deine Identität",
+          title: "Biometrische Authentifizierung",
+        })
+          .then(() => true)
+          .catch(() => false);
+
+        if (!verified) return;
+
+        const credentials = await NativeBiometric.getCredentials({
+          server: "www.LocalNotes.com",
+        });
+
+        if (credentials && inputRef.current) {
+          if(credentials.password!==""){
+            inputRef.current.value = credentials.password;
+            onSubmit(inputRef.current!.value);
+          }
+          else{
+            storePassword();
+          }
+        }
+      } else {
+        alert("Biometrische Authentifizierung nicht verfügbar.");
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const storePassword = async (): Promise<void> => {
+    try {
+      const available = await NativeBiometric.isAvailable();
+
+      if (available.isAvailable) {
+        if (inputRef.current) {
+          await NativeBiometric.setCredentials({
+            server: "www.LocalNotes.com",
+            username: "user",
+            password: inputRef.current.value,
+          });
+
+          alert("Passwort gespeichert!");
+        } else {
+          console.error("Fehler: inputRef.current ist null");
+        }
+      } else {
+        alert("Biometrische Authentifizierung nicht verfügbar.");
+      }
+    } catch (e) {
+      console.error("Fehler beim Speichern des Passworts:", e);
+    }
+  };
+
   return (
     <div
       style={{
@@ -27,7 +89,7 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "100vh",
+        minHeight: "100vh",
         backgroundColor: "#1E1E1E",
       }}
     >
@@ -39,9 +101,10 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
           borderRadius: "10px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
           padding: "4vw",
-          marginTop: "50vw",
           boxSizing: "border-box",
+          bottom: "30vhw",
           color: "white",
+          position: "fixed",
         }}
       >
         <h2>Passwort eingeben</h2>
@@ -81,9 +144,17 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
           >
             Weiter
           </Button>
+          <br />
+          <Button onClick={storePassword}>Passwort Speichern</Button>
         </Form>
         <FloatingBtn
-          centered={true}
+          alignment={ButtonAlignment.LEFT}
+          icon={PiFingerprintThin}
+          onClick={() => getPassword()}
+        />
+
+        <FloatingBtn
+          alignment={ButtonAlignment.RIGHT}
           icon={FaInfoCircle}
           onClick={() => navigate("/datenschutz")}
         />

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { FaRegSave, FaTrash, FaRegClock } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
-import FloatingBtn from "../../modules/ui/floatingBtn";
+import FloatingBtn ,{ButtonAlignment} from "../../modules/ui/floatingBtn";
+
 import { encryptAndStore, decryptFromStorage } from "./encryptionEngine";
 
 interface EditNoteProps {
@@ -147,7 +148,11 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
         </Form.Group>
         <br />
 
-        <FloatingBtn centered={false} icon={FaRegSave} onClick={handleSave} />
+        <FloatingBtn
+          alignment={ButtonAlignment.RIGHT}
+          icon={FaRegSave}
+          onClick={handleSave}
+        />
       </Form>
     </div>
   );

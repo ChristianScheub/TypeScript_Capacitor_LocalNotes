@@ -38,7 +38,6 @@ export const decryptFromStorage = (
   const encryptedData = localStorage.getItem(storageKey);
 
   if (!encryptedData) {
-    console.log(encryptedData);
     return "";
   }
 

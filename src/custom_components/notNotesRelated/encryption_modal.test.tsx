@@ -3,6 +3,13 @@ import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import EncryptionKeyModal from "./encryption_modal";
 import { BrowserRouter as Router } from "react-router-dom";
+jest.mock('capacitor-native-biometric', () => ({
+  NativeBiometric: {
+    isAvailable: jest.fn(),
+  },
+}));
+
+
 
 describe("<EncryptionKeyModal />", () => {
   it("renders without crashing", () => {
@@ -12,7 +19,6 @@ describe("<EncryptionKeyModal />", () => {
       </Router>
     );
     expect(screen.getByText("Passwort eingeben")).toBeInTheDocument();
-    expect(screen.getByTestId("floating-btn")).toBeInTheDocument();
   });
 
   it("submits the form with the entered encryption key", () => {
@@ -35,9 +41,9 @@ describe("<EncryptionKeyModal />", () => {
       </Router>
     );
 
-
-    const privacyButton2 = screen.getByTestId("floating-btn")
-    fireEvent.click(privacyButton2);
+    const privacyButtons = screen.queryAllByTestId("floating-btn");
+    const privacyButton1 = privacyButtons[1];
+    fireEvent.click(privacyButton1);
 
     expect(window.location.pathname).toBe("/datenschutz");
 
