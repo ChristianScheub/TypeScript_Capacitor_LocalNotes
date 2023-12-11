@@ -1,15 +1,11 @@
 import React, { FormEvent, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import FloatingBtn ,{ ButtonAlignment }  from "../../modules/ui/floatingBtn";
+import FloatingBtn, { ButtonAlignment } from "../../modules/ui/floatingBtn";
 import { FaInfoCircle } from "react-icons/fa";
 import { PiFingerprintThin } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
-import { NativeBiometric } from "capacitor-native-biometric";
-import { Plugins } from '@capacitor/core';
-import CryptoJS from "crypto-js";
-
-import { Device } from '@capacitor/device';
+import { getPasswordFromFingerprint,storePasswordFromFingerprint } from "./fingerprintLogic";
 
 interface EncryptionKeyModalProps {
   onSubmit: (encryptionKey: string) => void;
@@ -26,82 +22,38 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
     onSubmit(inputRef.current!.value);
   };
 
-  const getPassword = async () => {
-    try {
-      const available = await NativeBiometric.isAvailable();
-
-      if (available.isAvailable) {
-        const verified = await NativeBiometric.verifyIdentity({
-          reason: "Bitte bestätige deine Identität",
-          title: "Biometrische Authentifizierung",
-        })
-          .then(() => true)
-          .catch(() => false);
-
-        if (!verified) return;
-
-        const credentials = await NativeBiometric.getCredentials({
-          server: "www.LocalNotes.com",
-        });
-
-        if (credentials && inputRef.current) {
-          if(credentials.password!==""){
-            const hashedDeviceId = await getDeviceIdHash();
-            inputRef.current.value = CryptoJS.TripleDES.decrypt(credentials.password, hashedDeviceId).toString(CryptoJS.enc.Utf8);
-            onSubmit(inputRef.current!.value);
+  const activateFingerprint = async () => {
+    if (inputRef.current === null) {
+      console.error("inputRef.current ist null");
+      return;
+    }
+    
+    getPasswordFromFingerprint(
+      "www.LocalNotes.com",
+      () => {
+        storePasswordFromFingerprint(
+          inputRef.current?.value || "",
+          () => {
+            alert("Passwort gespeichert!");
+            onSubmit(inputRef.current!.value );
+          },
+          (errorMessage) => {
+            alert(errorMessage);
           }
-          else{
-            storePassword();
-          }
-        }
-      } else {
-        alert("Biometrische Authentifizierung nicht verfügbar.");
+        );
+      },
+      (password) => {
+        console.log("Passwort erfolgreich abgerufen:", password);
+        inputRef.current!.value = password;
+        onSubmit(password);
+      },
+      (errorMessage) => {
+        console.error("Fehler aufgetreten:", errorMessage);
+        alert(errorMessage);
       }
-    } catch (e) {
-      console.error(e);
-    }
+    );
+    
   };
-
-  const storePassword = async (): Promise<void> => {
-    try {
-      const available = await NativeBiometric.isAvailable();
-
-      if (available.isAvailable) {
-        if (inputRef.current) {
-          const hashedDeviceId = await getDeviceIdHash();
-          await NativeBiometric.setCredentials({
-            server: "www.LocalNotes.com",
-            username: "user",
-            password: CryptoJS.TripleDES.encrypt(inputRef.current.value, hashedDeviceId).toString(),
-          });
-
-          alert("Passwort gespeichert!");
-        } else {
-          console.error("Fehler: inputRef.current ist null");
-        }
-      } else {
-        alert("Biometrische Authentifizierung nicht verfügbar.");
-      }
-    } catch (e) {
-      console.error("Fehler beim Speichern des Passworts:", e);
-    }
-  };
-
-  
-
-  const getDeviceIdHash = async (): Promise<string> => {
-    const info = await Device.getId();
-    if (!info) {
-      throw new Error('Info-Komponente nicht verfügbar');
-    }
-  
-    if (!info.identifier) {
-      throw new Error('UUID nicht verfügbar');
-    }
-  
-    return CryptoJS.SHA256(info.identifier).toString();
-  };
-  
 
   return (
     <div
@@ -165,12 +117,13 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
           >
             Weiter
           </Button>
+
           <br />
         </Form>
         <FloatingBtn
           alignment={ButtonAlignment.LEFT}
           icon={PiFingerprintThin}
-          onClick={() => getPassword()}
+          onClick={() => activateFingerprint()}
         />
 
         <FloatingBtn
