@@ -55,4 +55,3 @@ const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
 };
 
 export default useAllNotes;
-
