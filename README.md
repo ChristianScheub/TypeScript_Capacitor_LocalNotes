@@ -4,14 +4,14 @@
 Last Edit: 12.2023 <br>
 Language: Typescript React Capacitor<br>
 
-This is a simple Typescript React application which is to be used as an iOS and Android app with the help of Capacitor. 
-With it, it is possible to securely save notes locally with AES encryption, edit/delete them and search through them.
+With this app, it is possible to securely store notes locally with AES encryption, edit/delete them and search them.
+It is also possible to decrypt the notes using native biometrics (e.g. fingerprint sensor). (More on this under Security)
 
 <br><br><br>
 
 Deutsche Kurzbeschreibung:
-Das ist eine einfache Typescript React Anwendung welche mithilfe von Capacitor anschließend als iOS sowie Android App verwendet werden soll. 
-Mit ihr ist es möglich sicher Notizen mit einer AES Verschlüsselung lokal zu speichern, diese zu bearbeiten/löschen und zu durchsuchen.
+Mit dieser App ist es möglich Notizen mit AES-Verschlüsselung sicher lokal zu speichern, sie zu bearbeiten/löschen und sie zu durchsuchen.
+Zudem ist es möglich mithilfe der Native Biometric (z.B. Fingerabdruck Sensor) die Notizen zu entschlüsseln. (Mehr dazu unter Security)
 
 | Start Screen | Notes Overview | Note Edit |
 |--------------|----------------|-----------|
@@ -36,12 +36,14 @@ If this is not used, the password is not saved either.
 The Jest testing framework is used for testing.
 The tests here are always written in Typescript. 
 
-Under modules are modules from other projects of mine for which I have not written further tests. 
+Under modules are modules from other projects of mine for which I have not written further tests.
+
+The goal is actually to have about 90% test coverage, but due to refactorings etc. it is possible that this is temporarily lower.
 
 
 File                                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------------------|---------|----------|---------|---------|-------------------
-All files                            |   81.43 |    65.93 |   79.24 |   82.09 |                   
+All files                            |   74.61 |    63.15 |   71.18 |    74.7 |                   
  src                                 |     100 |      100 |     100 |     100 |                   
   App.tsx                            |     100 |      100 |     100 |     100 |                   
   index.tsx                          |     100 |      100 |     100 |     100 |                   
@@ -50,8 +52,9 @@ All files                            |   81.43 |    65.93 |   79.24 |   82.09 |
   encryptionEngine.ts                |     100 |      100 |     100 |     100 |                   
   getNotes.ts                        |      96 |      100 |     100 |   95.65 | 18                
   viewNote.tsx                       |     100 |      100 |     100 |     100 |                   
- ...ustom_components/notNotesRelated |   44.26 |    18.18 |   57.14 |      45 |                   
-  encryption_modal.tsx               |   24.44 |        0 |   33.33 |      25 | ...-86,93-102,173 
+ ...ustom_components/notNotesRelated |   33.33 |    15.38 |      40 |   33.33 |                   
+  encryption_modal.tsx               |   39.13 |        0 |      30 |   39.13 | 26-52,126         
+  fingerprintLogic.ts                |    6.66 |        0 |       0 |    6.66 | 6-15,24-64,74-97  
   navBar.tsx                         |     100 |      100 |     100 |     100 |                   
  src/modules/app_configuration       |     100 |      100 |     100 |     100 |                   
   app_texts.ts                       |     100 |      100 |     100 |     100 |                   
@@ -61,8 +64,8 @@ All files                            |   81.43 |    65.93 |   79.24 |   82.09 |
   datenschutz.tsx                    |     100 |      100 |     100 |     100 |                   
   impressum.tsx                      |     100 |      100 |     100 |     100 |                   
  src/modules/ui                      |     100 |      100 |     100 |     100 |                   
-  floatingBtn.tsx                    |     100 |      100 |     100 |     100 |                  
-                
+  floatingBtn.tsx                    |     100 |      100 |     100 |     100 |                   
+
 
 ## Architecture
 The components used are divided into two categories:
