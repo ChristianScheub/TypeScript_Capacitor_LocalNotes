@@ -5,7 +5,6 @@ import EncryptionKeyModal from "./encryption_modal";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as fingerprintLogic from './fingerprintLogic';
 
-// Mocks for capacitor-native-biometric and other dependencies
 jest.mock('capacitor-native-biometric', () => ({
   NativeBiometric: {
     isAvailable: jest.fn().mockResolvedValue({ isAvailable: true }),

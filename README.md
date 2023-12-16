@@ -7,6 +7,8 @@ Language: Typescript React Capacitor<br>
 With this app, it is possible to securely store notes locally with AES encryption, edit/delete them and search them.
 It is also possible to decrypt the notes using native biometrics (e.g. fingerprint sensor). (More on this under Security)
 
+Google Play Store: https://play.google.com/store/apps/details?id=de.scheub.localNotes
+
 <br><br><br>
 
 Deutsche Kurzbeschreibung:
@@ -42,30 +44,28 @@ The goal is actually to have about 90% test coverage, but due to refactorings et
 
 
 
-File                                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
--------------------------------------|---------|----------|---------|---------|-------------------
-All files                            |   95.58 |    84.61 |   91.52 |   96.28 |                   
- src                                 |     100 |      100 |     100 |     100 |                   
-  App.tsx                            |     100 |      100 |     100 |     100 |                   
-  index.tsx                          |     100 |      100 |     100 |     100 |                   
- src/custom_components/handleNotes   |    98.8 |      100 |     100 |   98.76 |                   
-  editNote.tsx                       |     100 |      100 |     100 |     100 |                   
-  encryptionEngine.ts                |     100 |      100 |     100 |     100 |                   
-  getNotes.ts                        |      96 |      100 |     100 |   95.65 | 18                
-  viewNote.tsx                       |     100 |      100 |     100 |     100 |                   
- ...ustom_components/notNotesRelated |   98.63 |    95.45 |     100 |   98.63 |                   
-  encryption_modal.tsx               |     100 |      100 |     100 |     100 |                   
-  fingerprintLogic.ts                |   97.43 |    93.75 |     100 |   97.43 | 53                
-  navBar.tsx                         |     100 |      100 |     100 |     100 |                   
- src/modules/app_configuration       |     100 |      100 |     100 |     100 |                   
-  app_texts.ts                       |     100 |      100 |     100 |     100 |                   
- src/modules/legal                   |   87.83 |    70.45 |   72.22 |   90.27 |                   
-  codeToTextParser.tsx               |     100 |      100 |     100 |     100 |                   
-  cookieConsentBanner.tsx            |   79.54 |    65.78 |   54.54 |   83.33 | ...,50,56,198-217 
-  datenschutz.tsx                    |     100 |      100 |     100 |     100 |                   
-  impressum.tsx                      |     100 |      100 |     100 |     100 |                   
- src/modules/ui                      |     100 |      100 |     100 |     100 |                   
-  floatingBtn.tsx                    |     100 |      100 |     100 |     100 |                   
+File                                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------------------|---------|----------|---------|---------|-------------------
+All files                              |   98.99 |    98.11 |     100 |   98.97 |                   
+ src                                   |     100 |      100 |     100 |     100 |                   
+  App.tsx                              |     100 |      100 |     100 |     100 |                   
+  index.tsx                            |     100 |      100 |     100 |     100 |                   
+ src/custom_components/handleNotes     |    98.8 |      100 |     100 |   98.76 |                   
+  editNote.tsx                         |     100 |      100 |     100 |     100 |                   
+  encryptionEngine.ts                  |     100 |      100 |     100 |     100 |                   
+  getNotes.ts                          |      96 |      100 |     100 |   95.65 | 18                
+  viewNote.tsx                         |     100 |      100 |     100 |     100 |                   
+ src/custom_components/notNotesRelated |   98.63 |    95.45 |     100 |   98.63 |                   
+  encryption_modal.tsx                 |     100 |      100 |     100 |     100 |                   
+  fingerprintLogic.ts                  |   97.43 |    93.75 |     100 |   97.43 | 53                
+  navBar.tsx                           |     100 |      100 |     100 |     100 |                   
+ src/modules/app_configuration         |     100 |      100 |     100 |     100 |                   
+  app_texts.ts                         |     100 |      100 |     100 |     100 |                   
+ src/modules/legal                     |     100 |      100 |     100 |     100 |                   
+  codeToTextParser.tsx                 |     100 |      100 |     100 |     100 |                   
+  datenschutz.tsx                      |     100 |      100 |     100 |     100 |                   
+ src/modules/ui                        |     100 |      100 |     100 |     100 |                   
+  floatingBtn.tsx                      |     100 |      100 |     100 |     100 |                   
 
 
 ## Architecture

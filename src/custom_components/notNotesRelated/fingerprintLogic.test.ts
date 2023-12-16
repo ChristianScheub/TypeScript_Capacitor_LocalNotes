@@ -4,7 +4,7 @@ import { Device } from "@capacitor/device";
 import {
   getPasswordFromFingerprint,
   storePasswordFromFingerprint,
-} from "./fingerprintLogic"; // adjust the import path
+} from "./fingerprintLogic";
 
 jest.mock("capacitor-native-biometric", () => ({
   NativeBiometric: {
@@ -34,14 +34,12 @@ jest.mock("@capacitor/device", () => ({
   },
 }));
 
-// Additional mock setup for CryptoJS if necessary
 describe("getPasswordFromFingerprint", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it("successfully retrieves password", async () => {
-    // Mock the behavior of external dependencies for the success scenario
     (NativeBiometric.isAvailable as jest.Mock).mockResolvedValue({
       isAvailable: true,
     });
@@ -115,7 +113,6 @@ describe("storePasswordFromFingerprint", () => {
   });
 
   it("successfully stores password", async () => {
-    // Mock the behavior of external dependencies for the success scenario
     (NativeBiometric.isAvailable as jest.Mock).mockResolvedValue({
       isAvailable: true,
     });
