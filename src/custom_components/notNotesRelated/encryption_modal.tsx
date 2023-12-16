@@ -23,11 +23,6 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
   };
 
   const activateFingerprint = async () => {
-    if (inputRef.current === null) {
-      console.error("inputRef.current ist null");
-      return;
-    }
-    
     getPasswordFromFingerprint(
       "www.LocalNotes.com",
       () => {
@@ -43,12 +38,10 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
         );
       },
       (password) => {
-        console.log("Passwort erfolgreich abgerufen:", password);
         inputRef.current!.value = password;
         onSubmit(password);
       },
       (errorMessage) => {
-        console.error("Fehler aufgetreten:", errorMessage);
         alert(errorMessage);
       }
     );

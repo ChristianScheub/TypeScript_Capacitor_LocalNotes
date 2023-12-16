@@ -3,8 +3,9 @@ import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import EncryptionKeyModal from "./encryption_modal";
 import { BrowserRouter as Router } from "react-router-dom";
+import * as fingerprintLogic from './fingerprintLogic';
 
-
+// Mocks for capacitor-native-biometric and other dependencies
 jest.mock('capacitor-native-biometric', () => ({
   NativeBiometric: {
     isAvailable: jest.fn().mockResolvedValue({ isAvailable: true }),
@@ -28,16 +29,21 @@ jest.mock('crypto-js', () => ({
   },
 }));
 
+jest.mock('./fingerprintLogic');
 
 describe("<EncryptionKeyModal />", () => {
-  jest.mock('capacitor-native-biometric', () => ({
-    NativeBiometric: {
-      isAvailable: jest.fn().mockResolvedValue({ isAvailable: true }),
-      verifyIdentity: jest.fn().mockResolvedValue(true),
-      getCredentials: jest.fn().mockResolvedValue({ password: 'encryptedPassword' }),
-      setCredentials: jest.fn().mockResolvedValue(undefined)
-    },
-  }));
+  
+  beforeEach(() => {
+    jest.clearAllMocks();
+    jest.spyOn(window, 'alert').mockImplementation(() => {});
+
+    (fingerprintLogic.getPasswordFromFingerprint as jest.Mock).mockImplementation((_, onSuccess, __, ___) => {
+      onSuccess('mocked password');
+    });
+    (fingerprintLogic.storePasswordFromFingerprint as jest.Mock).mockImplementation((_, onSuccess, __) => {
+      onSuccess();
+    });
+  });
 
   it("renders without crashing", () => {
     render(
@@ -72,12 +78,87 @@ describe("<EncryptionKeyModal />", () => {
     fireEvent.click(privacyButton1);
 
     expect(window.location.pathname).toBe("/datenschutz");
-
   });
 
-  
- 
+  it('handles fingerprint authentication success', async () => {
+    const onSubmitMock = jest.fn();
+    render(
+      <Router>
+        <EncryptionKeyModal onSubmit={onSubmitMock} />
+      </Router>
+    );
 
+    const privacyButtons = screen.queryAllByTestId("floating-btn");
+    fireEvent.click(privacyButtons[0]);
+
+    await waitFor(() => {
+      expect(fingerprintLogic.getPasswordFromFingerprint).toHaveBeenCalled();
+    });
+  });
+
+  it('handles error in storePasswordFromFingerprint', async () => {
+    const errorMessage = 'Store error';
+    (fingerprintLogic.storePasswordFromFingerprint as jest.Mock).mockImplementation((_, __, onError) => {
+      onError(errorMessage);
+    });
   
+    render(
+      <Router>
+        <EncryptionKeyModal onSubmit={() => {}} />
+      </Router>
+    );
+
+    const privacyButtons = screen.queryAllByTestId("floating-btn");
+    fireEvent.click(privacyButtons[0]);
+  
+  
+    await waitFor(() => {
+      expect(window.alert).toHaveBeenCalledWith(errorMessage);
+    });
+  });
+
+  it('handles successful password retrieval', async () => {
+    const mockPassword = 'retrievedPassword';
+    (fingerprintLogic.getPasswordFromFingerprint as jest.Mock).mockImplementation((_, __, onSuccess) => {
+      onSuccess(mockPassword);
+    });
+  
+    const onSubmitMock = jest.fn();
+    render(
+      <Router>
+        <EncryptionKeyModal onSubmit={onSubmitMock} />
+      </Router>
+    );
+  
+    const privacyButtons = screen.queryAllByTestId("floating-btn");
+    fireEvent.click(privacyButtons[0]);
+  
+    await waitFor(() => {
+      expect(onSubmitMock).toHaveBeenCalledWith(mockPassword);
+    });
+  });
+
+  it('handles error in getPasswordFromFingerprint', async () => {
+    const errorMessage = 'Retrieval error';
+    (fingerprintLogic.getPasswordFromFingerprint as jest.Mock).mockImplementation((_, __, ___, onError) => {
+      onError(errorMessage);
+    });
+  
+    render(
+      <Router>
+        <EncryptionKeyModal onSubmit={() => {}} />
+      </Router>
+    );
+  
+    const privacyButtons = screen.queryAllByTestId("floating-btn");
+    fireEvent.click(privacyButtons[0]);
+
+    await waitFor(() => {
+      expect(window.alert).toHaveBeenCalledWith(errorMessage);
+    });
+  });
+  
+  
+
   
 });

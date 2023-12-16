@@ -4,14 +4,6 @@ import { Device } from "@capacitor/device";
 
 const getDeviceIdHash = async (): Promise<string> => {
   const info = await Device.getId();
-  if (!info) {
-    throw new Error("Info-Komponente nicht verfügbar");
-  }
-
-  if (!info.identifier) {
-    throw new Error("UUID nicht verfügbar");
-  }
-
   return CryptoJS.SHA256(info.identifier).toString();
 };
 
@@ -57,7 +49,6 @@ export const getPasswordFromFingerprint = async (
 
     onPasswordRetrieved(decryptedPassword);
   } catch (e) {
-    console.error("Fehler beim Abrufen des Passworts:", e);
     if (e instanceof Error && e.message === "No credentials found") {
       onEmptyPassword();
     } else {
@@ -74,13 +65,13 @@ export const storePasswordFromFingerprint = async (
   try {
     const available = await NativeBiometric.isAvailable();
 
-    if (!available.isAvailable) {
-      onError("Biometrische Authentifizierung nicht verfügbar.");
+    if (!password|| password==="") {
+      onError("Bitte geben Sie das zu speichernde Passwort ein.");
       return;
     }
 
-    if (!password) {
-      onError("Bitte geben Sie das zu speichernde Passwort ein.");
+    if (!available.isAvailable) {
+      onError("Biometrische Authentifizierung nicht verfügbar.");
       return;
     }
 
@@ -93,7 +84,6 @@ export const storePasswordFromFingerprint = async (
 
     onSuccess();
   } catch (e) {
-    console.error("Fehler beim Speichern des Passworts:", e);
     onError("Ein Fehler ist aufgetreten beim Speichern des Passworts.");
   }
 };

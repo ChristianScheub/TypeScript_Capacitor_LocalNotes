@@ -41,9 +41,10 @@ Under modules are modules from other projects of mine for which I have not writt
 The goal is actually to have about 90% test coverage, but due to refactorings etc. it is possible that this is temporarily lower.
 
 
+
 File                                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------------------|---------|----------|---------|---------|-------------------
-All files                            |   74.61 |    63.15 |   71.18 |    74.7 |                   
+All files                            |   95.58 |    84.61 |   91.52 |   96.28 |                   
  src                                 |     100 |      100 |     100 |     100 |                   
   App.tsx                            |     100 |      100 |     100 |     100 |                   
   index.tsx                          |     100 |      100 |     100 |     100 |                   
@@ -52,9 +53,9 @@ All files                            |   74.61 |    63.15 |   71.18 |    74.7 |
   encryptionEngine.ts                |     100 |      100 |     100 |     100 |                   
   getNotes.ts                        |      96 |      100 |     100 |   95.65 | 18                
   viewNote.tsx                       |     100 |      100 |     100 |     100 |                   
- ...ustom_components/notNotesRelated |   33.33 |    15.38 |      40 |   33.33 |                   
-  encryption_modal.tsx               |   39.13 |        0 |      30 |   39.13 | 26-52,126         
-  fingerprintLogic.ts                |    6.66 |        0 |       0 |    6.66 | 6-15,24-64,74-97  
+ ...ustom_components/notNotesRelated |   98.63 |    95.45 |     100 |   98.63 |                   
+  encryption_modal.tsx               |     100 |      100 |     100 |     100 |                   
+  fingerprintLogic.ts                |   97.43 |    93.75 |     100 |   97.43 | 53                
   navBar.tsx                         |     100 |      100 |     100 |     100 |                   
  src/modules/app_configuration       |     100 |      100 |     100 |     100 |                   
   app_texts.ts                       |     100 |      100 |     100 |     100 |                   
