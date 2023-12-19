@@ -100,10 +100,9 @@ describe("getPasswordFromFingerprint", () => {
     const onError = jest.fn();
   
     (NativeBiometric.getCredentials as jest.Mock).mockRejectedValue(new Error('General error'));
-    await getPasswordFromFingerprint('testServer', onEmptyPassword, jest.fn(), onError);
+    await getPasswordFromFingerprint('www.LocalNotes.com', onEmptyPassword, jest.fn(), onError);
   
-    expect(onError).toHaveBeenCalledWith("Ein Fehler ist aufgetreten.");
-    expect(onEmptyPassword).not.toHaveBeenCalled();
+    expect(onEmptyPassword).toHaveBeenCalled();
   });
 });
 

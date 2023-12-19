@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { FaInfoCircle } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa";
+import { Capacitor } from '@capacitor/core';
+
+
 
 interface NavBarProps {
   setSearchQuery: (query: string) => void;
@@ -13,6 +16,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
   const navigate = useNavigate();
   const [tempSearch, setTempSearch] = useState("");
   const location = useLocation();
+  const isIOS = Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'ios';
 
   const handleImpressumClick = () => {
     navigate("/datenschutz");
@@ -46,6 +50,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
         width: "100%",
         backgroundColor: "#161616",
         borderBottom: "1px solid #6c757d",
+        paddingTop: isIOS ? '10vw' : '0',
       }}
     >
       <Container>

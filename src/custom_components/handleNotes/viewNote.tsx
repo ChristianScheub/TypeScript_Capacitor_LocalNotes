@@ -5,6 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { FaPlusCircle } from "react-icons/fa";
 import getAllNotes from "./getNotes";
 import FloatingBtn, { ButtonAlignment } from "../../modules/ui/floatingBtn";
+import { Capacitor } from '@capacitor/core';
 
 interface ViewNoteProps {
   encryptionKey: string;
@@ -14,6 +15,7 @@ interface ViewNoteProps {
 const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
   const notes = getAllNotes(encryptionKey, searchQuery);
   const navigate = useNavigate();
+  const isIOS = Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'ios';
 
   const truncateText = (text: string, maxLength: number): string => {
     if (text.length <= maxLength) return text;
@@ -21,7 +23,11 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
   };
 
   return (
-    <div>
+    <div
+    style={{
+      paddingTop: isIOS ? '10vw' : '0',
+    }}
+    >
       {notes.length > 0 ? (
         <Row
           xs={2}

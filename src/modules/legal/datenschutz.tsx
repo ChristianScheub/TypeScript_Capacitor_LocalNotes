@@ -4,12 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
 import { datenschutz_text } from "../app_configuration/app_texts";
 import CodeToTextParser from "./codeToTextParser";
+import { Capacitor } from '@capacitor/core';
+
 
 const Datenschutz: React.FC = () => {
   const navigate = useNavigate();
+  const isIOS = Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'ios';
 
   return (
-    <div>
+    <div
+    style={{
+      paddingTop: isIOS ? '10vw' : '0',
+    }}>
       <div className="after-login-container">
         <Card className="mb-3" style={{ margin: "2vw",backgroundColor: "#49454F", color: "white" }}>
           <Card.Header as="h2">
