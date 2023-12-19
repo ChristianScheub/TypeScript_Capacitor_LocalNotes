@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2FAD9763203C412B000D30F8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD9762203C412B000D30F8 /* config.xml */; };
+		4BAB88F42B323F55007AE6CC /* Backswipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB88F32B323F55007AE6CC /* Backswipe.m */; };
+		4BAB88F62B323F8A007AE6CC /* BackswipePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB88F52B323F8A007AE6CC /* BackswipePlugin.swift */; };
 		50379B232058CBB4000EE86E /* capacitor.config.json in Resources */ = {isa = PBXBuildFile; fileRef = 50379B222058CBB4000EE86E /* capacitor.config.json */; };
 		504EC3081FED79650016851F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EC3071FED79650016851F /* AppDelegate.swift */; };
 		504EC30D1FED79650016851F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30B1FED79650016851F /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		2FAD9762203C412B000D30F8 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
+		4BAB88F32B323F55007AE6CC /* Backswipe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Backswipe.m; sourceTree = "<group>"; };
+		4BAB88F52B323F8A007AE6CC /* BackswipePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackswipePlugin.swift; sourceTree = "<group>"; };
 		50379B222058CBB4000EE86E /* capacitor.config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capacitor.config.json; sourceTree = "<group>"; };
 		504EC3041FED79650016851F /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504EC3071FED79650016851F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +56,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4BAB88F12B323F1B007AE6CC /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				4BAB88F22B323F20007AE6CC /* backswipe */,
+			);
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		4BAB88F22B323F20007AE6CC /* backswipe */ = {
+			isa = PBXGroup;
+			children = (
+				4BAB88F32B323F55007AE6CC /* Backswipe.m */,
+				4BAB88F52B323F8A007AE6CC /* BackswipePlugin.swift */,
+			);
+			path = backswipe;
+			sourceTree = "<group>";
+		};
 		504EC2FB1FED79650016851F = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +94,7 @@
 		504EC3061FED79650016851F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4BAB88F12B323F1B007AE6CC /* plugins */,
 				50379B222058CBB4000EE86E /* capacitor.config.json */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
 				504EC30B1FED79650016851F /* Main.storyboard */,
@@ -127,7 +149,7 @@
 				TargetAttributes = {
 					504EC3031FED79650016851F = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1100;
+						LastSwiftMigration = 1510;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -208,6 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				504EC3081FED79650016851F /* AppDelegate.swift in Sources */,
+				4BAB88F62B323F8A007AE6CC /* BackswipePlugin.swift in Sources */,
+				4BAB88F42B323F55007AE6CC /* Backswipe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +369,7 @@
 			baseConfigurationReference = FC68EB0AF532CFC21C3344DD /* Pods-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D5RL6755HQ;
@@ -356,6 +381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.scheub.localNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +392,7 @@
 			baseConfigurationReference = AF51FD2D460BCFE21FA515B2 /* Pods-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D5RL6755HQ;
