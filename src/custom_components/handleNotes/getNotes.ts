@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import CryptoJS from "crypto-js";
 import { decryptFromStorage } from "./encryptionEngine";
 
 interface Note {
@@ -7,6 +6,7 @@ interface Note {
   content: string;
   title: string;
   date: Date;
+  additionalInfo: String;
 }
 
 const isJsonString = (str: string): boolean => {
@@ -36,6 +36,7 @@ const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
               content: noteData.content,
               title: noteData.title,
               date: new Date(noteData.date),
+              additionalInfo: ""
             });
           }
         } catch (error) {

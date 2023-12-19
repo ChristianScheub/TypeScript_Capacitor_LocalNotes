@@ -41,6 +41,7 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
       title: noteTitle,
       date: noteDate.toISOString(),
       content: noteContent,
+      additionalInfo: "",
     };
     const noteDataString = JSON.stringify(noteData);
     encryptAndStore(
