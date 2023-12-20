@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Navbar, Container, Button, Form, FormControl } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { FaInfoCircle } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa";
-import { Capacitor } from '@capacitor/core';
+import { iOS_Notch_Present } from './appleNotchDetected';
 
 
 
@@ -16,7 +16,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
   const navigate = useNavigate();
   const [tempSearch, setTempSearch] = useState("");
   const location = useLocation();
-  const isIOS = Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'ios';
+  const [isIOSNotch, setIsIOSNotch] = useState(false);
 
   const handleImpressumClick = () => {
     navigate("/datenschutz");
@@ -36,6 +36,14 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
     setSearchQuery(tempSearch);
   };
 
+  useEffect(() => {
+    iOS_Notch_Present().then(notchPresent => {
+      setIsIOSNotch(notchPresent);
+    });
+  }, []);
+
+  
+
   const showBackButton =
     location.pathname.includes("/datenschutz") ||
     location.pathname.includes("/edit");
@@ -50,7 +58,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
         width: "100%",
         backgroundColor: "#161616",
         borderBottom: "1px solid #6c757d",
-        paddingTop: isIOS ? '10vw' : '0',
+        paddingTop: isIOSNotch ? '10vw' : '0',
       }}
     >
       <Container>

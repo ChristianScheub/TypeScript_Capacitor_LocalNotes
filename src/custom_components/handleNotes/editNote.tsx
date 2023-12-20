@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { FaRegSave, FaTrash, FaRegClock } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import FloatingBtn ,{ButtonAlignment} from "../../modules/ui/floatingBtn";
-import { Capacitor } from '@capacitor/core';
 import { encryptAndStore, decryptFromStorage } from "./encryptionEngine";
+import { iOS_Notch_Present } from '../notNotesRelated/appleNotchDetected';
 
 interface EditNoteProps {
   encryptionKey: string;
@@ -17,8 +17,13 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
   const [noteDate, setNoteDate] = useState(new Date());
   const [noteContent, setNoteContent] = useState("");
   const navigate = useNavigate();
-  const isIOS = Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'ios';
+  const [isIOSNotch, setIsIOSNotch] = useState(false);
 
+  useEffect(() => {
+    iOS_Notch_Present().then(notchPresent => {
+      setIsIOSNotch(notchPresent);
+    });
+  }, []);
 
   useEffect(() => {
     if (noteId) {
@@ -71,7 +76,7 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
         margin: "2vw",
         color: "white",
         minHeight: "70vh",
-        paddingTop: isIOS ? '10vw' : '0'
+        paddingTop: isIOSNotch ? '10vw' : '0'
       }}
     >
 
@@ -80,7 +85,7 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
         data-testid="delete-note-button"
         style={{
           position: "fixed",
-          top: isIOS ? '10vw' : '0.5vh',
+          top: isIOSNotch ? '10vw' : '0.5vh',
           height: "7vh",
           width: "7vh",
           backgroundColor: "transparent",

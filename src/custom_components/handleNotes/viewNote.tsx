@@ -1,11 +1,12 @@
-import React from "react";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Card, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { FaPlusCircle } from "react-icons/fa";
 import getAllNotes from "./getNotes";
 import FloatingBtn, { ButtonAlignment } from "../../modules/ui/floatingBtn";
-import { Capacitor } from '@capacitor/core';
+import { iOS_Notch_Present } from '../notNotesRelated/appleNotchDetected';
+
 
 interface ViewNoteProps {
   encryptionKey: string;
@@ -15,7 +16,13 @@ interface ViewNoteProps {
 const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
   const notes = getAllNotes(encryptionKey, searchQuery);
   const navigate = useNavigate();
-  const isIOS = Capacitor.isNativePlatform() && Capacitor.getPlatform() === 'ios';
+  const [isIOSNotch, setIsIOSNotch] = useState(false);
+
+  useEffect(() => {
+    iOS_Notch_Present().then(notchPresent => {
+      setIsIOSNotch(notchPresent);
+    });
+  }, []);
 
   const truncateText = (text: string, maxLength: number): string => {
     if (text.length <= maxLength) return text;
@@ -25,7 +32,7 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
   return (
     <div
     style={{
-      paddingTop: isIOS ? '10vw' : '0',
+      paddingTop: isIOSNotch ? '10vw' : '0',
     }}
     >
       {notes.length > 0 ? (
