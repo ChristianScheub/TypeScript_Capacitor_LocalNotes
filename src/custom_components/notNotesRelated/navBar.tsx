@@ -48,6 +48,8 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
     location.pathname.includes("/datenschutz") ||
     location.pathname.includes("/edit");
 
+    const showDeleteBtn =! location.pathname.includes("/datenschutz");
+
   return (
     <Navbar
       variant="dark"
@@ -77,6 +79,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
             >
               <FaAngleLeft size="4vh" />
             </Button>
+            {showDeleteBtn && 
               <Button
                 onClick={handleDelete}
                 data-testid="delete-note-button"
@@ -91,6 +94,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
               >
                 <FaTrash size="2.5vh" style={{ color: "#DA5353" }} />
               </Button>
+               }
           </div>
         ) : (
           <Form onSubmit={handleSubmit}>
