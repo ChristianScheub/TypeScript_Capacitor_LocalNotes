@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
-import { FaRegSave, FaTrash, FaRegClock } from "react-icons/fa";
+import { Form } from "react-bootstrap";
+import { FaRegSave, FaRegClock } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import FloatingBtn ,{ButtonAlignment} from "../../modules/ui/floatingBtn";
 import { encryptAndStore, decryptFromStorage } from "./encryptionEngine";
-import { iOS_Notch_Present } from '../notNotesRelated/appleNotchDetected';
 
 interface EditNoteProps {
   encryptionKey: string;
@@ -17,13 +16,6 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
   const [noteDate, setNoteDate] = useState(new Date());
   const [noteContent, setNoteContent] = useState("");
   const navigate = useNavigate();
-  const [isIOSNotch, setIsIOSNotch] = useState(false);
-
-  useEffect(() => {
-    iOS_Notch_Present().then(notchPresent => {
-      setIsIOSNotch(notchPresent);
-    });
-  }, []);
 
   useEffect(() => {
     if (noteId) {
@@ -57,15 +49,6 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
     navigate(-1);
   };
 
-  const handleDelete = () => {
-    if (
-      noteId &&
-      window.confirm("Sind Sie sicher, dass Sie diese Notiz löschen möchten?")
-    ) {
-      localStorage.removeItem(noteId);
-      navigate(-1);
-    }
-  };
   const formattedDate = `${noteDate.getDate()}.${
     noteDate.getMonth() + 1
   }.${noteDate.getFullYear()}`;
@@ -76,26 +59,9 @@ const EditNote: React.FC<EditNoteProps> = ({ encryptionKey }) => {
         margin: "2vw",
         color: "white",
         minHeight: "70vh",
-        paddingTop: isIOSNotch ? '10vw' : '0'
+        marginTop: "env(safe-area-inset-top)",
       }}
     >
-
-      <Button
-        onClick={handleDelete}
-        data-testid="delete-note-button"
-        style={{
-          position: "fixed",
-          top: isIOSNotch ? '10vw' : '0.5vh',
-          height: "7vh",
-          width: "7vh",
-          backgroundColor: "transparent",
-          border: "none",
-          marginLeft: "65vw",
-          zIndex: "101",
-        }}
-      >
-        <FaTrash size="2.5vh" style={{ color: "#DA5353" }} />
-      </Button>
 
       <Form>
         <Form.Group controlId="noteTitle">
