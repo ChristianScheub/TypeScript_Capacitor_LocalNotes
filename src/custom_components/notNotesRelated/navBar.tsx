@@ -63,7 +63,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
         paddingTop: "env(safe-area-inset-top)",
       }}
     >
-      <Container>
+      <Container style={{width:"90vw",maxWidth:"90vw",height:"3em"}}>
         {showBackButton ? (
           <div style={{ width: "80vw" }}>
             <Button
@@ -73,26 +73,26 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
                 backgroundColor: "transparent",
                 border: "none",
                 height: "6vh",
-                width: "20vw",
+                width: "10vw",
               }}
               data-testid="back-button"
             >
-              <FaAngleLeft size="4vh" />
+              <FaAngleLeft size="2em" />
             </Button>
             {showDeleteBtn && 
               <Button
                 onClick={handleDelete}
                 data-testid="delete-note-button"
                 style={{
-                  height: "7vh",
-                  width: "7vh",
+                  height: "2em",
+                  width: "2em",
                   backgroundColor: "transparent",
                   border: "none",
                   zIndex: "101",
-                  paddingLeft: "50vw"
+                  paddingLeft: "50vw "
                 }}
               >
-                <FaTrash size="2.5vh" style={{ color: "#DA5353" }} />
+                <FaTrash size="1em" style={{ color: "#DA5353" }} />
               </Button>
                }
           </div>
@@ -122,9 +122,9 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
         <Button
           variant="link"
           onClick={handleImpressumClick}
-          style={{ height: "6vh" }}
+          style={{ height: "2em" }}
         >
-          <FaInfoCircle size="2.5vh" />
+          <FaInfoCircle size="1.5em" />
         </Button>
       </Container>
     </Navbar>
