@@ -49,6 +49,7 @@ export const getPasswordFromFingerprint = async (
 
     onPasswordRetrieved(decryptedPassword);
   } catch (e) {
+    console.log(e);
     if (e instanceof Error && e.message === "No credentials found"||e) {
       onEmptyPassword();
     } else {
@@ -74,6 +75,8 @@ export const storePasswordFromFingerprint = async (
       onError("Biometrische Authentifizierung nicht verfügbar.");
       return;
     }
+    console.log("Passwort wird nun gespeichert")
+    console.log(password);
 
     const hashedDeviceId = await getDeviceIdHash();
     await NativeBiometric.setCredentials({
@@ -81,9 +84,17 @@ export const storePasswordFromFingerprint = async (
       username: "user",
       password: CryptoJS.TripleDES.encrypt(password, hashedDeviceId).toString(),
     });
-
+    
     onSuccess();
   } catch (e) {
     onError("Ein Fehler ist aufgetreten beim Speichern des Passworts.");
   }
 };
+
+export const availableBiometric = async (): Promise<Boolean> => {
+  try {
+    return ((await NativeBiometric.isAvailable()).isAvailable);
+  } catch (error) {
+    return false;
+  }
+}

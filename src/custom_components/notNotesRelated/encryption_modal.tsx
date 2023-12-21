@@ -1,11 +1,15 @@
-import React, { FormEvent, useRef } from "react";
+import React, { FormEvent, useRef, useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingBtn, { ButtonAlignment } from "../../modules/ui/floatingBtn";
 import { FaInfoCircle } from "react-icons/fa";
 import { PiFingerprintThin } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
-import { getPasswordFromFingerprint,storePasswordFromFingerprint } from "./fingerprintLogic";
+import {
+  getPasswordFromFingerprint,
+  storePasswordFromFingerprint,
+  availableBiometric,
+} from "./fingerprintLogic";
 
 interface EncryptionKeyModalProps {
   onSubmit: (encryptionKey: string) => void;
@@ -16,6 +20,16 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const [showFingerprintBtn, setShowFingerprintBtn] = useState(false);
+
+  useEffect(() => {
+    const checkBiometrics = async () => {
+      if (await availableBiometric()) {
+        setShowFingerprintBtn(true);
+      }
+    };
+    checkBiometrics();
+  }, []);
 
   const handleKeySubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -30,7 +44,7 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
           inputRef.current?.value || "",
           () => {
             alert("Passwort gespeichert!");
-            onSubmit(inputRef.current!.value );
+            onSubmit(inputRef.current!.value);
           },
           (errorMessage) => {
             alert(errorMessage);
@@ -45,7 +59,6 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
         alert(errorMessage);
       }
     );
-    
   };
 
   return (
@@ -113,11 +126,13 @@ const EncryptionKeyModal: React.FC<EncryptionKeyModalProps> = ({
 
           <br />
         </Form>
-        <FloatingBtn
-          alignment={ButtonAlignment.LEFT}
-          icon={PiFingerprintThin}
-          onClick={() => activateFingerprint()}
-        />
+        {showFingerprintBtn && (
+          <FloatingBtn
+            alignment={ButtonAlignment.LEFT}
+            icon={PiFingerprintThin}
+            onClick={() => activateFingerprint()}
+          />
+        )}
 
         <FloatingBtn
           alignment={ButtonAlignment.RIGHT}
