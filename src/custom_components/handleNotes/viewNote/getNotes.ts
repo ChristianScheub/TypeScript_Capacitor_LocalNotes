@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { decryptFromStorage } from "./encryptionEngine";
+import { decryptFromStorage } from "../encryptionEngine";
 
 interface Note {
   id: string;

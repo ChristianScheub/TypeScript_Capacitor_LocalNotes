@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import { availableBiometric } from "../fingerprintLogic";
+import React from "react";
 import { NavigateFunction } from "react-router-dom";
 
 interface SettingsProps {

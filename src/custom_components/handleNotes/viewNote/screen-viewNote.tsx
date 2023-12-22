@@ -1,21 +1,22 @@
-import React from "react";
-import { Card, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Card, Row, Col } from 'react-bootstrap';
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { FaPlusCircle } from "react-icons/fa";
-import getAllNotes from "./getNotes";
-import FloatingBtn, { ButtonAlignment } from "../../modules/ui/floatingBtn";
+import { FaPlusCircle } from 'react-icons/fa';
+import FloatingBtn, { ButtonAlignment } from '../../../modules/ui/floatingBtn';
 
-
-interface ViewNoteProps {
-  encryptionKey: string;
-  searchQuery: string;
+interface Note {
+  id: string;
+  title: string;
+  content: string;
 }
 
-const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
-  const notes = getAllNotes(encryptionKey, searchQuery);
-  const navigate = useNavigate();
+interface ViewNoteViewProps {
+  notes: Note[];
+  onNavigateToEdit: (noteId: string) => void;
+  onNavigateToCreateNew: () => void;
+}
 
+const ViewNoteView: React.FC<ViewNoteViewProps> = ({ notes, onNavigateToEdit, onNavigateToCreateNew }) => {
   const truncateText = (text: string, maxLength: number): string => {
     if (text.length <= maxLength) return text;
     return text.substr(0, maxLength) + "...";
@@ -23,20 +24,12 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
 
   return (
     <div
-    style={{
-      marginTop: "env(safe-area-inset-top)",
-    }}
+      style={{
+        marginTop: "env(safe-area-inset-top)",
+      }}
     >
       {notes.length > 0 ? (
-        <Row
-          xs={2}
-          md={2}
-          lg={3}
-          style={{
-            margin: "1vw",
-          }}
-        >
-          {" "}
+        <Row xs={2} md={2} lg={3} style={{ margin: "1vw" }}>
           {notes.map((note) => (
             <Col key={note.id} style={{ marginBottom: "5vw" }}>
               <Card
@@ -47,11 +40,10 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
                   margin: "2vw",
                   minHeight: "20vh",
                 }}
-                onClick={() => navigate(`/edit/${note.id}`)}
+                onClick={() => onNavigateToEdit(note.id)}
               >
                 <Card.Body>
                   <Card.Title>{truncateText(note.title, 10)}</Card.Title>
-
                   <Card.Text>{truncateText(note.content, 100)}</Card.Text>
                 </Card.Body>
               </Card>
@@ -78,10 +70,10 @@ const ViewNote: React.FC<ViewNoteProps> = ({ encryptionKey, searchQuery }) => {
       <FloatingBtn
         alignment={ButtonAlignment.CENTER}
         icon={FaPlusCircle}
-        onClick={() => navigate("/edit/new")}
+        onClick={onNavigateToCreateNew}
       />
     </div>
   );
 };
 
-export default ViewNote;
+export default ViewNoteView;

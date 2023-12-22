@@ -1,4 +1,4 @@
-import { Navigate, NavigateFunction } from "react-router-dom";
+import { NavigateFunction } from "react-router-dom";
 import { NativeBiometric } from "capacitor-native-biometric";
 import SettingsView from "./screen_settings";
 import React, { useState, useEffect } from "react";

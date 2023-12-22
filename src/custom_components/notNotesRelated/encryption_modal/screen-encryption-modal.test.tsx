@@ -47,7 +47,8 @@ describe("EncryptionKeyModalView", () => {
       />
     );
     const floatingBtns = screen.queryAllByTestId("floating-btn");
-    fireEvent.click(floatingBtns[0]);
+    const fingerprintBtn = floatingBtns[0];
+    fireEvent.click(fingerprintBtn);
     expect(mockActivateFingerprint).toHaveBeenCalled();
   });
 

@@ -6,8 +6,8 @@ import SettingsContainer from "./custom_components/notNotesRelated/settings/cont
 import EncryptionKeyModalContainer from "./custom_components/notNotesRelated/encryption_modal/container-encryption-modal";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./custom_components/notNotesRelated/navBar";
-import ViewNote from "./custom_components/handleNotes/viewNote";
-import EditNote from "./custom_components/handleNotes/editNote";
+import ViewNoteContainer from "./custom_components/handleNotes/viewNote/container-viewNote";
+import EditNoteContainer from "./custom_components/handleNotes/editNote/container-editNote";
 
 const App: React.FC = () => {
   const [encryptionKey, setEncryptionKey] = useState<string>("");
@@ -49,12 +49,12 @@ const App: React.FC = () => {
 
                 <Route
                   path="/edit/:noteId"
-                  element={<EditNote encryptionKey={encryptionKey} />}
+                  element={<EditNoteContainer encryptionKey={encryptionKey} />}
                 />
                 <Route
                   path="/"
                   element={
-                    <ViewNote
+                    <ViewNoteContainer
                       encryptionKey={encryptionKey}
                       searchQuery={searchQuery}
                     />
@@ -62,7 +62,7 @@ const App: React.FC = () => {
                 />
                 <Route
                   path="/edit/new"
-                  element={<EditNote encryptionKey={encryptionKey} />}
+                  element={<EditNoteContainer encryptionKey={encryptionKey} />}
                 />
               </Routes>
               <NavBar setSearchQuery={setSearchQuery} />

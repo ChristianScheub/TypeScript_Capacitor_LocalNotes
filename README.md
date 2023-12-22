@@ -45,25 +45,29 @@ The goal is actually to have about 90% test coverage, but due to refactorings et
 
 
 
-File                                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
--------------------------------------|---------|----------|---------|---------|-------------------
-All files                            |   40.44 |    32.55 |   38.46 |      40 |                   
- src                                 |     100 |      100 |     100 |     100 |                   
-  App.tsx                            |     100 |      100 |     100 |     100 |                   
- ...ustom_components/notNotesRelated |   38.23 |    27.58 |      50 |   38.23 |                   
-  fingerprintLogic.ts                |   15.21 |        0 |   16.66 |   15.21 | 6-7,16-56,66-90   
-  navBar.tsx                         |   86.36 |    66.66 |   83.33 |   86.36 | 39-44             
- ...notNotesRelated/encryption_modal |   65.38 |    66.66 |   46.15 |   65.38 |                   
-  container-encryption-modal.tsx     |   60.86 |       50 |   36.36 |   60.86 | 34-53,64          
-  screen-encryption-modal.tsx        |     100 |      100 |     100 |     100 |                   
- ...ponents/notNotesRelated/settings |    6.25 |        0 |       0 |    6.25 |                   
-  container_settings.tsx             |    3.84 |        0 |       0 |    3.84 | 10-57             
-  screen_settings.tsx                |   16.66 |        0 |       0 |   16.66 | 24-55             
- src/modules/app_configuration       |     100 |      100 |     100 |     100 |                   
-  app_texts.ts                       |     100 |      100 |     100 |     100 |                   
- src/modules/legal                   |     100 |      100 |     100 |     100 |                   
-  datenschutz.tsx                    |     100 |      100 |     100 |     100 |                   
-  impressum.tsx                      |     100 |      100 |     100 |     100 |                   
+File                          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------------|---------|----------|---------|---------|-------------------
+All files                     |   62.14 |    50.84 |   60.34 |   61.61 |                   
+ src                          |     100 |      100 |     100 |     100 |                   
+  App.tsx                     |     100 |      100 |     100 |     100 |                   
+ ...om_components/handleNotes |     100 |      100 |     100 |     100 |                   
+  encryptionEngine.ts         |     100 |      100 |     100 |     100 |                   
+ ...ents/handleNotes/editNote |     100 |      100 |     100 |     100 |                   
+  container-editNote.tsx      |     100 |      100 |     100 |     100 |                   
+  screen-editNote.tsx         |     100 |      100 |     100 |     100 |                   
+ ...ents/handleNotes/viewNote |   97.56 |      100 |     100 |   97.36 |                   
+  container-viewNote.tsx      |     100 |      100 |     100 |     100 |                   
+  getNotes.ts                 |      96 |      100 |     100 |   95.65 | 18                
+  screen-viewNote.tsx         |     100 |      100 |     100 |     100 |                   
+ ...omponents/notNotesRelated |   38.23 |    27.58 |      50 |   38.23 |                   
+  fingerprintLogic.ts         |   15.21 |        0 |   16.66 |   15.21 | 6-7,16-56,66-90   
+  navBar.tsx                  |   86.36 |    66.66 |   83.33 |   86.36 | 39-44             
+ ...sRelated/encryption_modal |   69.23 |    66.66 |   53.84 |   69.23 |                   
+  ...ner-encryption-modal.tsx |   65.21 |       50 |   45.45 |   65.21 | 34-53             
+  screen-encryption-modal.tsx |     100 |      100 |     100 |     100 |                   
+ .../notNotesRelated/settings |    6.25 |        0 |       0 |    6.25 |                   
+  container_settings.tsx      |    3.84 |        0 |       0 |    3.84 | 10-57             
+  screen_settings.tsx         |   16.66 |        0 |       0 |   16.66 | 23-54             
 
 
 ## Architecture

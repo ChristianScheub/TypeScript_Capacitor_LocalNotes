@@ -1,6 +1,5 @@
 import { renderHook} from "@testing-library/react";
-import { render, act } from "@testing-library/react";
-import { encryptAndStore } from "./encryptionEngine";
+import { encryptAndStore } from "../encryptionEngine";
 
 
 import getAllNotes from './getNotes';
@@ -13,11 +12,12 @@ describe('useNotes', () => {
 
   it('should load and decrypt notes correctly', () => {
     localStorage.clear();
-    encryptAndStore('{"title":"TestTitel","date":"2023-12-09T20:10:56.534Z","content":"Tescht"}', mockEncryptionKey,"1",);
+    encryptAndStore('{"additionalInfo": "","title":"TestTitel","date":"2023-12-09T20:10:56.534Z","content":"Tescht"}', mockEncryptionKey,"1",);
     const { result } = renderHook(() => getAllNotes(mockEncryptionKey, ""));
 
     expect(result.current).toEqual([
       {
+        additionalInfo: "",
         content: "Tescht",
         title: "TestTitel",
         id: "1",

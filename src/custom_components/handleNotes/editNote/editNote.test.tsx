@@ -1,12 +1,10 @@
-import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { renderHook } from "@testing-library/react";
-import getAllNotes from "./getNotes";
+import getAllNotes from "../viewNote/getNotes";
 import { BrowserRouter as Router } from "react-router-dom";
-import EditNote from "./editNote";
-import { encryptAndStore, decryptFromStorage } from "./encryptionEngine";
-import * as reactRouterDom from "react-router-dom";
+import EditNoteContainer from "./container-editNote";
+import { encryptAndStore, decryptFromStorage } from "../encryptionEngine";
 
 const mockEncryptionKey = "some-encryption-key";
 
@@ -35,7 +33,7 @@ describe("EditNote Component", () => {
   it("renders with correct data from local storage", () => {
     const { getByDisplayValue } = render(
       <Router>
-        <EditNote encryptionKey="some-encryption-key" />
+        <EditNoteContainer encryptionKey="some-encryption-key" />
       </Router>
     );
 
@@ -52,7 +50,7 @@ describe("EditNote Component", () => {
 
     const { getByTestId } = render(
       <Router>
-        <EditNote encryptionKey={mockEncryptionKey} />
+        <EditNoteContainer encryptionKey={mockEncryptionKey} />
       </Router>
     );
 
@@ -66,7 +64,7 @@ describe("EditNote Component", () => {
   it("handles input changes correctly", () => {
     const { getByTestId } = render(
       <Router>
-        <EditNote encryptionKey={mockEncryptionKey} />
+        <EditNoteContainer encryptionKey={mockEncryptionKey} />
       </Router>
     );
 
@@ -83,7 +81,7 @@ describe("EditNote Component", () => {
   it("handles input changes and save button click correctly", () => {
     const { getByTestId } = render(
       <Router>
-        <EditNote encryptionKey={mockEncryptionKey} />
+        <EditNoteContainer encryptionKey={mockEncryptionKey} />
       </Router>
     );
 
@@ -112,7 +110,7 @@ describe("EditNote Component", () => {
 
     const { getByTestId } = render(
       <Router>
-        <EditNote encryptionKey={mockEncryptionKey} />
+        <EditNoteContainer encryptionKey={mockEncryptionKey} />
       </Router>
     );
 
@@ -145,47 +143,17 @@ describe("EditNote Component", () => {
     expect(containsTestText).toBeTruthy();
   });
 
-  it("handles delete correctly", () => {
-    global.confirm = jest.fn(() => true);
-    const { getByTestId } = render(
-      <Router>
-        <EditNote encryptionKey={mockEncryptionKey} />
-      </Router>
-    );
-    const deleteButton = getByTestId("delete-note-button");
-
-    fireEvent.click(deleteButton);
-    expect(global.confirm).toHaveBeenCalledWith(
-      "Sind Sie sicher, dass Sie diese Notiz löschen möchten?"
-    );
-    expect(localStorage.getItem("22")).toBeNull();
-    expect(mockedNavigate).toHaveBeenCalledWith(-1);
-  });
-
-  it("handles delete correctly when not confirmed", () => {
-    global.confirm = jest.fn(() => false);
-    const { getByTestId } = render(
-      <Router>
-        <EditNote encryptionKey={mockEncryptionKey} />
-      </Router>
-    );
-    const deleteButton = getByTestId("delete-note-button");
-
-    fireEvent.click(deleteButton);
-    expect(localStorage.getItem("22")).not.toBeNull();
-  });
-
   it("handles noteId being null", () => {
     jest.spyOn(require("react-router-dom"), "useParams").mockReturnValue({
       noteId: null,
     });
     const { getByTestId } = render(
       <Router>
-        <EditNote encryptionKey={mockEncryptionKey} />
+        <EditNoteContainer encryptionKey={mockEncryptionKey} />
       </Router>
     );
-    const deleteButton = getByTestId("delete-note-button");
-    expect(deleteButton).toBeInTheDocument();
+    const saveBtn = getByTestId("floating-btn");
+    expect(saveBtn).toBeInTheDocument();
   });
 
   it("can handles save correctly when new note", () => {
@@ -194,7 +162,7 @@ describe("EditNote Component", () => {
     });
     const { getByTestId } = render(
       <Router>
-        <EditNote encryptionKey={mockEncryptionKey} />
+        <EditNoteContainer encryptionKey={mockEncryptionKey} />
       </Router>
     );
     fireEvent.click(getByTestId("floating-btn"));
