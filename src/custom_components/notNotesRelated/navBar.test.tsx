@@ -79,10 +79,11 @@ describe("NavBar Component", () => {
     expect(mockSetSearchQuery).toHaveBeenCalledWith("Neue Notiz");
   });
 
-  it("should navigate to Impressum page on button click", () => {
+  it("should navigate to Settings page on button click", () => {
     renderNavBar();
-    const impressumButton = screen.getByRole("button");
-    fireEvent.click(impressumButton);
-    expect(mockedNavigate).toHaveBeenCalledWith("/datenschutz");
+    const settingsButton = screen.getByRole("button");
+    fireEvent.click(settingsButton);
+    expect(mockedNavigate).toHaveBeenCalledWith("/settings");
   });
+
 });

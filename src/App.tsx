@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Datenschutz from "./modules/legal/datenschutz";
-import EncryptionKeyModal from "./custom_components/notNotesRelated/encryption_modal";
+import Impressum from "./modules/legal/impressum";
+import SettingsContainer from "./custom_components/notNotesRelated/settings/container_settings";
+import EncryptionKeyModalContainer from "./custom_components/notNotesRelated/encryption_modal/container-encryption-modal";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./custom_components/notNotesRelated/navBar";
 import ViewNote from "./custom_components/handleNotes/viewNote";
@@ -20,8 +22,9 @@ const App: React.FC = () => {
               <Route path="/datenschutz" element={<Datenschutz />} />
               <Route
                 path="/"
-                element={<EncryptionKeyModal onSubmit={setEncryptionKey} />}
+                element={<EncryptionKeyModalContainer onSubmit={setEncryptionKey} />}
               />
+              
             </Routes>
           </Router>
         </div>
@@ -40,6 +43,10 @@ const App: React.FC = () => {
             <Router>
               <Routes>
                 <Route path="/datenschutz" element={<Datenschutz />} />
+                <Route path="/impressum" element={<Impressum />} />
+
+                <Route path="/settings" element={<SettingsContainer />} />
+
                 <Route
                   path="/edit/:noteId"
                   element={<EditNote encryptionKey={encryptionKey} />}

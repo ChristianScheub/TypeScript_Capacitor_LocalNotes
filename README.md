@@ -44,28 +44,26 @@ The goal is actually to have about 90% test coverage, but due to refactorings et
 
 
 
-File                                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------------------------|---------|----------|---------|---------|-------------------
-All files                              |   98.99 |    98.11 |     100 |   98.97 |                   
- src                                   |     100 |      100 |     100 |     100 |                   
-  App.tsx                              |     100 |      100 |     100 |     100 |                   
-  index.tsx                            |     100 |      100 |     100 |     100 |                   
- src/custom_components/handleNotes     |    98.8 |      100 |     100 |   98.76 |                   
-  editNote.tsx                         |     100 |      100 |     100 |     100 |                   
-  encryptionEngine.ts                  |     100 |      100 |     100 |     100 |                   
-  getNotes.ts                          |      96 |      100 |     100 |   95.65 | 18                
-  viewNote.tsx                         |     100 |      100 |     100 |     100 |                   
- src/custom_components/notNotesRelated |   98.63 |    95.45 |     100 |   98.63 |                   
-  encryption_modal.tsx                 |     100 |      100 |     100 |     100 |                   
-  fingerprintLogic.ts                  |   97.43 |    93.75 |     100 |   97.43 | 53                
-  navBar.tsx                           |     100 |      100 |     100 |     100 |                   
- src/modules/app_configuration         |     100 |      100 |     100 |     100 |                   
-  app_texts.ts                         |     100 |      100 |     100 |     100 |                   
- src/modules/legal                     |     100 |      100 |     100 |     100 |                   
-  codeToTextParser.tsx                 |     100 |      100 |     100 |     100 |                   
-  datenschutz.tsx                      |     100 |      100 |     100 |     100 |                   
- src/modules/ui                        |     100 |      100 |     100 |     100 |                   
-  floatingBtn.tsx                      |     100 |      100 |     100 |     100 |                   
+
+File                                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------------------|---------|----------|---------|---------|-------------------
+All files                            |   40.44 |    32.55 |   38.46 |      40 |                   
+ src                                 |     100 |      100 |     100 |     100 |                   
+  App.tsx                            |     100 |      100 |     100 |     100 |                   
+ ...ustom_components/notNotesRelated |   38.23 |    27.58 |      50 |   38.23 |                   
+  fingerprintLogic.ts                |   15.21 |        0 |   16.66 |   15.21 | 6-7,16-56,66-90   
+  navBar.tsx                         |   86.36 |    66.66 |   83.33 |   86.36 | 39-44             
+ ...notNotesRelated/encryption_modal |   65.38 |    66.66 |   46.15 |   65.38 |                   
+  container-encryption-modal.tsx     |   60.86 |       50 |   36.36 |   60.86 | 34-53,64          
+  screen-encryption-modal.tsx        |     100 |      100 |     100 |     100 |                   
+ ...ponents/notNotesRelated/settings |    6.25 |        0 |       0 |    6.25 |                   
+  container_settings.tsx             |    3.84 |        0 |       0 |    3.84 | 10-57             
+  screen_settings.tsx                |   16.66 |        0 |       0 |   16.66 | 24-55             
+ src/modules/app_configuration       |     100 |      100 |     100 |     100 |                   
+  app_texts.ts                       |     100 |      100 |     100 |     100 |                   
+ src/modules/legal                   |     100 |      100 |     100 |     100 |                   
+  datenschutz.tsx                    |     100 |      100 |     100 |     100 |                   
+  impressum.tsx                      |     100 |      100 |     100 |     100 |                   
 
 
 ## Architecture

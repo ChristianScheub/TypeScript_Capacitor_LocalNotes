@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Navbar, Container, Button, Form, FormControl } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { FaInfoCircle, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+import { MdOutlineSettings } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa";
 
@@ -17,7 +18,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
     location.pathname.split("/")[location.pathname.split("/").length - 1];
 
   const handleImpressumClick = () => {
-    navigate("/datenschutz");
+    navigate("/settings");
   };
 
   const handleBackClick = () => {
@@ -46,9 +47,11 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
 
   const showBackButton =
     location.pathname.includes("/datenschutz") ||
+    location.pathname.includes("/impressum") ||
+    location.pathname.includes("/settings") ||
     location.pathname.includes("/edit");
 
-    const showDeleteBtn =! location.pathname.includes("/datenschutz");
+    const showDeleteBtn = location.pathname.includes("/edit");
 
   return (
     <Navbar
@@ -124,7 +127,7 @@ const NavBar: React.FC<NavBarProps> = ({ setSearchQuery }) => {
           onClick={handleImpressumClick}
           style={{ height: "2em" }}
         >
-          <FaInfoCircle size="1.5em" />
+          <MdOutlineSettings size="1.5em" />
         </Button>
       </Container>
     </Navbar>
