@@ -55,5 +55,9 @@
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<string>YES</string>
+	<key>UIFileSharingEnabled</key>
+    <true/> 
 </dict>
 </plist>

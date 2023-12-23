@@ -39,7 +39,9 @@ const EditNoteView: React.FC<EditNoteViewProps> = ({
             type="text"
             value={noteTitle}
             data-testid="noteTitleTest"
+            placeholder='Titel'
             onChange={(e) => setNoteTitle(e.target.value)}
+            className="white-placeholder"
             style={{
               backgroundColor: 'transparent',
               border: 'none',
@@ -80,6 +82,8 @@ const EditNoteView: React.FC<EditNoteViewProps> = ({
             rows={5}
             value={noteContent}
             data-testid="noteTextTest"
+            className="white-placeholder"
+            placeholder='Text der Notiz...'
             onChange={(e) => setNoteContent(e.target.value)}
             style={{
               backgroundColor: '#1D1B20',

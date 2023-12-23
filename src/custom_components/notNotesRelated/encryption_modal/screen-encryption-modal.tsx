@@ -58,8 +58,9 @@ const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
             <Form.Control
               ref={inputRef}
               type="password"
-              placeholder="Password"
+              placeholder="Passwort"
               data-testid="password-input"
+              className="white-placeholder"
               required
               style={{
                 borderRadius: "10px",

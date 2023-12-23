@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { NavigateFunction } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 interface SettingsProps {
   showFingerprintBtn: boolean;
@@ -11,6 +12,9 @@ interface SettingsProps {
   onDeleteBiometryClick: () => void;
   onDatenschutzClick: (navigate: NavigateFunction) => void;
   onImpressumClick: (navigate: NavigateFunction) => void;
+  onExportAllClick: () => void;
+  onFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onDeleteNotesClick: () => void;
 }
 
 const SettingsView: React.FC<SettingsProps> = ({
@@ -19,6 +23,9 @@ const SettingsView: React.FC<SettingsProps> = ({
   onDeleteBiometryClick,
   onDatenschutzClick,
   onImpressumClick,
+  onExportAllClick,
+  onFileChange,
+  onDeleteNotesClick,
 }) => {
   const navigate = useNavigate();
 
@@ -45,6 +52,27 @@ const SettingsView: React.FC<SettingsProps> = ({
           <p onClick={() => onDeleteAllClick(showFingerprintBtn, navigate)}>
             Alle Daten löschen
           </p>
+          <hr />
+          <p onClick={() => onDeleteNotesClick()}>Alle Notizen löschen</p>
+          <hr />
+          <p onClick={() => onExportAllClick()}>Alle Notizen exportieren</p>
+          <hr />
+
+          <p>Notizen importieren</p>
+
+          <label htmlFor="file-input">
+            <input
+              accept="*"
+              id="file-input"
+              multiple
+              type="file"
+              style={{ display: "none" }}
+              onChange={onFileChange}
+            />
+            <Button variant="contained" color="primary" component="span">
+              Datei auswählen
+            </Button>
+          </label>
           <hr />
           <br />
           <h1>Informationen</h1>
