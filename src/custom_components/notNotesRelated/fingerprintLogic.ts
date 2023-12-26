@@ -4,7 +4,7 @@ import { Device } from "@capacitor/device";
 
 const getDeviceIdHash = async (): Promise<string> => {
   const info = await Device.getId();
-  return CryptoJS.SHA256(info.identifier).toString();
+  return CryptoJS.SHA256(info.identifier+"LocalNotesSecure").toString();
 };
 
 export const getPasswordFromFingerprint = async (
@@ -49,7 +49,7 @@ export const getPasswordFromFingerprint = async (
 
     onPasswordRetrieved(decryptedPassword);
   } catch (e) {
-    console.log(e);
+    //console.log(e);
     if (e instanceof Error && e.message === "No credentials found"||e) {
       onEmptyPassword();
     } else {
@@ -75,8 +75,6 @@ export const storePasswordFromFingerprint = async (
       onError("Biometrische Authentifizierung nicht verfügbar.");
       return;
     }
-    console.log("Passwort wird nun gespeichert")
-    console.log(password);
 
     const hashedDeviceId = await getDeviceIdHash();
     await NativeBiometric.setCredentials({

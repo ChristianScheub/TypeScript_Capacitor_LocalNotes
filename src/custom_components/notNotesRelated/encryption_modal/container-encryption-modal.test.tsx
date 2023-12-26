@@ -65,21 +65,25 @@ describe("<EncryptionKeyModal />", () => {
   });
 
   it("renders without crashing", () => {
-    render(
-      <Router>
-        <EncryptionKeyModalContainer onSubmit={() => {}} />
-      </Router>
-    );
+    act(() => {
+      render(
+        <Router>
+          <EncryptionKeyModalContainer onSubmit={() => {}} />
+        </Router>
+      );
+    });
     expect(screen.getByText("Passwort eingeben")).toBeInTheDocument();
   });
 
   it("submits the form with the entered encryption key", () => {
     const onSubmitMock = jest.fn();
-    render(
-      <Router>
-        <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
-      </Router>
-    );
+    act(() => {
+      render(
+        <Router>
+          <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
+        </Router>
+      );
+    });
     const input = screen.getByTestId("password-input");
     fireEvent.change(input, { target: { value: "test123" } });
     fireEvent.click(screen.getByText("Weiter"));
@@ -87,11 +91,13 @@ describe("<EncryptionKeyModal />", () => {
   });
 
   it("navigates to privacy policy page on privacy button click", async () => {
-    render(
-      <Router>
-        <EncryptionKeyModalContainer onSubmit={() => {}} />
-      </Router>
-    );
+    act(() => {
+      render(
+        <Router>
+          <EncryptionKeyModalContainer onSubmit={() => {}} />
+        </Router>
+      );
+    });
     await waitFor(() => {
       const privacyButtons = screen.queryAllByTestId("floating-btn");
       const privacyButton1 = privacyButtons[1];
@@ -105,11 +111,13 @@ describe("<EncryptionKeyModal />", () => {
 
   it("handles fingerprint authentication success", async () => {
     const onSubmitMock = jest.fn();
-    render(
-      <Router>
-        <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
-      </Router>
-    );
+    act(() => {
+      render(
+        <Router>
+          <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
+        </Router>
+      );
+    });
 
     const privacyButtons = screen.queryAllByTestId("floating-btn");
     fireEvent.click(privacyButtons[0]);
@@ -127,11 +135,13 @@ describe("<EncryptionKeyModal />", () => {
       onError(errorMessage);
     });
 
-    render(
-      <Router>
-        <EncryptionKeyModalContainer onSubmit={() => {}} />
-      </Router>
-    );
+    act(() => {
+      render(
+        <Router>
+          <EncryptionKeyModalContainer onSubmit={() => {}} />
+        </Router>
+      );
+    });
 
     const privacyButtons = screen.queryAllByTestId("floating-btn");
     fireEvent.click(privacyButtons[0]);
@@ -150,11 +160,13 @@ describe("<EncryptionKeyModal />", () => {
     });
 
     const onSubmitMock = jest.fn();
-    render(
-      <Router>
-        <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
-      </Router>
-    );
+    act(() => {
+      render(
+        <Router>
+          <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
+        </Router>
+      );
+    });
 
     const privacyButtons = screen.queryAllByTestId("floating-btn");
     fireEvent.click(privacyButtons[0]);
@@ -172,11 +184,13 @@ describe("<EncryptionKeyModal />", () => {
       onError(errorMessage);
     });
 
-    render(
-      <Router>
-        <EncryptionKeyModalContainer onSubmit={() => {}} />
-      </Router>
-    );
+    act(() => {
+      render(
+        <Router>
+          <EncryptionKeyModalContainer onSubmit={() => {}} />
+        </Router>
+      );
+    });
 
     const privacyButtons = screen.queryAllByTestId("floating-btn");
     fireEvent.click(privacyButtons[0]);

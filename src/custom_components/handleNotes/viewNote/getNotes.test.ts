@@ -1,6 +1,6 @@
 import { renderHook} from "@testing-library/react";
 import { encryptAndStore } from "../encryptionEngine";
-
+import { act } from "react-dom/test-utils";
 
 import getAllNotes from './getNotes';
 

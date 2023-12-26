@@ -40,13 +40,13 @@ describe("App Component", () => {
     });
   });
 
-  test("closes modal on submit", async () => {
-    encryptAndStore(
+  test("closes modal on submit and display data", async () => {
+    await encryptAndStore(
       '{"title":"TestTitel","date":"2023-12-09T20:10:56.534Z","content":"TeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTescht"}',
       mockEncryptionKey,
       "1"
     );
-    encryptAndStore(
+    await encryptAndStore(
       '{"title":"second","date":"2023-12-09T20:10:56.534Z","content":"zwei"}',
       mockEncryptionKey,
       "2"

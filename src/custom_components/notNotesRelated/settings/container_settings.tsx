@@ -6,6 +6,7 @@ import { availableBiometric } from "../fingerprintLogic";
 import { Filesystem, Directory } from "@capacitor/filesystem";
 import { Share } from "@capacitor/share";
 import { Capacitor } from "@capacitor/core";
+import { makeReadyForExport,makeReadyForImport } from "../../handleNotes/encryptionEngine";
 
 const SettingsContainer: React.FC = () => {
   const handleImpressumClick = (navigate: NavigateFunction) => {
@@ -41,7 +42,7 @@ const SettingsContainer: React.FC = () => {
             server: "www.LocalNotes.com",
           });
         } catch (error) {
-          console.log("Fehler beim Löschen der Credentials", error);
+          //console.log("Fehler beim Löschen der Credentials", error);
         }
       }
       navigate("/");
@@ -79,8 +80,11 @@ const SettingsContainer: React.FC = () => {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key !== null) {
-        const value = localStorage.getItem(key);
-        notes += `${key}\n ${value}\n`;
+        const item = localStorage.getItem(key);
+        if (item !== null) {
+          const value = makeReadyForExport(item);
+          notes += `${key}\n ${value}\n`;
+        }
       }
     }
 
@@ -134,6 +138,7 @@ const SettingsContainer: React.FC = () => {
             const key = lines[i];
             let value = lines[i + 1] ?? "";
             value = value.substring(1);
+            value = await makeReadyForImport(value);
             if (key) {
               localStorage.setItem(key, value);
             }

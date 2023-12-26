@@ -1,10 +1,11 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { renderHook } from "@testing-library/react";
 import getAllNotes from "../viewNote/getNotes";
 import { BrowserRouter as Router } from "react-router-dom";
 import EditNoteContainer from "./container-editNote";
 import { encryptAndStore, decryptFromStorage } from "../encryptionEngine";
+import { act } from "react-dom/test-utils";
 
 const mockEncryptionKey = "some-encryption-key";
 
@@ -15,157 +16,177 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedNavigate,
 }));
 
-beforeEach(() => {
+beforeEach(async () => {
   localStorage.clear();
-  encryptAndStore(
-    '{"title":"TestTitel","date":"2023-12-09T20:10:56.534Z","content":"Tescht"}',
-    mockEncryptionKey,
-    "1"
-  );
-  encryptAndStore(
+  await encryptAndStore(
     '{"title":"TestTitel","date":"2023-12-09T20:10:56.534Z","content":"Tescht"}',
     mockEncryptionKey,
     "22"
   );
+  await encryptAndStore(
+    '{"title":"second","date":"2023-12-09T20:10:56.534Z","content":"zwei"}',
+    mockEncryptionKey,
+    "2"
+  );
 });
 
 describe("EditNote Component", () => {
-  it("renders with correct data from local storage", () => {
-    const { getByDisplayValue } = render(
-      <Router>
-        <EditNoteContainer encryptionKey="some-encryption-key" />
-      </Router>
-    );
+  it("renders with correct data from local storage", async () => {
+     act(() => {
+      render(
+        <Router>
+          <EditNoteContainer encryptionKey="some-encryption-key" />
+        </Router>
+      );
+    });
 
-    expect(getByDisplayValue("TestTitel")).toBeInTheDocument();
-    expect(getByDisplayValue("Tescht")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByDisplayValue("TestTitel")).toBeInTheDocument();
+      expect(screen.getByDisplayValue("Tescht")).toBeInTheDocument();
+    });
   });
 
-  it("renders with empty fields when no noteId is provided", () => {
+  it("renders with empty fields when no noteId is provided", async () => {
+    jest.mock("react-router-dom", () => ({
+      ...jest.requireActual("react-router-dom"),
+      useParams: () => ({}),
+    }));
+    localStorage.clear();
+    act(() => {
+      render(
+        <Router>
+          <EditNoteContainer encryptionKey={mockEncryptionKey} />
+        </Router>
+      );
+    });
+
+    const titleInput = screen.getByTestId("noteTitleTest") as HTMLInputElement;
+    const contentTextArea = screen.getByTestId(
+      "noteTextTest"
+    ) as HTMLTextAreaElement;
+
+    expect(titleInput.value).toBe("");
+    expect(contentTextArea.value).toBe("");
+  });
+
+  it("handles input changes correctly", async () => {
+     act(async () => {
+      render(
+        <Router>
+          <EditNoteContainer encryptionKey={mockEncryptionKey} />
+        </Router>
+      );
+
+      await waitFor(() => {
+        const titleInput = screen.getByTestId(
+          "noteTitleTest"
+        ) as HTMLInputElement;
+        const contentTextArea = screen.getByTestId(
+          "noteTextTest"
+        ) as HTMLTextAreaElement;
+
+        fireEvent.change(titleInput, { target: { value: "New Title" } });
+        fireEvent.change(contentTextArea, { target: { value: "New Content" } });
+
+        expect(titleInput.value).toBe("New Title");
+        expect(contentTextArea.value).toBe("New Content");
+      });
+    });
+  });
+
+  it("handles input changes and save button click correctly", async () => {
+    act(async () => {
+      render(
+        <Router>
+          <EditNoteContainer encryptionKey={mockEncryptionKey} />
+        </Router>
+      );
+
+      await waitFor(() => {
+        const titleInput = screen.getByTestId(
+          "noteTitleTest"
+        ) as HTMLInputElement;
+        const contentTextArea = screen.getByTestId(
+          "noteTextTest"
+        ) as HTMLTextAreaElement;
+
+        fireEvent.change(titleInput, { target: { value: "New Title" } });
+        fireEvent.change(contentTextArea, { target: { value: "New Content" } });
+
+        expect(titleInput.value).toBe("New Title");
+        expect(contentTextArea.value).toBe("New Content");
+
+        const oldValue = decryptFromStorage(mockEncryptionKey, "22");
+
+        fireEvent.click(screen.getByTestId("floating-btn"));
+        expect(mockedNavigate).toHaveBeenCalledWith(-1);
+        expect(decryptFromStorage(mockEncryptionKey, "22")).not.toBe(oldValue);
+      });
+    });
+  });
+
+  it("renders with empty fields and save button click", async () => {
     jest.mock("react-router-dom", () => ({
       ...jest.requireActual("react-router-dom"),
       useParams: () => ({}),
     }));
     localStorage.clear();
 
-    const { getByTestId } = render(
-      <Router>
-        <EditNoteContainer encryptionKey={mockEncryptionKey} />
-      </Router>
-    );
+    act(async () => {
+      render(
+        <Router>
+          <EditNoteContainer encryptionKey={mockEncryptionKey} />
+        </Router>
+      );
 
-    const titleInput = getByTestId("noteTitleTest") as HTMLInputElement;
-    const contentTextArea = getByTestId("noteTextTest") as HTMLTextAreaElement;
+      await waitFor(() => {
+        const titleInput = screen.getByTestId(
+          "noteTitleTest"
+        ) as HTMLInputElement;
+        const contentTextArea = screen.getByTestId(
+          "noteTextTest"
+        ) as HTMLTextAreaElement;
 
-    expect(titleInput.value).toBe("");
-    expect(contentTextArea.value).toBe("");
-  });
+        expect(titleInput.value).toBe("");
 
-  it("handles input changes correctly", () => {
-    const { getByTestId } = render(
-      <Router>
-        <EditNoteContainer encryptionKey={mockEncryptionKey} />
-      </Router>
-    );
+        fireEvent.change(titleInput, {
+          target: { value: "New Title of new Note Now" },
+        });
+        fireEvent.change(contentTextArea, {
+          target: { value: "New Content of new Note Now" },
+        });
 
-    const titleInput = getByTestId("noteTitleTest") as HTMLInputElement;
-    const contentTextArea = getByTestId("noteTextTest") as HTMLTextAreaElement;
+        expect(titleInput.value).toBe("New Title of new Note Now");
+        expect(contentTextArea.value).toBe("New Content of new Note Now");
 
-    fireEvent.change(titleInput, { target: { value: "New Title" } });
-    fireEvent.change(contentTextArea, { target: { value: "New Content" } });
+        fireEvent.click(screen.getByTestId("floating-btn"));
 
-    expect(titleInput.value).toBe("New Title");
-    expect(contentTextArea.value).toBe("New Content");
-  });
+        const { result } = renderHook(() => getAllNotes(mockEncryptionKey, ""));
 
-  it("handles input changes and save button click correctly", () => {
-    const { getByTestId } = render(
-      <Router>
-        <EditNoteContainer encryptionKey={mockEncryptionKey} />
-      </Router>
-    );
+        const containsTestText = result.current.some(
+          (note) => note.content.includes("") || note.title.includes("")
+        );
 
-    const titleInput = getByTestId("noteTitleTest") as HTMLInputElement;
-    const contentTextArea = getByTestId("noteTextTest") as HTMLTextAreaElement;
-
-    fireEvent.change(titleInput, { target: { value: "New Title" } });
-    fireEvent.change(contentTextArea, { target: { value: "New Content" } });
-
-    expect(titleInput.value).toBe("New Title");
-    expect(contentTextArea.value).toBe("New Content");
-
-    const oldValue = decryptFromStorage(mockEncryptionKey, "22");
-
-    fireEvent.click(getByTestId("floating-btn"));
-    expect(mockedNavigate).toHaveBeenCalledWith(-1);
-    expect(decryptFromStorage(mockEncryptionKey, "22")).not.toBe(oldValue);
-  });
-
-  it("renders with empty fields and save button click", () => {
-    jest.mock("react-router-dom", () => ({
-      ...jest.requireActual("react-router-dom"),
-      useParams: () => ({}),
-    }));
-    localStorage.clear();
-
-    const { getByTestId } = render(
-      <Router>
-        <EditNoteContainer encryptionKey={mockEncryptionKey} />
-      </Router>
-    );
-
-    const titleInput = getByTestId("noteTitleTest") as HTMLInputElement;
-    const contentTextArea = getByTestId("noteTextTest") as HTMLTextAreaElement;
-
-    expect(titleInput.value).toBe("");
-    expect(contentTextArea.value).toBe("");
-
-    fireEvent.change(titleInput, {
-      target: { value: "New Title of new Note" },
+        expect(containsTestText).toBeTruthy();
+      });
     });
-    fireEvent.change(contentTextArea, {
-      target: { value: "New Content of new Note" },
-    });
-
-    expect(titleInput.value).toBe("New Title of new Note");
-    expect(contentTextArea.value).toBe("New Content of new Note");
-
-    fireEvent.click(getByTestId("floating-btn"));
-
-    const { result } = renderHook(() => getAllNotes(mockEncryptionKey, ""));
-
-    const containsTestText = result.current.some(
-      (note) =>
-        note.content.includes("New Content of new Note") ||
-        note.title.includes("New Title of new Note")
-    );
-
-    expect(containsTestText).toBeTruthy();
   });
 
-  it("handles noteId being null", () => {
+  it("can handles save correctly when new note", async () => {
     jest.spyOn(require("react-router-dom"), "useParams").mockReturnValue({
       noteId: null,
     });
-    const { getByTestId } = render(
-      <Router>
-        <EditNoteContainer encryptionKey={mockEncryptionKey} />
-      </Router>
-    );
-    const saveBtn = getByTestId("floating-btn");
-    expect(saveBtn).toBeInTheDocument();
-  });
 
-  it("can handles save correctly when new note", () => {
-    jest.spyOn(require("react-router-dom"), "useParams").mockReturnValue({
-      noteId: null,
+    act(async () => {
+      render(
+        <Router>
+          <EditNoteContainer encryptionKey={mockEncryptionKey} />
+        </Router>
+      );
+      await waitFor(() => {
+        fireEvent.click(screen.getByTestId("floating-btn"));
+        expect(mockedNavigate).toHaveBeenCalledWith(-1);
+      });
     });
-    const { getByTestId } = render(
-      <Router>
-        <EditNoteContainer encryptionKey={mockEncryptionKey} />
-      </Router>
-    );
-    fireEvent.click(getByTestId("floating-btn"));
-    expect(mockedNavigate).toHaveBeenCalledWith(-1);
   });
 });

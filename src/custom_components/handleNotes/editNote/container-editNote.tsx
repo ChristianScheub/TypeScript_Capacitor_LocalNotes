@@ -16,17 +16,23 @@ const EditNoteContainer: React.FC<EditNoteContainerProps> = ({ encryptionKey }) 
   const [noteContent, setNoteContent] = useState('');
 
   useEffect(() => {
-    if (noteId) {
-      try {
-        const decryptedContent = decryptFromStorage(encryptionKey, noteId);
-        const noteData = JSON.parse(decryptedContent);
-        setNoteTitle(noteData.title);
-        setNoteDate(new Date(noteData.date));
-        setNoteContent(noteData.content);
-      } catch (error) {
+    const loadAndDecryptNote = async () => {
+      if (noteId) {
+        try {
+          const decryptedContent = await decryptFromStorage(encryptionKey, noteId);
+          const noteData = JSON.parse(decryptedContent);
+          setNoteTitle(noteData.title);
+          setNoteDate(new Date(noteData.date));
+          setNoteContent(noteData.content);
+        } catch (error) {
+          //console.error('Fehler beim Laden und Entschlüsseln der Notiz:', error);
+        }
       }
-    }
-  }, [noteId, encryptionKey]);
+    };
+  
+    loadAndDecryptNote();
+  }, [noteId, encryptionKey]); 
+  
 
   const handleSave = () => {
     const noteData = {
