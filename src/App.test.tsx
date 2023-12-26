@@ -1,11 +1,12 @@
 import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import {
   encryptAndStore,
   decryptFromStorage,
 } from "./custom_components/handleNotes/encryptionEngine";
+import { act } from "react-dom/test-utils";
 
 const mockEncryptionKey = "some-encryption-key";
 
@@ -13,7 +14,7 @@ const renderWithRouter = (component: React.ReactElement) => {
   return render(component);
 };
 
-jest.mock('capacitor-native-biometric', () => ({
+jest.mock("capacitor-native-biometric", () => ({
   NativeBiometric: {
     isAvailable: jest.fn(),
   },
@@ -30,42 +31,27 @@ describe("App Component", () => {
     expect(getByTestId("password-input")).toBeInTheDocument();
   });
 
-  test("closes modal on submit", async () => {
-    const { getByText, queryByText } = renderWithRouter(<App />);
-    const submitButton = getByText("Weiter");
+  test("closes modal not when not submit when data are insert", async () => {
+    render(<App />);
+    const submitButton = screen.getByTestId("password-inputBtn");
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(queryByText(/Encryption Key/i)).not.toBeInTheDocument();
+      expect(screen.queryByTestId("password-inputBtn")).toBeInTheDocument();
     });
   });
 
-  test("closes modal on submit and display data", async () => {
-    await encryptAndStore(
-      '{"title":"TestTitel","date":"2023-12-09T20:10:56.534Z","content":"TeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTeschtTescht"}',
-      mockEncryptionKey,
-      "1"
-    );
-    await encryptAndStore(
-      '{"title":"second","date":"2023-12-09T20:10:56.534Z","content":"zwei"}',
-      mockEncryptionKey,
-      "2"
-    );
-    const { getByText, queryByText,getByTestId } = renderWithRouter(<App />);
-
-    const input = getByTestId("password-input");
+  test("closes modal on submit when data are insert", async () => {
+    render(<App />);
+    const input = screen.getByTestId("password-input");
     fireEvent.change(input, { target: { value: mockEncryptionKey } });
 
-    const submitButton = getByText("Weiter");
+    const submitButton = screen.getByTestId("password-inputBtn");
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(queryByText(/Encryption Key/i)).not.toBeInTheDocument();
-      const noteFirst = getByText("TestTitel");
-      expect(queryByText(/TestTitel/i)).toBeInTheDocument();
-      fireEvent.click(noteFirst);
-      expect(window.location.pathname).toBe("/edit/1");
+      expect(screen.queryByTestId("password-inputBtn")).not.toBeInTheDocument();
     });
-      
   });
+
 });

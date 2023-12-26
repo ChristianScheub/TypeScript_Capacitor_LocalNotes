@@ -73,6 +73,7 @@ const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
           <br />
           <Button
             onClick={handleKeySubmit}
+            data-testid="password-inputBtn"
             style={{
               width: "100%",
               padding: "10px",
