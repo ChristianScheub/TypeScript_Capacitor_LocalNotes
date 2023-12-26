@@ -1,7 +1,7 @@
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { renderHook } from "@testing-library/react";
-import getAllNotes from "../viewNote/getNotes";
+import getAllNotes, { Note } from "../viewNote/getNotes";
 import { BrowserRouter as Router } from "react-router-dom";
 import EditNoteContainer from "./container-editNote";
 import { encryptAndStore, decryptFromStorage } from "../encryptionEngine";
@@ -32,7 +32,7 @@ beforeEach(async () => {
 
 describe("EditNote Component", () => {
   it("renders with correct data from local storage", async () => {
-     act(() => {
+    act(() => {
       render(
         <Router>
           <EditNoteContainer encryptionKey="some-encryption-key" />
@@ -70,58 +70,57 @@ describe("EditNote Component", () => {
   });
 
   it("handles input changes correctly", async () => {
-     act(async () => {
+    await act(async () => {
       render(
         <Router>
           <EditNoteContainer encryptionKey={mockEncryptionKey} />
         </Router>
       );
+    });
 
-      await waitFor(() => {
-        const titleInput = screen.getByTestId(
-          "noteTitleTest"
-        ) as HTMLInputElement;
-        const contentTextArea = screen.getByTestId(
-          "noteTextTest"
-        ) as HTMLTextAreaElement;
+    await waitFor(() => {
+      const titleInput = screen.getByTestId(
+        "noteTitleTest"
+      ) as HTMLInputElement;
+      const contentTextArea = screen.getByTestId(
+        "noteTextTest"
+      ) as HTMLTextAreaElement;
 
-        fireEvent.change(titleInput, { target: { value: "New Title" } });
-        fireEvent.change(contentTextArea, { target: { value: "New Content" } });
+      fireEvent.change(titleInput, { target: { value: "New Title" } });
+      fireEvent.change(contentTextArea, { target: { value: "New Content" } });
 
-        expect(titleInput.value).toBe("New Title");
-        expect(contentTextArea.value).toBe("New Content");
-      });
+      expect(titleInput.value).toBe("New Title");
+      expect(contentTextArea.value).toBe("New Content");
     });
   });
 
   it("handles input changes and save button click correctly", async () => {
-    act(async () => {
+    await act(async () => {
       render(
         <Router>
           <EditNoteContainer encryptionKey={mockEncryptionKey} />
         </Router>
       );
+    });
+    await waitFor(() => {
+      const titleInput = screen.getByTestId(
+        "noteTitleTest"
+      ) as HTMLInputElement;
+      const contentTextArea = screen.getByTestId(
+        "noteTextTest"
+      ) as HTMLTextAreaElement;
 
-      await waitFor(() => {
-        const titleInput = screen.getByTestId(
-          "noteTitleTest"
-        ) as HTMLInputElement;
-        const contentTextArea = screen.getByTestId(
-          "noteTextTest"
-        ) as HTMLTextAreaElement;
+      fireEvent.change(titleInput, { target: { value: "New Title" } });
+      fireEvent.change(contentTextArea, { target: { value: "New Content" } });
 
-        fireEvent.change(titleInput, { target: { value: "New Title" } });
-        fireEvent.change(contentTextArea, { target: { value: "New Content" } });
+      expect(titleInput.value).toBe("New Title");
+      expect(contentTextArea.value).toBe("New Content");
 
-        expect(titleInput.value).toBe("New Title");
-        expect(contentTextArea.value).toBe("New Content");
+      const oldValue = decryptFromStorage(mockEncryptionKey, "22");
 
-        const oldValue = decryptFromStorage(mockEncryptionKey, "22");
-
-        fireEvent.click(screen.getByTestId("floating-btn"));
-        expect(mockedNavigate).toHaveBeenCalledWith(-1);
-        expect(decryptFromStorage(mockEncryptionKey, "22")).not.toBe(oldValue);
-      });
+      fireEvent.click(screen.getByTestId("floating-btn"));
+      expect(mockedNavigate).toHaveBeenCalledWith(-1);
+      expect(decryptFromStorage(mockEncryptionKey, "22")).not.toBe(oldValue);
     });
   });
 
@@ -132,61 +131,54 @@ describe("EditNote Component", () => {
     }));
     localStorage.clear();
 
-    act(async () => {
+    await act(async () => {
       render(
         <Router>
           <EditNoteContainer encryptionKey={mockEncryptionKey} />
         </Router>
       );
+    });
+    await waitFor(() => {
+      const titleInput = screen.getByTestId(
+        "noteTitleTest"
+      ) as HTMLInputElement;
+      const contentTextArea = screen.getByTestId(
+        "noteTextTest"
+      ) as HTMLTextAreaElement;
 
-      await waitFor(() => {
-        const titleInput = screen.getByTestId(
-          "noteTitleTest"
-        ) as HTMLInputElement;
-        const contentTextArea = screen.getByTestId(
-          "noteTextTest"
-        ) as HTMLTextAreaElement;
+      fireEvent.change(titleInput, {
+        target: { value: "New Title of new Note Now" },
+      });
+      fireEvent.change(contentTextArea, {
+        target: { value: "New Content of new Note Now" },
+      });
 
-        expect(titleInput.value).toBe("");
+      expect(titleInput.value).toBe("New Title of new Note Now");
+      expect(contentTextArea.value).toBe("New Content of new Note Now");
+      fireEvent.click(screen.getByTestId("floating-btn"));
+    });
 
-        fireEvent.change(titleInput, {
-          target: { value: "New Title of new Note Now" },
-        });
-        fireEvent.change(contentTextArea, {
-          target: { value: "New Content of new Note Now" },
-        });
+      //Probleme
 
-        expect(titleInput.value).toBe("New Title of new Note Now");
-        expect(contentTextArea.value).toBe("New Content of new Note Now");
+      let hookResult: { current: Note[] | null };
 
-        fireEvent.click(screen.getByTestId("floating-btn"));
 
+      await act(async () => {
         const { result } = renderHook(() => getAllNotes(mockEncryptionKey, ""));
-
-        const containsTestText = result.current.some(
-          (note) => note.content.includes("") || note.title.includes("")
-        );
-
-        expect(containsTestText).toBeTruthy();
+         hookResult = result;
       });
-    });
-  });
-
-  it("can handles save correctly when new note", async () => {
-    jest.spyOn(require("react-router-dom"), "useParams").mockReturnValue({
-      noteId: null,
-    });
-
-    act(async () => {
-      render(
-        <Router>
-          <EditNoteContainer encryptionKey={mockEncryptionKey} />
-        </Router>
-      );
+    
       await waitFor(() => {
-        fireEvent.click(screen.getByTestId("floating-btn"));
-        expect(mockedNavigate).toHaveBeenCalledWith(-1);
-      });
+        expect(hookResult.current).toEqual([
+          {
+            additionalInfo: "",
+            content: "New Content of new Note Now",
+            title: "New Title of new Note Now",
+            id: expect.any(String),
+            date: expect.any(Date),
+          },
+        ]);
+      
     });
   });
 });

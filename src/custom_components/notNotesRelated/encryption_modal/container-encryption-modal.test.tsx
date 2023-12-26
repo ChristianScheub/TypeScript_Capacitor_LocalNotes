@@ -43,7 +43,6 @@ jest.mock("../fingerprintLogic", () => ({
 }));
 
 beforeEach(() => {
-  // Setzen Sie den Mock, um immer true zurückzugeben
   (fingerprintLogic.availableBiometric as jest.Mock).mockResolvedValue(true);
 });
 
@@ -64,34 +63,38 @@ describe("<EncryptionKeyModal />", () => {
     });
   });
 
-  it("renders without crashing", () => {
-    act(() => {
+  it("renders without crashing", async () => {
+    await act(async () => {
       render(
         <Router>
           <EncryptionKeyModalContainer onSubmit={() => {}} />
         </Router>
       );
     });
-    expect(screen.getByText("Passwort eingeben")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText("Passwort eingeben")).toBeInTheDocument();
+    });
   });
 
-  it("submits the form with the entered encryption key", () => {
+  it("submits the form with the entered encryption key", async () => {
     const onSubmitMock = jest.fn();
-    act(() => {
+    await act(async () => {
       render(
         <Router>
           <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
         </Router>
       );
     });
-    const input = screen.getByTestId("password-input");
-    fireEvent.change(input, { target: { value: "test123" } });
-    fireEvent.click(screen.getByText("Weiter"));
-    expect(onSubmitMock).toHaveBeenCalledWith("test123");
+    await waitFor(() => {
+      const input = screen.getByTestId("password-input");
+      fireEvent.change(input, { target: { value: "test123" } });
+      fireEvent.click(screen.getByText("Weiter"));
+      expect(onSubmitMock).toHaveBeenCalledWith("test123");
+    });
   });
 
   it("navigates to privacy policy page on privacy button click", async () => {
-    act(() => {
+    await act(async () => {
       render(
         <Router>
           <EncryptionKeyModalContainer onSubmit={() => {}} />
@@ -111,14 +114,13 @@ describe("<EncryptionKeyModal />", () => {
 
   it("handles fingerprint authentication success", async () => {
     const onSubmitMock = jest.fn();
-    act(() => {
+    await act(async () => {
       render(
         <Router>
           <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
         </Router>
       );
     });
-
     const privacyButtons = screen.queryAllByTestId("floating-btn");
     fireEvent.click(privacyButtons[0]);
 
@@ -135,7 +137,7 @@ describe("<EncryptionKeyModal />", () => {
       onError(errorMessage);
     });
 
-    act(() => {
+    await act(async () => {
       render(
         <Router>
           <EncryptionKeyModalContainer onSubmit={() => {}} />
@@ -143,10 +145,9 @@ describe("<EncryptionKeyModal />", () => {
       );
     });
 
-    const privacyButtons = screen.queryAllByTestId("floating-btn");
-    fireEvent.click(privacyButtons[0]);
-
     await waitFor(() => {
+      const privacyButtons = screen.queryAllByTestId("floating-btn");
+      fireEvent.click(privacyButtons[0]);
       expect(window.alert).toHaveBeenCalledWith(errorMessage);
     });
   });
@@ -160,7 +161,7 @@ describe("<EncryptionKeyModal />", () => {
     });
 
     const onSubmitMock = jest.fn();
-    act(() => {
+    await act(async () => {
       render(
         <Router>
           <EncryptionKeyModalContainer onSubmit={onSubmitMock} />
@@ -168,10 +169,9 @@ describe("<EncryptionKeyModal />", () => {
       );
     });
 
-    const privacyButtons = screen.queryAllByTestId("floating-btn");
-    fireEvent.click(privacyButtons[0]);
-
     await waitFor(() => {
+      const privacyButtons = screen.queryAllByTestId("floating-btn");
+      fireEvent.click(privacyButtons[0]);
       expect(onSubmitMock).toHaveBeenCalledWith(mockPassword);
     });
   });
@@ -184,7 +184,7 @@ describe("<EncryptionKeyModal />", () => {
       onError(errorMessage);
     });
 
-    act(() => {
+    await act(async () => {
       render(
         <Router>
           <EncryptionKeyModalContainer onSubmit={() => {}} />
@@ -192,10 +192,9 @@ describe("<EncryptionKeyModal />", () => {
       );
     });
 
-    const privacyButtons = screen.queryAllByTestId("floating-btn");
-    fireEvent.click(privacyButtons[0]);
-
     await waitFor(() => {
+      const privacyButtons = screen.queryAllByTestId("floating-btn");
+      fireEvent.click(privacyButtons[0]);
       expect(window.alert).toHaveBeenCalledWith(errorMessage);
     });
   });

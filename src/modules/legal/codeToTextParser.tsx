@@ -18,7 +18,7 @@ export const codeToTextParser: React.FC<ParseContentProps> = ({ code }) => {
           elements.push(before);
         }
         const text = match[1];
-        elements.push(<strong key={index}>{text}</strong>);
+        elements.push(<strong key={currentIndex}>{text}</strong>);
         currentIndex = match.index + match[0].length;
         match = boldRegex.exec(line);
       }
