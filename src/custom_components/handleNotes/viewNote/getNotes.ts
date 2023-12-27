@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { decryptFromStorage } from "../encryptionEngine";
+import { useLocation } from 'react-router-dom';
 
 interface Note {
   id: string;
@@ -21,6 +22,7 @@ const isJsonString = (str: string): boolean => {
 
 const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
   const [notes, setNotes] = useState<Note[]>([]);
+  const location = useLocation(); 
 
   useEffect(() => {
     const loadAndDecryptNotes = async () => {
@@ -53,7 +55,7 @@ const useAllNotes = (encryptionKey: string, searchQuery: string): Note[] => {
       setNotes(filteredNotes);
     };
     loadAndDecryptNotes();
-  }, [encryptionKey, searchQuery]);
+  }, [encryptionKey, searchQuery,location]);
 
   return notes;
 };
