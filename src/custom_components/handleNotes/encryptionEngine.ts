@@ -63,7 +63,7 @@ export const decryptFromStorage = async (
   return decrypted;
 };
 
-const getDeviceIdHash = async (): Promise<string> => {
+export const getDeviceIdHash = async (): Promise<string> => {
   const info = await Device.getId();
   return CryptoJS.SHA256(info.identifier + "LocalNotesSecure").toString();
 };
@@ -71,21 +71,31 @@ const getDeviceIdHash = async (): Promise<string> => {
 export const makeReadyForExport = async (
   encryptedData: string
 ): Promise<string> => {
-  let decrypted = CryptoJS.AES.decrypt(
-    encryptedData,
-    await getDeviceIdHash()
+  let decryptedDateWithDeviceId = "";
+  try {
+    decryptedDateWithDeviceId = CryptoJS.TripleDES.decrypt(
+      encryptedData,
+      await getDeviceIdHash()
+    ).toString(CryptoJS.enc.Utf8);
+  } catch (e) {}
+  return CryptoJS.AES.encrypt(
+    decryptedDateWithDeviceId,
+    "LocalNotesSecureExport"
   ).toString();
-  //return decrypted;
-  return CryptoJS.AES.encrypt(decrypted, "LocalNotesSecureExport").toString();
 };
 
 export const makeReadyForImport = async (
   encryptedData: string
 ): Promise<string> => {
-  let decrypted = CryptoJS.AES.decrypt(
-    encryptedData,
-    "LocalNotesSecureExport"
+  let decrypted = "";
+  try {
+    decrypted = CryptoJS.AES.decrypt(
+      encryptedData,
+      "LocalNotesSecureExport"
+    ).toString(CryptoJS.enc.Utf8);
+  } catch (e) {}
+  return CryptoJS.TripleDES.encrypt(
+    decrypted,
+    await getDeviceIdHash()
   ).toString();
-  //return decrypted;
-  return CryptoJS.AES.encrypt(decrypted, await getDeviceIdHash()).toString();
 };

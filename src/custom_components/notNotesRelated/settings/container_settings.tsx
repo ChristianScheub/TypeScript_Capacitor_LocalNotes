@@ -6,7 +6,10 @@ import { availableBiometric } from "../fingerprintLogic";
 import { Filesystem, Directory } from "@capacitor/filesystem";
 import { Share } from "@capacitor/share";
 import { Capacitor } from "@capacitor/core";
-import { makeReadyForExport,makeReadyForImport } from "../../handleNotes/encryptionEngine";
+import {
+  makeReadyForExport,
+  makeReadyForImport,
+} from "../../handleNotes/encryptionEngine";
 
 const SettingsContainer: React.FC = () => {
   const handleImpressumClick = (navigate: NavigateFunction) => {
@@ -83,11 +86,10 @@ const SettingsContainer: React.FC = () => {
         const item = localStorage.getItem(key);
         if (item !== null) {
           const value = await makeReadyForExport(item);
-          notes += `${key}\n ${value}\n `;
+          notes += ` ${key}*_*_* ${value}*_*_*`;
         }
       }
     }
-    console.log(notes);
 
     try {
       const fileName = "notes.txt";
@@ -102,18 +104,19 @@ const SettingsContainer: React.FC = () => {
         directory: Directory.Documents,
       });
 
-      const uriResult = await Filesystem.getUri({
-        directory: Directory.Documents,
-        path: fileName,
-      });
-      shareUrl = uriResult.uri;
-
       try {
+        const uriResult = await Filesystem.getUri({
+          directory: Directory.Documents,
+          path: fileName,
+        });
+        shareUrl = uriResult.uri;
+      
+
         await Share.share({
-          title: 'Teilen der Notizen',
-          text: 'Hier sind meine Notizen.',
+          title: "Teilen der Notizen",
+          text: "Hier sind meine Notizen.",
           url: uriResult.uri,
-          dialogTitle: 'Wähle eine App zum Teilen',
+          dialogTitle: "Wähle eine App zum Teilen",
         });
       } catch (shareError) {
         downloadFile(notes, fileName);
@@ -123,9 +126,9 @@ const SettingsContainer: React.FC = () => {
     }
   };
 
-  const downloadFile = (base64Data: string, fileName: string) => {
-    const blob = new Blob([base64Data], { type: 'text/plain' });
-    const link = document.createElement('a');
+   const downloadFile = (base64Data: string, fileName: string) => {
+    const blob = new Blob([base64Data], { type: "text/plain" });
+    const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
     link.download = fileName;
     document.body.appendChild(link);
@@ -146,7 +149,7 @@ const SettingsContainer: React.FC = () => {
       if (file) {
         const fileContent = await readFileContent(file);
         if (fileContent) {
-          const lines = fileContent.trim().split("\n");
+          const lines = fileContent.trim().split("*_*_*");
           for (let i = 0; i < lines.length; i += 2) {
             const key = lines[i].slice(1);
             let value = lines[i + 1] ?? "";

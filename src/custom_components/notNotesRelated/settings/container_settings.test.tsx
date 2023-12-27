@@ -9,7 +9,6 @@ import {
 import SettingsContainer from "./container_settings";
 import { MemoryRouter } from "react-router-dom";
 import { encryptAndStore } from "../../handleNotes/encryptionEngine";
-import { Filesystem, Directory } from "@capacitor/filesystem";
 import { NativeBiometric } from "capacitor-native-biometric";
 import * as fingerprintLogic from "../fingerprintLogic";
 import { act } from "react-dom/test-utils";
@@ -28,17 +27,11 @@ jest.mock("capacitor-native-biometric", () => ({
 
 jest.mock("@capacitor/filesystem", () => ({
   Filesystem: {
-    writeFile: jest.fn(),
+    writeFile: jest.fn(() => Promise.resolve({ uri: "mock-uri" })),
     getUri: jest.fn(),
   },
   Directory: {
     Documents: "Documents",
-  },
-}));
-
-jest.mock("@capacitor/share", () => ({
-  Share: {
-    share: jest.fn(),
   },
 }));
 
@@ -48,6 +41,7 @@ jest.mock("../fingerprintLogic", () => ({
   storePasswordFromFingerprint: jest.fn(),
 }));
 
+
 const renderWithRouter = (component: React.ReactElement): RenderResult => {
   return render(component, { wrapper: MemoryRouter });
 };
@@ -56,11 +50,15 @@ beforeEach(() => {
   (fingerprintLogic.availableBiometric as jest.Mock).mockResolvedValue(true);
 });
 
+
 describe("Container Settings Component", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     window.alert = jest.fn();
     jest.spyOn(window, "alert").mockImplementation(() => {});
+    global.URL.createObjectURL = jest.fn();
+    global.URL.revokeObjectURL = jest.fn();
+    global.Blob = jest.fn();
   });
 
   it("renders the settings view and initializes correctly", async () => {
@@ -107,6 +105,11 @@ describe("Container Settings Component", () => {
       renderWithRouter(<SettingsContainer />);
     });
     fireEvent.click(screen.getByText("Alle Notizen exportieren"));
-    expect(Filesystem.writeFile).toHaveBeenCalled();
+
+    await waitFor(() => {
+      expect(global.Blob).toHaveBeenCalled();
+      expect(global.URL.createObjectURL).toHaveBeenCalled();
+      expect(global.URL.revokeObjectURL).toHaveBeenCalled();
+    });
   });
 });
