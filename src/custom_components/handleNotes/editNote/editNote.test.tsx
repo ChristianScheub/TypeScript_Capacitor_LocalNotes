@@ -1,7 +1,7 @@
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { renderHook } from "@testing-library/react";
-import getAllNotes, { Note } from "../viewNote/getNotes";
+import getAllNotes from "../viewNote/getNotes";
 import { BrowserRouter as Router } from "react-router-dom";
 import EditNoteContainer from "./container-editNote";
 import { encryptAndStore, decryptFromStorage } from "../encryptionEngine";
@@ -29,6 +29,14 @@ beforeEach(async () => {
     "2"
   );
 });
+
+interface Note {
+  id: string;
+  content: string;
+  title: string;
+  date: Date;
+  additionalInfo: String;
+}
 
 describe("EditNote Component", () => {
   it("renders with correct data from local storage", async () => {

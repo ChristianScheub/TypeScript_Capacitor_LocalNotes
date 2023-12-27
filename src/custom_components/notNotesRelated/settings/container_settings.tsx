@@ -82,11 +82,12 @@ const SettingsContainer: React.FC = () => {
       if (key !== null) {
         const item = localStorage.getItem(key);
         if (item !== null) {
-          const value = makeReadyForExport(item);
-          notes += `${key}\n ${value}\n`;
+          const value = await makeReadyForExport(item);
+          notes += `${key}\n ${value}\n `;
         }
       }
     }
+    console.log(notes);
 
     try {
       const fileName = "notes.txt";
@@ -101,24 +102,36 @@ const SettingsContainer: React.FC = () => {
         directory: Directory.Documents,
       });
 
-      if (Capacitor.getPlatform() === "android") {
-        const uriResult = await Filesystem.getUri({
-          directory: Directory.Documents,
-          path: fileName,
-        });
-        shareUrl = uriResult.uri;
-      }
-
-      // Teilen der Datei
-      await Share.share({
-        title: "Teilen der Notizen",
-        text: "Hier sind meine Notizen.",
-        url: shareUrl,
-        dialogTitle: "Wähle eine App zum Teilen",
+      const uriResult = await Filesystem.getUri({
+        directory: Directory.Documents,
+        path: fileName,
       });
+      shareUrl = uriResult.uri;
+
+      try {
+        await Share.share({
+          title: 'Teilen der Notizen',
+          text: 'Hier sind meine Notizen.',
+          url: uriResult.uri,
+          dialogTitle: 'Wähle eine App zum Teilen',
+        });
+      } catch (shareError) {
+        downloadFile(notes, fileName);
+      }
     } catch (e) {
       console.error("Error during export or sharing", e);
     }
+  };
+
+  const downloadFile = (base64Data: string, fileName: string) => {
+    const blob = new Blob([base64Data], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
   };
 
   const handleFileChange = async (
@@ -135,7 +148,7 @@ const SettingsContainer: React.FC = () => {
         if (fileContent) {
           const lines = fileContent.trim().split("\n");
           for (let i = 0; i < lines.length; i += 2) {
-            const key = lines[i];
+            const key = lines[i].slice(1);
             let value = lines[i + 1] ?? "";
             value = value.substring(1);
             value = await makeReadyForImport(value);

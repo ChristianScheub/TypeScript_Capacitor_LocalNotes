@@ -49,7 +49,7 @@ const SettingsView: React.FC<SettingsProps> = ({
             </>
           )}
 
-          <p onClick={() => onDeleteAllClick(showFingerprintBtn, navigate)}>
+          <p data-testid="delete-all-button" onClick={() => onDeleteAllClick(showFingerprintBtn, navigate)} >
             Alle Daten löschen
           </p>
           <hr />

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { decryptFromStorage } from "../encryptionEngine";
 
-export interface Note {
+interface Note {
   id: string;
   content: string;
   title: string;

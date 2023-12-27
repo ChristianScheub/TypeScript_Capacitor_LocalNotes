@@ -75,6 +75,7 @@ export const makeReadyForExport = async (
     encryptedData,
     await getDeviceIdHash()
   ).toString();
+  //return decrypted;
   return CryptoJS.AES.encrypt(decrypted, "LocalNotesSecureExport").toString();
 };
 
@@ -85,5 +86,6 @@ export const makeReadyForImport = async (
     encryptedData,
     "LocalNotesSecureExport"
   ).toString();
+  //return decrypted;
   return CryptoJS.AES.encrypt(decrypted, await getDeviceIdHash()).toString();
 };

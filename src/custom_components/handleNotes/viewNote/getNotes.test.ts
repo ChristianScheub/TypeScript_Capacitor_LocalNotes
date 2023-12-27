@@ -1,9 +1,16 @@
 import { renderHook, waitFor } from "@testing-library/react";
 import { encryptAndStore } from "../encryptionEngine";
 import { act } from "react-dom/test-utils";
-import getAllNotes , {Note} from "./getNotes";
+import getAllNotes from "./getNotes";
 
 const mockEncryptionKey = "some-encryption-key";
+interface Note {
+  id: string;
+  content: string;
+  title: string;
+  date: Date;
+  additionalInfo: String;
+}
 
 describe("useNotes", () => {
   it("should load and decrypt notes correctly", async () => {
