@@ -65,7 +65,7 @@ describe("Container Settings Component", () => {
     await act(async () => {
       renderWithRouter(<SettingsContainer />);
     });
-    expect(screen.getByText("Notizen importieren")).toBeInTheDocument();
+    expect(screen.getByTestId("settings-delete-all-Notes")).toBeInTheDocument();
   });
 
   it("handles deleting biometric credentials correctly", async () => {
@@ -74,7 +74,7 @@ describe("Container Settings Component", () => {
       renderWithRouter(<SettingsContainer />);
     });
     await waitFor(async () => {
-      fireEvent.click(screen.getByText("Biometrischer Login Passwort löschen"));
+      fireEvent.click(screen.getByTestId("settings-delete-bio-login"));
       expect(NativeBiometric.deleteCredentials).toHaveBeenCalled();
     });
   });
@@ -90,7 +90,7 @@ describe("Container Settings Component", () => {
     await act(async () => {
       renderWithRouter(<SettingsContainer />);
     });
-    fireEvent.click(screen.getByText("Alle Notizen löschen"));
+    fireEvent.click(screen.getByTestId("settings-delete-all-Notes"));
     expect(localStorage.length).toBe(0);
     expect(window.confirm).toHaveBeenCalled();
   });
@@ -104,7 +104,7 @@ describe("Container Settings Component", () => {
     await act(async () => {
       renderWithRouter(<SettingsContainer />);
     });
-    fireEvent.click(screen.getByText("Alle Notizen exportieren"));
+    fireEvent.click(screen.getByTestId("settings-export-notes"));
 
     await waitFor(() => {
       expect(global.Blob).toHaveBeenCalled();

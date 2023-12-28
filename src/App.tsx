@@ -5,9 +5,10 @@ import Impressum from "./modules/legal/impressum";
 import SettingsContainer from "./custom_components/notNotesRelated/settings/container_settings";
 import EncryptionKeyModalContainer from "./custom_components/notNotesRelated/encryption_modal/container-encryption-modal";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./custom_components/notNotesRelated/navBar";
+import NavBarContainer from "./custom_components/notNotesRelated/navBar/container-navBar";
 import ViewNoteContainer from "./custom_components/handleNotes/viewNote/container-viewNote";
 import EditNoteContainer from "./custom_components/handleNotes/editNote/container-editNote";
+import './i18n';
 
 const App: React.FC = () => {
   const [encryptionKey, setEncryptionKey] = useState<string>("");
@@ -65,7 +66,7 @@ const App: React.FC = () => {
                   element={<EditNoteContainer encryptionKey={encryptionKey} />}
                 />
               </Routes>
-              <NavBar setSearchQuery={setSearchQuery} />
+              <NavBarContainer setSearchQuery={setSearchQuery} />
             </Router>
           </div>
         </div>

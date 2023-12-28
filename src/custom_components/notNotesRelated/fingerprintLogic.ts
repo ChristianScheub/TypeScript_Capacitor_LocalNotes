@@ -50,7 +50,7 @@ export const getPasswordFromFingerprint = async (
     onPasswordRetrieved(decryptedPassword);
   } catch (e) {
     //console.log(e);
-    if (e instanceof Error && e.message === "No credentials found"||e) {
+    if (e) {
       onEmptyPassword();
     } else {
       onError("Ein Fehler ist aufgetreten.");

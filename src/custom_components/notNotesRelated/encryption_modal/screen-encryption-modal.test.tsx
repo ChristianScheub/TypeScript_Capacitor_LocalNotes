@@ -12,7 +12,7 @@ describe("EncryptionKeyModalView", () => {
   };
 
   it("renders correctly", () => {
-    const { getByText } = render(
+    render(
       <EncryptionKeyModalView
         showFingerprintBtn={true}
         handleKeySubmit={mockHandleKeySubmit}
@@ -21,7 +21,7 @@ describe("EncryptionKeyModalView", () => {
         inputRef={mockInputRef}
       />
     );
-    expect(getByText("Passwort eingeben")).toBeInTheDocument();
+    expect( screen.getByTestId("password-inputBtn")).toBeInTheDocument();
   });
 
   it("calls handleKeySubmit on form submit", () => {

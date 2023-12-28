@@ -72,7 +72,7 @@ describe("<EncryptionKeyModal />", () => {
       );
     });
     await waitFor(() => {
-      expect(screen.getByText("Passwort eingeben")).toBeInTheDocument();
+      expect(screen.getByTestId("password-input")).toBeInTheDocument();
     });
   });
 
@@ -88,7 +88,7 @@ describe("<EncryptionKeyModal />", () => {
     await waitFor(() => {
       const input = screen.getByTestId("password-input");
       fireEvent.change(input, { target: { value: "test123" } });
-      fireEvent.click(screen.getByText("Weiter"));
+      fireEvent.click(screen.getByTestId("password-inputBtn"));
       expect(onSubmitMock).toHaveBeenCalledWith("test123");
     });
   });

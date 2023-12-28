@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import FloatingBtn, { ButtonAlignment } from "../../../modules/ui/floatingBtn";
 import { FaInfoCircle } from "react-icons/fa";
 import { PiFingerprintThin } from "react-icons/pi";
+import { useTranslation } from 'react-i18next';
 
 
 interface EncryptionKeyModalViewProps {
@@ -21,6 +22,7 @@ const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
   navigateToPrivacy,
   inputRef,
 }) => {
+  const { t } = useTranslation();
 
   return (
     <div
@@ -47,11 +49,9 @@ const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
           position: "fixed",
         }}
       >
-        <h2>Passwort eingeben</h2>
+        <h2>{t('encryption-modal_title')}</h2>
         <p>
-          Bitte gib deinen Verschlüsselungscode ein! Deine Notizen werden
-          anschließend mit einer AES Verschlüsselung verschlüsselt und sind
-          folglich nicht mehr wieder herstellbar. Merke ihn dir also gut!
+        {t('encryption-modal_message')}
         </p>
         <Form onSubmit={handleKeySubmit}>
           <Form.Group>
@@ -84,7 +84,7 @@ const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
               cursor: "pointer",
             }}
           >
-            Weiter
+            {t('encryption-modal_btn')}
           </Button>
           <br />
         </Form>

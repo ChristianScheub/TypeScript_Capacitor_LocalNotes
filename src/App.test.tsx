@@ -33,8 +33,10 @@ describe("App Component", () => {
 
   test("closes modal not when not submit when data are insert", async () => {
     render(<App />);
-    const submitButton = screen.getByTestId("password-inputBtn");
-    fireEvent.click(submitButton);
+    await act(() => {
+      const submitButton = screen.getByTestId("password-inputBtn");
+      fireEvent.click(submitButton);
+    });
 
     await waitFor(() => {
       expect(screen.queryByTestId("password-inputBtn")).toBeInTheDocument();
@@ -44,14 +46,15 @@ describe("App Component", () => {
   test("closes modal on submit when data are insert", async () => {
     render(<App />);
     const input = screen.getByTestId("password-input");
-    fireEvent.change(input, { target: { value: mockEncryptionKey } });
+    await act(() => {
+      fireEvent.change(input, { target: { value: mockEncryptionKey } });
 
-    const submitButton = screen.getByTestId("password-inputBtn");
-    fireEvent.click(submitButton);
+      const submitButton = screen.getByTestId("password-inputBtn");
+      fireEvent.click(submitButton);
+    });
 
     await waitFor(() => {
       expect(screen.queryByTestId("password-inputBtn")).not.toBeInTheDocument();
     });
   });
-
 });

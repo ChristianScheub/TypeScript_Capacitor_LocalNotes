@@ -10,8 +10,13 @@ import {
   makeReadyForExport,
   makeReadyForImport,
 } from "../../handleNotes/encryptionEngine";
+import { useTranslation } from 'react-i18next';
+
 
 const SettingsContainer: React.FC = () => {
+  const { t } = useTranslation();
+
+
   const handleImpressumClick = (navigate: NavigateFunction) => {
     navigate("/impressum");
   };
@@ -35,7 +40,7 @@ const SettingsContainer: React.FC = () => {
   ): Promise<void> => {
     if (
       window.confirm(
-        "Sind sie sicher? Es werden alle Notizen und das Passwort gelöscht!"
+        t('settings_Dialog_DeleteAll')
       )
     ) {
       localStorage.clear();
@@ -50,30 +55,31 @@ const SettingsContainer: React.FC = () => {
       }
       navigate("/");
       window.location.reload();
-      alert("Daten erfolgreich gelöscht!");
+      alert(t('settings_Dialog_DeleteAllSuccessful'));
     }
   };
 
   const handleDeleteNotesClick = async (): Promise<void> => {
-    if (window.confirm("Sind sie sicher? Es werden alle Notizen gelöscht!")) {
+    if (window.confirm(t('settings_Dialog_DeleteNotes'))) {
       localStorage.clear();
-      alert("Notizen erfolgreich gelöscht!");
+      alert(t('settings_Dialog_DeleteNotesSuccessful'));
     }
   };
 
   const handleDeleteBiometryClick = async () => {
     if (
-      window.confirm(
-        "Sind sie sicher? Es wird das Passwort für den Biometrischen Login gelöscht. Die Notizen sind allerdings weiterhin abrufbar durch die Passwort Eingabe."
+      window.confirm(t('settings_Dialog_DeleteBio')
       )
     ) {
       try {
         await NativeBiometric.deleteCredentials({
           server: "www.LocalNotes.com",
         });
-        alert("Login Daten gelöscht! Sie können diese nun neu setzen!");
+        alert(t('settings_Dialog_DeleteBioSuccessful'));
       } catch (error) {
-        console.error("Fehler beim Löschen der Credentials", error);
+        console.error("Error at delete Credentials", error);
+        alert(t('settings_Dialog_DeleteBioError'));
+
       }
     }
   };
@@ -113,10 +119,7 @@ const SettingsContainer: React.FC = () => {
       
 
         await Share.share({
-          title: "Teilen der Notizen",
-          text: "Hier sind meine Notizen.",
           url: uriResult.uri,
-          dialogTitle: "Wähle eine App zum Teilen",
         });
       } catch (shareError) {
         downloadFile(notes, fileName);
@@ -143,7 +146,7 @@ const SettingsContainer: React.FC = () => {
     const file = event.target.files ? event.target.files[0] : null;
     if (
       window.confirm(
-        "Sind sie sicher? Es könnten bereits vorhandene Notizen überschrieben werden!"
+        t('settings_Dialog_Import')
       )
     ) {
       if (file) {
@@ -160,7 +163,7 @@ const SettingsContainer: React.FC = () => {
             }
           }
         }
-        alert("Notizen erfolgreich importiert!");
+        alert(t('settings_Dialog_ImportSuccessful'));
       }
     }
   };

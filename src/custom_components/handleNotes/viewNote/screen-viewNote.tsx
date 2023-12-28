@@ -3,6 +3,8 @@ import { Card, Row, Col } from 'react-bootstrap';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { FaPlusCircle } from 'react-icons/fa';
 import FloatingBtn, { ButtonAlignment } from '../../../modules/ui/floatingBtn';
+import { useTranslation } from 'react-i18next';
+
 
 interface Note {
   id: string;
@@ -21,6 +23,8 @@ const ViewNoteView: React.FC<ViewNoteViewProps> = ({ notes, onNavigateToEdit, on
     if (text.length <= maxLength) return text;
     return text.substr(0, maxLength) + "...";
   };
+  const { t } = useTranslation();
+
 
   return (
     <div
@@ -61,7 +65,7 @@ const ViewNoteView: React.FC<ViewNoteViewProps> = ({ notes, onNavigateToEdit, on
         >
           <Card.Body>
             <Card.Text>
-              {truncateText("Noch keine Notizen vorhanden!", 150)}
+              {truncateText(t('placeholder_noNotes'), 150)}
             </Card.Text>
           </Card.Body>
         </Card>

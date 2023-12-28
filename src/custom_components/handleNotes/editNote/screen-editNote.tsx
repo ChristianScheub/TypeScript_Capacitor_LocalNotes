@@ -2,6 +2,7 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 import { FaRegSave, FaRegClock } from 'react-icons/fa';
 import FloatingBtn, { ButtonAlignment } from '../../../modules/ui/floatingBtn';
+import { useTranslation } from 'react-i18next';
 
 interface EditNoteViewProps {
   noteTitle: string;
@@ -23,6 +24,7 @@ const EditNoteView: React.FC<EditNoteViewProps> = ({
   const formattedDate = `${noteDate.getDate()}.${
     noteDate.getMonth() + 1
   }.${noteDate.getFullYear()}`;
+  const { t } = useTranslation();
 
   return (
     <div
@@ -39,7 +41,7 @@ const EditNoteView: React.FC<EditNoteViewProps> = ({
             type="text"
             value={noteTitle}
             data-testid="noteTitleTest"
-            placeholder='Titel'
+            placeholder={t('editNote_TitlePlaceholder')}
             onChange={(e) => setNoteTitle(e.target.value)}
             className="white-placeholder"
             style={{
@@ -83,7 +85,7 @@ const EditNoteView: React.FC<EditNoteViewProps> = ({
             value={noteContent}
             data-testid="noteTextTest"
             className="white-placeholder"
-            placeholder='Text der Notiz...'
+            placeholder={t('editNote_TextPlaceholder')}
             onChange={(e) => setNoteContent(e.target.value)}
             style={{
               backgroundColor: '#1D1B20',
