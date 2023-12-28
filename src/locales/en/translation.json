@@ -2,6 +2,7 @@
     "encryption-modal_title": "Enter password",
     "encryption-modal_message": "Please enter your encryption key! Your notes will then be encrypted with AES encryption and can therefore no longer be recovered. So remember it well!",
     "encryption-modal_btn": "Go!",
+    "encryption-modal_placeholder": "Password...",
     "navbar_searchForm": "Search notes...",
     "navbar_deleteBtn": "Are you sure you want to delete this note?",
     "placeholder_noNotes": "No notes available yet!",
