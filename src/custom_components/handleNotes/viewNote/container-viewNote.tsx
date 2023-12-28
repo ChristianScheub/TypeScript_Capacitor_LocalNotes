@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import getAllNotes from './getNotes';
 import ViewNoteView from './screen-viewNote';
+import { useLocation } from 'react-router-dom';
+
 
 interface ViewNoteContainerProps {
   encryptionKey: string;
@@ -9,7 +11,8 @@ interface ViewNoteContainerProps {
 }
 
 const ViewNoteContainer: React.FC<ViewNoteContainerProps> = ({ encryptionKey, searchQuery }) => {
-  const notes = getAllNotes(encryptionKey, searchQuery);
+  const location = useLocation();
+  const notes = getAllNotes(encryptionKey, searchQuery, location);
 
   const navigate = useNavigate();
 

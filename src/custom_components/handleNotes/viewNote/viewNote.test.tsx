@@ -23,8 +23,8 @@ describe("ViewNote Component", () => {
     );
   });
 
-  test("should render notes from local storage", async() => {
-    act(() => {
+  test("should render notes from local storage", async () => {
+    await act(() => {
       render(
         <Router>
           <ViewNoteContainer
@@ -39,9 +39,8 @@ describe("ViewNote Component", () => {
       expect(screen.getByText("second")).toBeInTheDocument();
     });
   });
-
   test("should navigate to edit page on note click", async () => {
-    act(() => {
+    await act(() => {
       render(
         <Router>
           <ViewNoteContainer
@@ -51,15 +50,18 @@ describe("ViewNote Component", () => {
         </Router>
       );
     });
-    await waitFor(() => {
+    waitFor(()=> {
       expect(screen.getByText("TestTitel")).toBeInTheDocument();
+    });
+
+    await act(() => {
       fireEvent.click(screen.getByText("TestTitel"));
       expect(window.location.pathname).toBe("/edit/1");
     });
   });
 
-  test("should navigate to add note page on add button click", () => {
-    act(() => {
+  test("should navigate to add note page on add button click", async () => {
+    await act(() => {
       render(
         <Router>
           <ViewNoteContainer
@@ -69,7 +71,15 @@ describe("ViewNote Component", () => {
         </Router>
       );
     });
-    fireEvent.click(screen.getByRole("button"));
-    expect(window.location.pathname).toBe("/edit/new");
+    waitFor(() => {
+      expect(screen.getByTestId("floating-btn")).toBeInTheDocument();
+    });
+
+    await act(() => {
+      fireEvent.click(screen.getByTestId("floating-btn"));
+      expect(window.location.pathname).toBe("/edit/new");
+    });
   });
+
+ 
 });

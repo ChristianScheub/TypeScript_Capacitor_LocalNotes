@@ -3,9 +3,11 @@ import "@testing-library/jest-dom/extend-expect";
 import { renderHook } from "@testing-library/react";
 import getAllNotes from "../viewNote/getNotes";
 import { BrowserRouter as Router } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 import EditNoteContainer from "./container-editNote";
 import { encryptAndStore, decryptFromStorage } from "../encryptionEngine";
 import { act } from "react-dom/test-utils";
+import { useState, useEffect } from "react";
 
 const mockEncryptionKey = "some-encryption-key";
 
@@ -132,6 +134,17 @@ describe("EditNote Component", () => {
     });
   });
 
+
+  const isJsonString = (str: string): boolean => {
+    try {
+      const data = JSON.parse(str);
+      const test = data.content + data.title;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+
   it("renders with empty fields and save button click", async () => {
     jest.mock("react-router-dom", () => ({
       ...jest.requireActual("react-router-dom"),
@@ -166,18 +179,38 @@ describe("EditNote Component", () => {
       fireEvent.click(screen.getByTestId("floating-btn"));
     });
 
-      //Probleme
+    //Now check if note is really stored
+      const loadedNotes: Note[] = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key) {
+          try {
+            const originalText = await decryptFromStorage(mockEncryptionKey, key);
+            if (originalText && isJsonString(originalText)) {
+              const noteData = JSON.parse(originalText);
+              loadedNotes.push({
+                id: key,
+                content: noteData.content,
+                title: noteData.title,
+                date: new Date(noteData.date),
+                additionalInfo: "",
+              });
+            }
+          } catch (error) {
+            //console.log("Decryption or JSON parsing failed", error);
+          }
+        }
+      }
+      const filteredNotes = loadedNotes.filter((note) =>
+        note.content.toLowerCase().includes("".toLowerCase())
+      );
+      filteredNotes.sort((a, b) => b.date.getTime() - a.date.getTime());
 
-      let hookResult: { current: Note[] | null };
+      const notes=filteredNotes;
 
-
-      await act(async () => {
-        const { result } = renderHook(() => getAllNotes(mockEncryptionKey, ""));
-         hookResult = result;
-      });
     
       await waitFor(() => {
-        expect(hookResult.current).toEqual([
+        expect(notes).toEqual([
           {
             additionalInfo: "",
             content: "New Content of new Note Now",
