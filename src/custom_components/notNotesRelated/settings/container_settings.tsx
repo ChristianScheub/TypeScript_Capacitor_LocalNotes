@@ -84,6 +84,18 @@ const SettingsContainer: React.FC = () => {
     }
   };
 
+  const generateFileName = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+  
+    return `notes-${year}${month}${day}-${hours}${minutes}${seconds}.txt`;
+  };
+
   const handleExportAllClick = async () => {
     let notes = "";
     for (let i = 0; i < localStorage.length; i++) {
@@ -98,7 +110,7 @@ const SettingsContainer: React.FC = () => {
     }
 
     try {
-      const fileName = "notes.txt";
+    const fileName = generateFileName();
       const base64Data = btoa(notes);
 
       const filePath = `${Directory.Documents}/${fileName}`;
@@ -111,6 +123,7 @@ const SettingsContainer: React.FC = () => {
       });
 
       try {
+        
         const uriResult = await Filesystem.getUri({
           directory: Directory.Documents,
           path: fileName,
@@ -119,7 +132,7 @@ const SettingsContainer: React.FC = () => {
       
 
         await Share.share({
-          url: uriResult.uri,
+          url: uriResult.uri
         });
       } catch (shareError) {
         downloadFile(notes, fileName);

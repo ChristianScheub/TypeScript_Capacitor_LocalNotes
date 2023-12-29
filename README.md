@@ -64,39 +64,41 @@ Under modules are modules from other projects of mine for which I have not writt
 The goal is actually to have about 80% test coverage. This number appears to be enough as this is a freetime project.
 
 
-File                                                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                      
---------------------------------------------------------|---------|----------|---------|---------|----------------------------------------
-All files                                               |   87.38 |    64.44 |    88.6 |   87.46 |                                        
- src                                                    |     100 |      100 |     100 |     100 |                                        
-  App.tsx                                               |     100 |      100 |     100 |     100 |                                        
-  index.tsx                                             |     100 |      100 |     100 |     100 |                                        
- src/custom_components/handleNotes                      |     100 |      100 |     100 |     100 |                                        
-  encryptionEngine.ts                                   |     100 |      100 |     100 |     100 |                                        
- src/custom_components/handleNotes/editNote             |     100 |       50 |     100 |     100 |                                        
-  container-editNote.tsx                                |     100 |       50 |     100 |     100 | 20-44                                  
-  screen-editNote.tsx                                   |     100 |      100 |     100 |     100 |                                        
- src/custom_components/handleNotes/viewNote             |   95.45 |       70 |     100 |   95.12 |                                        
-  container-viewNote.tsx                                |     100 |      100 |     100 |     100 |                                        
-  getNotes.ts                                           |   96.29 |    66.66 |     100 |      96 | 19                                     
-  screen-viewNote.tsx                                   |    87.5 |       75 |     100 |   85.71 | 22                                     
- src/custom_components/notNotesRelated                  |   93.84 |    79.31 |   91.66 |   93.84 |                                        
-  fingerprintLogic.ts                                   |   97.67 |    94.11 |     100 |   97.67 | 56                                     
-  navBar.tsx                                            |   86.36 |    58.33 |   83.33 |   86.36 | 39-44                                  
- src/custom_components/notNotesRelated/encryption_modal |     100 |      100 |     100 |     100 |                                        
-  container-encryption-modal.tsx                        |     100 |      100 |     100 |     100 |                                        
-  screen-encryption-modal.tsx                           |     100 |      100 |     100 |     100 |                                        
- src/custom_components/notNotesRelated/settings         |    62.1 |       25 |    61.9 |   62.36 |                                        
-  container_settings.tsx                                |   58.62 |    19.23 |   46.66 |   58.82 | 16,19,36-53,76,115,125,143-163,169-181 
-  screen_settings.tsx                                   |     100 |      100 |     100 |     100 |                                        
- src/modules/app_configuration                          |     100 |      100 |     100 |     100 |                                        
-  app_texts.ts                                          |     100 |      100 |     100 |     100 |                                        
- src/modules/legal                                      |     100 |      100 |     100 |     100 |                                        
-  codeToTextParser.tsx                                  |     100 |      100 |     100 |     100 |                                        
-  datenschutz.tsx                                       |     100 |      100 |     100 |     100 |                                        
-  impressum.tsx                                         |     100 |      100 |     100 |     100 |                                        
- src/modules/ui                                         |     100 |      100 |     100 |     100 |                                        
-  floatingBtn.tsx                                       |     100 |      100 |     100 |     100 |                                        
-             
+File                                                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                         
+--------------------------------------------------------|---------|----------|---------|---------|-------------------------------------------
+All files                                               |   87.74 |    63.21 |   88.88 |   87.82 |                                           
+ src                                                    |     100 |      100 |     100 |     100 |                                           
+  App.tsx                                               |     100 |      100 |     100 |     100 |                                           
+  i18n.ts                                               |     100 |      100 |     100 |     100 |                                           
+  index.tsx                                             |     100 |      100 |     100 |     100 |                                           
+ src/custom_components/handleNotes                      |     100 |      100 |     100 |     100 |                                           
+  encryptionEngine.ts                                   |     100 |      100 |     100 |     100 |                                           
+ src/custom_components/handleNotes/editNote             |     100 |       50 |     100 |     100 |                                           
+  container-editNote.tsx                                |     100 |       50 |     100 |     100 | 20-44                                     
+  screen-editNote.tsx                                   |     100 |      100 |     100 |     100 |                                           
+ src/custom_components/handleNotes/viewNote             |   95.55 |       70 |     100 |   95.23 |                                           
+  container-viewNote.tsx                                |     100 |      100 |     100 |     100 |                                           
+  getNotes.ts                                           |   96.29 |    66.66 |     100 |      96 | 19                                        
+  screen-viewNote.tsx                                   |   88.88 |       75 |     100 |    87.5 | 24                                        
+ src/custom_components/notNotesRelated                  |   97.67 |    92.85 |     100 |   97.67 |                                           
+  fingerprintLogic.ts                                   |   97.67 |    92.85 |     100 |   97.67 | 56                                        
+ src/custom_components/notNotesRelated/encryption_modal |     100 |      100 |     100 |     100 |                                           
+  container-encryption-modal.tsx                        |     100 |      100 |     100 |     100 |                                           
+  screen-encryption-modal.tsx                           |     100 |      100 |     100 |     100 |                                           
+ src/custom_components/notNotesRelated/navBar           |   86.95 |    58.33 |   85.71 |   86.95 |                                           
+  container-navBar.tsx                                  |   85.71 |       50 |   83.33 |   85.71 | 38-40                                     
+  screen-navBar.tsx                                     |     100 |       75 |     100 |     100 | 59                                        
+ src/custom_components/notNotesRelated/settings         |   65.42 |       25 |   63.63 |   65.71 |                                           
+  container_settings.tsx                                |   62.24 |    19.23 |      50 |    62.5 | 21,24,41-58,80-81,134,141,159-179,185-197 
+  screen_settings.tsx                                   |     100 |      100 |     100 |     100 |                                           
+ src/modules/app_configuration                          |     100 |      100 |     100 |     100 |                                           
+  app_texts.ts                                          |     100 |      100 |     100 |     100 |                                           
+ src/modules/legal                                      |     100 |      100 |     100 |     100 |                                           
+  codeToTextParser.tsx                                  |     100 |      100 |     100 |     100 |                                           
+  datenschutz.tsx                                       |     100 |      100 |     100 |     100 |                                           
+  impressum.tsx                                         |     100 |      100 |     100 |     100 |                                           
+ src/modules/ui                                         |     100 |      100 |     100 |     100 |                                           
+  floatingBtn.tsx                                       |     100 |      100 |     100 |     100 |        
      
 
 

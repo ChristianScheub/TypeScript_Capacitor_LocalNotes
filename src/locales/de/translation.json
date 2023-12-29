@@ -27,6 +27,6 @@
     "settings_Dialog_DeleteBioSuccessful": "Login Daten gelöscht! Sie können diese nun neu setzen!",
     "settings_Dialog_DeleteBioError": "Fehler beim Löschen der Login Daten!",
     "settings_Dialog_Import":"Sind sie sicher? Es könnten bereits vorhandene Notizen überschrieben werden!",
-    "settings_Dialog_ImportSucessful":"Notizen erfolgreich importiert!"
+    "settings_Dialog_ImportSuccessful":"Notizen erfolgreich importiert!"
   }
   
