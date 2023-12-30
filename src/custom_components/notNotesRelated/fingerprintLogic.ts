@@ -1,6 +1,8 @@
 import { NativeBiometric } from "capacitor-native-biometric";
 import CryptoJS from "crypto-js";
 import { Device } from "@capacitor/device";
+import { getPBKDF2_Password } from "../handleNotes/encryptionEngine";
+import { useTranslation } from 'react-i18next';
 
 const getDeviceIdHash = async (): Promise<string> => {
   const info = await Device.getId();
@@ -11,13 +13,15 @@ export const getPasswordFromFingerprint = async (
   server: string,
   onEmptyPassword: () => void,
   onPasswordRetrieved: (password: string) => void,
-  onError: (errorMessage: string) => void
+  onError: (errorMessage: string) => void,
+  t: (key: string) => string 
 ): Promise<void> => {
+
   try {
     const available = await NativeBiometric.isAvailable();
 
     if (!available.isAvailable) {
-      onError("Biometrische Authentifizierung nicht verfügbar.");
+      onError(t('fingerprint_not_Avaible'));
       return;
     }
 
@@ -29,14 +33,14 @@ export const getPasswordFromFingerprint = async (
       .catch(() => false);
 
     if (!verified) {
-      onError("Biometrische Authentifizierung fehlgeschlagen.");
+      onError(t('fingerprint_error'));
       return;
     }
 
     const credentials = await NativeBiometric.getCredentials({ server });
 
     if (credentials.password === "") {
-      onError("Gespeichertes Passwort ist leer.");
+      onError(t('fingerprint_error'));
       onEmptyPassword();
       return;
     }
@@ -53,7 +57,7 @@ export const getPasswordFromFingerprint = async (
     if (e) {
       onEmptyPassword();
     } else {
-      onError("Ein Fehler ist aufgetreten.");
+      onError(t('fingerprint_error'));
     }
   }
 };
@@ -61,18 +65,20 @@ export const getPasswordFromFingerprint = async (
 export const storePasswordFromFingerprint = async (
   password: string,
   onSuccess: () => void,
-  onError: (errorMessage: string) => void
+  onError: (errorMessage: string) => void,
+  t: (key: string) => string 
 ): Promise<void> => {
+
   try {
     const available = await NativeBiometric.isAvailable();
 
     if (!password|| password==="") {
-      onError("Bitte geben Sie das zu speichernde Passwort ein.");
+      onError(t('fingerprint_empty'));
       return;
     }
 
     if (!available.isAvailable) {
-      onError("Biometrische Authentifizierung nicht verfügbar.");
+      onError(t('fingerprint_not_Avaible'));
       return;
     }
 
@@ -80,12 +86,12 @@ export const storePasswordFromFingerprint = async (
     await NativeBiometric.setCredentials({
       server: "www.LocalNotes.com",
       username: "user",
-      password: CryptoJS.TripleDES.encrypt(password, hashedDeviceId).toString(),
+      password: CryptoJS.TripleDES.encrypt(getPBKDF2_Password(password), hashedDeviceId).toString(),
     });
     
     onSuccess();
   } catch (e) {
-    onError("Ein Fehler ist aufgetreten beim Speichern des Passworts.");
+    onError(t('fingerprint_error'));
   }
 };
 

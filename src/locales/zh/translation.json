@@ -1,8 +1,12 @@
 {
     "encryption-modal_title": "输入密码",
-    "encryption-modal_message": "请输入您的加密密钥！您的笔记将使用 AES 加密技术加密，因此再也无法恢复。请牢记！",
     "encryption-modal_btn": "下一步",
     "encryption-modal_placeholder": "密码...",
+    "encryption-modal_message": "请输入您的加密代码！笔记将使用AES加密，然后将变得不可逆。请牢记它！",
+    "encryption-modal_FastLoginmessage": "为了更快的访问，请使用生物识别登录，因为密码登录需要大约10秒，由于不同的加密算法。",
+    "fingerprint_empty": "请先输入要保存的密码，然后按此按钮保存。",
+    "fingerprint_not_Avaible": "不支持生物识别认证。",
+    "fingerprint_error": "发生错误，请重试！",
     "navbar_searchForm": "搜索笔记...",
     "navbar_deleteBtn": "您确定要删除此笔记吗",
     "placeholder_noNotes": "暂无可用笔记！",
@@ -18,7 +22,6 @@
     "settings_Information": "信息",
     "settings_Impressum": "版本说明",
     "settings_Datenschutz": "数据保护",
-    
     "settings_Dialog_DeleteAll": "您确定吗？所有笔记和密码将被删除！",
     "settings_Dialog_DeleteAllSuccessful": "数据已成功删除！",
     "settings_Dialog_DeleteNotes": "确定吗？将删除所有笔记！",

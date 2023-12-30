@@ -53,6 +53,10 @@ const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
         <p>
         {t('encryption-modal_message')}
         </p>
+        <i>
+        {t('encryption-modal_FastLoginmessage')}
+        </i>
+        <br/><br/>
         <Form onSubmit={handleKeySubmit}>
           <Form.Group>
             <Form.Control

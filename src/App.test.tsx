@@ -5,8 +5,10 @@ import { BrowserRouter } from "react-router-dom";
 import {
   encryptAndStore,
   decryptFromStorage,
+  getPBKDF2_Password
 } from "./custom_components/handleNotes/encryptionEngine";
 import { act } from "react-dom/test-utils";
+
 
 const mockEncryptionKey = "some-encryption-key";
 
@@ -20,7 +22,16 @@ jest.mock("capacitor-native-biometric", () => ({
   },
 }));
 
+jest.mock('./custom_components/handleNotes/encryptionEngine', () => ({
+  getPBKDF2_Password: jest.fn().mockImplementation(password => password),
+}));
+
+
 describe("App Component", () => {
+  beforeEach(() => {
+    (getPBKDF2_Password as jest.Mock).mockImplementation(password => password);
+  });
+
   test("renders without crashing", () => {
     const renderResult = () => renderWithRouter(<App />);
     expect(renderResult).not.toThrow();

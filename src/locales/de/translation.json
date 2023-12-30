@@ -1,6 +1,10 @@
 {
     "encryption-modal_title": "Passwort eingeben",
-    "encryption-modal_message": "Bitte gib deinen Verschlüsselungscode ein! Deine Notizen werden anschließend mit einer AES Verschlüsselung verschlüsselt und sind folglich nicht mehr wieder herstellbar. Merke ihn dir also gut!",
+    "encryption-modal_message": "Bitte gib deinen Verschlüsselungscode ein! Die Notizen werden mit AES verschlüsselt und sind dann irreversibel. Merken sie ihn sich gut!",
+    "encryption-modal_FastLoginmessage": "Für schnelleren Zugriff empfehlen wir den Biometrie Login, da der Login per Passwort durch verschiedene Kryptographische Algorithmen etwa 10 Sekunden benötigt.",
+    "fingerprint_empty": "Bitte geben Sie das zu speichernde Passwort erst ein und drücken sie dann diesen Button zum speichern.",
+    "fingerprint_not_Avaible": "Biometrische Authentifizierung nicht verfügbar.",
+    "fingerprint_error": "Ein Fehler ist aufgetreten. Bitte versuchen sie es erneut!",
     "encryption-modal_btn": "Weiter",
     "encryption-modal_placeholder": "Passwort...",
     "navbar_searchForm": "Notizen suchen...",
@@ -18,7 +22,6 @@
     "settings_Information": "Informationen",
     "settings_Impressum": "Impressum",
     "settings_Datenschutz": "Datenschutz",
-
     "settings_Dialog_DeleteAll": "Sind sie sicher? Es werden alle Notizen und das Passwort gelöscht!",
     "settings_Dialog_DeleteAllSuccessful":"Daten erfolgreich gelöscht!",
     "settings_Dialog_DeleteNotes": "Sind sie sicher? Es werden alle Notizen gelöscht!",

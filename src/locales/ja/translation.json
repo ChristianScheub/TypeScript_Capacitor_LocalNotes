@@ -1,8 +1,12 @@
 {
     "encryption-modal_title": "暗号化コードを入力してください！",
-    "encryption-modal_message": "その後、あなたのノートはAES暗号化で暗号化され、復元不可能になります。よく覚えておいてください！",
     "encryption-modal_btn": "進む",
     "encryption-modal_placeholder": "パスワード...",
+    "encryption-modal_message": "暗号化コードを入力してください！メモはAESで暗号化され、不可逆になります。注意深く覚えておいてください！",
+    "encryption-modal_FastLoginmessage": "より迅速なアクセスのために、パスワードによるログインでは異なる暗号化アルゴリズムのため約10秒かかりますので、生体認証ログインをお勧めします。",
+    "fingerprint_empty": "保存するパスワードをまず入力し、次にこのボタンを押して保存してください。",
+    "fingerprint_not_Avaible": "生体認証は利用できません。",
+    "fingerprint_error": "エラーが発生しました。もう一度お試しください！",
     "navbar_searchForm": "ノートを検索...",
     "navbar_deleteBtn": "このノートを削除してもよろしいですか？",
     "placeholder_noNotes": "まだノートはありません！",

@@ -5,6 +5,7 @@ import {
   getPasswordFromFingerprint,
   storePasswordFromFingerprint,
 } from "./fingerprintLogic";
+import { getPBKDF2_Password } from '../handleNotes/encryptionEngine';
 
 jest.mock("capacitor-native-biometric", () => ({
   NativeBiometric: {
@@ -34,9 +35,28 @@ jest.mock("@capacitor/device", () => ({
   },
 }));
 
+jest.mock('../handleNotes/encryptionEngine', () => ({
+  getPBKDF2_Password: jest.fn().mockImplementation(password => password),
+}));
+
+const t = (key: string): string => {
+  switch (key) {
+    case 'fingerprint_empty':
+      return 'Bitte geben Sie das zu speichernde Passwort erst ein und drücken sie dann diesen Button zum speichern.';
+    case 'fingerprint_not_Avaible':
+      return 'Biometrische Authentifizierung nicht verfügbar.';
+    case 'fingerprint_error':
+      return 'Ein Fehler ist aufgetreten. Bitte versuchen sie es erneut!';
+    default:
+      return '';
+  }
+};
+
 describe("getPasswordFromFingerprint", () => {
+
   beforeEach(() => {
     jest.clearAllMocks();
+    (getPBKDF2_Password as jest.Mock).mockImplementation(password => password);
   });
 
   it("successfully retrieves password", async () => {
@@ -58,11 +78,13 @@ describe("getPasswordFromFingerprint", () => {
     const onPasswordRetrieved = jest.fn();
     const onError = jest.fn();
 
+
     await getPasswordFromFingerprint(
       "www.LocalNotes.com",
       jest.fn(),
       onPasswordRetrieved,
-      onError
+      onError,
+      t
     );
 
     expect(onPasswordRetrieved).toHaveBeenCalledWith("decryptedPassword");
@@ -72,7 +94,7 @@ describe("getPasswordFromFingerprint", () => {
   it('handles the case where biometric authentication is not available', async () => {
     (NativeBiometric.isAvailable as jest.Mock).mockResolvedValue({ isAvailable: false });
     const onError = jest.fn();
-    await getPasswordFromFingerprint('www.LocalNotes.com', jest.fn(), jest.fn(), onError);
+    await getPasswordFromFingerprint('www.LocalNotes.com', jest.fn(), jest.fn(), onError,t);
     expect(onError).toHaveBeenCalledWith("Biometrische Authentifizierung nicht verfügbar.");
   });
 
@@ -80,8 +102,8 @@ describe("getPasswordFromFingerprint", () => {
     (NativeBiometric.isAvailable as jest.Mock).mockResolvedValue({ isAvailable: true });
     (NativeBiometric.verifyIdentity as jest.Mock).mockRejectedValue(new Error());
     const onError = jest.fn();
-    await getPasswordFromFingerprint('www.LocalNotes.com', jest.fn(), jest.fn(), onError);
-    expect(onError).toHaveBeenCalledWith("Biometrische Authentifizierung fehlgeschlagen.");
+    await getPasswordFromFingerprint('www.LocalNotes.com', jest.fn(), jest.fn(), onError,t);
+    expect(onError).toHaveBeenCalledWith("Ein Fehler ist aufgetreten. Bitte versuchen sie es erneut!");
   });
 
   it('handles empty password scenario', async () => {
@@ -90,9 +112,9 @@ describe("getPasswordFromFingerprint", () => {
     (NativeBiometric.getCredentials as jest.Mock).mockResolvedValue({ password: '' });
     const onEmptyPassword = jest.fn();
     const onError = jest.fn();
-    await getPasswordFromFingerprint('www.LocalNotes.com', onEmptyPassword, jest.fn(), onError);
+    await getPasswordFromFingerprint('www.LocalNotes.com', onEmptyPassword, jest.fn(), onError,t);
     expect(onEmptyPassword).toHaveBeenCalled();
-    expect(onError).toHaveBeenCalledWith("Gespeichertes Passwort ist leer.");
+    expect(onError).toHaveBeenCalledWith("Ein Fehler ist aufgetreten. Bitte versuchen sie es erneut!");
   });
 
   it('handles general error during password retrieval', async () => {
@@ -100,7 +122,7 @@ describe("getPasswordFromFingerprint", () => {
     const onError = jest.fn();
   
     (NativeBiometric.getCredentials as jest.Mock).mockRejectedValue(new Error('General error'));
-    await getPasswordFromFingerprint('www.LocalNotes.com', onEmptyPassword, jest.fn(), onError);
+    await getPasswordFromFingerprint('www.LocalNotes.com', onEmptyPassword, jest.fn(), onError,t);
   
     expect(onEmptyPassword).toHaveBeenCalled();
   });
@@ -126,7 +148,7 @@ describe("storePasswordFromFingerprint", () => {
     const onSuccess = jest.fn();
     const onError = jest.fn();
 
-    await storePasswordFromFingerprint("testPassword", onSuccess, onError);
+    await storePasswordFromFingerprint("testPassword", onSuccess, onError,t);
 
     expect(onSuccess).toHaveBeenCalled();
     expect(onError).not.toHaveBeenCalled();
@@ -135,21 +157,21 @@ describe("storePasswordFromFingerprint", () => {
   it('handles case where biometric authentication is not available', async () => {
     (NativeBiometric.isAvailable as jest.Mock).mockResolvedValue({ isAvailable: false });
     const onError = jest.fn();
-    await storePasswordFromFingerprint('testPassword', jest.fn(), onError);
+    await storePasswordFromFingerprint('testPassword', jest.fn(), onError,t);
     expect(onError).toHaveBeenCalledWith("Biometrische Authentifizierung nicht verfügbar.");
   });
 
   it('handles case where no password is provided', async () => {
     const onError = jest.fn();
-    await storePasswordFromFingerprint('', jest.fn(), onError);
-    expect(onError).toHaveBeenCalledWith("Bitte geben Sie das zu speichernde Passwort ein.");
+    await storePasswordFromFingerprint('', jest.fn(), onError,t);
+    expect(onError).toHaveBeenCalledWith("Bitte geben Sie das zu speichernde Passwort erst ein und drücken sie dann diesen Button zum speichern.");
   });
 
   it('handles error during password storing', async () => {
     const onError = jest.fn();
     (NativeBiometric.setCredentials as jest.Mock).mockRejectedValue(new Error('Test error'));
-    await storePasswordFromFingerprint('testPassword', jest.fn(), onError);
-    expect(onError).toHaveBeenCalledWith("Ein Fehler ist aufgetreten beim Speichern des Passworts.");
+    await storePasswordFromFingerprint('testPassword', jest.fn(), onError,t);
+    expect(onError).toHaveBeenCalledWith("Ein Fehler ist aufgetreten. Bitte versuchen sie es erneut!");
   });
 
 });

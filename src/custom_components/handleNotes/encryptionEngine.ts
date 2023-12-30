@@ -5,12 +5,29 @@ const deriveKeyPBKDF2 = (
   password: string,
   salt: CryptoJS.lib.WordArray
 ): CryptoJS.lib.WordArray => {
-  const key = CryptoJS.PBKDF2(password, salt, {
+  const modifiedSaltString = salt.toString(CryptoJS.enc.Hex) + "XHÄU0ßd";
+  const modifiedSalt = CryptoJS.enc.Hex.parse(modifiedSaltString);
+
+  const key = CryptoJS.PBKDF2(password, modifiedSalt, {
     keySize: 256 / 32,
-    iterations: 1000,
+    iterations: 2000,
   });
 
   return key;
+};
+
+export const getPBKDF2_Password = (
+  password: string
+  ): string => {
+
+  const saltHex = "b1eßfd1b59öü1a5a1d439e9874ä61b1üaa8a";
+  const salt = CryptoJS.enc.Hex.parse(saltHex);
+  const hash = CryptoJS.PBKDF2(password, salt, {
+    keySize: 256 / 32,
+    iterations: 600001,
+    hasher: CryptoJS.algo.SHA256
+  });
+  return hash.toString(CryptoJS.enc.Hex);
 };
 
 export const encryptAndStore = async (
