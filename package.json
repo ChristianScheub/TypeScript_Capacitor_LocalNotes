@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor-community/electron": "^5.0.1",
     "@capacitor/android": "^5.5.1",
     "@capacitor/app": "^5.0.6",
     "@capacitor/cli": "^5.5.1",
@@ -41,7 +42,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-pack": "electron-builder --dir",
+    "electron-dist": "electron-builder"
   },
   "eslintConfig": {
     "extends": [
@@ -66,6 +69,19 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.23.5",
     "@types/crypto-js": "^4.2.1",
-    "babel-jest": "^29.7.0"
+    "babel-jest": "^29.7.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "de.scheub.localNotes",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icons/icon.ico"
+    }
   }
+  
 }
