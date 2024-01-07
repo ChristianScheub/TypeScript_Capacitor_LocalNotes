@@ -22,8 +22,12 @@
     "icon": "assets/icon.ico"
   },
   "mac": {
-    "category": "your.app.category.type",
+    "category": "public.app-category.utilities",
     "icon": "assets/icon.icns",
-    "target": "dmg"
+    "target": ["mas"],
+    "provisioningProfile": "../../../../../LocalNotes_Mac_Profile.provisionprofile"
+  },
+  "mas": {
+    "provisioningProfile": "../../../../../LocalNotes_Mac_Profile.provisionprofile"
   }
 }

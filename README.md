@@ -1,7 +1,7 @@
 
 # LocalNotes
 
-Last Edit: 12.2023 <br>
+Last Edit: 01.2024 <br>
 Language: Typescript React Capacitor<br>
 
 With this app, it is possible to securely store notes locally with AES & Triple DES encryption, edit/delete them and search them.
@@ -85,6 +85,11 @@ If this is not used, the password is not saved either.
 - It is open to anyone to review the security measures here and report any security vulnerabilities identified here. (This is why the application is open source)
 - The Crypto-JS node package is used for encryption. If this has security gaps or similar, the data here is insecure!
 
+## Distribution
+- Android/iOS: The app is distributed in the Google Play Store and Apple App Store with the help of Capacitor.
+- Windows: With the help of Electron, it is distributed in the Microsoft App Store as MSI. Installation. (Without support for Windows Hello/fingerprint scanner)
+- Mac: It is possible to use the Electron app from the repo. However, it is recommended to simply download the iOS app from the Apple App Store for M1 MacBooks. This app also supports Touch ID etc. directly.
+
 ## Testing
 The Jest testing framework is used for testing.
 The tests here are always written in Typescript. 
@@ -142,6 +147,31 @@ As a result of the use from the modules, there is also one configuration file:
 
 ![Local Notes Architecture](images/LocalNotesArchitecture.png)
 Note: The cookie banner and footer text are already present here as they may be used in the future for the web version.
+
+## Troubleshooting
+
+### While generate Electron App for Windows/Mac/LNX
+
+```
+node_modules/builder-util-runtime/out/httpExecutor.d.ts:9:5 - error TS2411: Property '"accept-charset"' of type 'string | string[]' is not assignable to 'string' index type 'string'.
+
+9     [key: string]: string;
+      ~~~~~~~~~~~~~~~~~~~~~~
+```
+
+For whatever reason, this NPM module is not 100% compatible. The easy fix is to simply change the location in the error so that the file type matches.
+Just adjust the module inside the Electron folder under node_modules by adjust the line:
+```
+export interface RequestHeaders extends OutgoingHttpHeaders {
+    [key: string]: string | string[]|number | undefined;
+}
+```
+
+is adapted to this:
+export interface RequestHeaders extends OutgoingHttpHeaders {
+    [key: string]: string | string[];
+}
+
 
 
 ## Available Scripts
