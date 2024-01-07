@@ -12,18 +12,13 @@ import { ElectronCapacitorApp, setupContentSecurityPolicy, setupReloadWatcher } 
 unhandled();
 
 // Define our menu templates (these are optional)
-const trayMenuTemplate: (MenuItemConstructorOptions | MenuItem)[] = [new MenuItem({ label: 'Quit App', role: 'quit' })];
-const appMenuBarMenuTemplate: (MenuItemConstructorOptions | MenuItem)[] = [
-  { role: process.platform === 'darwin' ? 'appMenu' : 'fileMenu' },
-  { role: 'viewMenu' },
-];
 
 // Get Config options from capacitor.config
 const capacitorFileConfig: CapacitorElectronConfig = getCapacitorElectronConfig();
 
 // Initialize our app. You can pass menu templates into the app here.
 // const myCapacitorApp = new ElectronCapacitorApp(capacitorFileConfig);
-const myCapacitorApp = new ElectronCapacitorApp(capacitorFileConfig, trayMenuTemplate, appMenuBarMenuTemplate);
+const myCapacitorApp = new ElectronCapacitorApp(capacitorFileConfig);
 
 // If deeplinking is enabled then we will set it up here.
 if (capacitorFileConfig.electron?.deepLinkingEnabled) {
@@ -45,8 +40,6 @@ if (electronIsDev) {
   setupContentSecurityPolicy(myCapacitorApp.getCustomURLScheme());
   // Initialize our app, build windows, and load content.
   await myCapacitorApp.init();
-  // Check for updates if we are in a packaged app.
-  autoUpdater.checkForUpdatesAndNotify();
 })();
 
 // Handle when all of our windows are close (platforms have their own expectations).

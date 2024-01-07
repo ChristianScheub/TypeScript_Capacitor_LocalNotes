@@ -1,4 +1,4 @@
-import React, { FormEvent, RefObject} from "react";
+import React, { FormEvent, RefObject } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FloatingBtn, { ButtonAlignment } from "../../../modules/ui/floatingBtn";
@@ -51,12 +51,14 @@ const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
       >
         <h2>{t('encryption-modal_title')}</h2>
         <p>
-        {t('encryption-modal_message')}
+          {t('encryption-modal_message')}
         </p>
-        <i>
-        {t('encryption-modal_FastLoginmessage')}
-        </i>
-        <br/><br/>
+        {showFingerprintBtn && (
+          <i>
+            {t('encryption-modal_FastLoginmessage')}
+          </i>
+        )}
+        <br /><br />
         <Form onSubmit={handleKeySubmit}>
           <Form.Group>
             <Form.Control

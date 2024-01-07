@@ -1,9 +1,9 @@
 {
     "encryption-modal_title": "Por favor, insira o seu código de criptografia!",
-    "encryption-modal_message": "Após isso, suas notas serão criptografadas com criptografia AES e, portanto, não poderão ser recuperadas. Lembre-se bem dele!",
     "encryption-modal_btn": "Continuar",
     "encryption-modal_placeholder": "Senha...",
-    "encryption-modal_FastLoginmessage": "Para acesso mais rápido, recomendamos o login biométrico, pois o login por senha leva cerca de 10 segundos devido a diferentes algoritmos criptográficos.",
+    "encryption-modal_message": "Por favor, insira seu código de criptografia! As notas são criptografadas com AES e são irreversíveis. Lembre-se com cuidado! Devido a vários algoritmos criptográficos, o login pode levar cerca de 10 segundos.",
+    "encryption-modal_FastLoginmessage": "Para um acesso mais rápido, recomendamos o login biométrico.",
     "fingerprint_empty": "Por favor, insira a senha a ser armazenada primeiro e depois pressione este botão para salvar.",
     "fingerprint_not_Avaible": "Autenticação biométrica não disponível.",
     "fingerprint_error": "Ocorreu um erro. Por favor, tente novamente!",

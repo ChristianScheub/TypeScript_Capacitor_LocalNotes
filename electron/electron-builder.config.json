@@ -18,7 +18,7 @@
     "allowToChangeInstallationDirectory": true
   },
   "win": {
-    "target": "nsis",
+    "target": "msi",
     "icon": "assets/icon.ico"
   },
   "mac": {

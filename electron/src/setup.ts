@@ -49,32 +49,21 @@ export class ElectronCapacitorApp {
   private TrayIcon: Tray | null = null;
   private CapacitorFileConfig: CapacitorElectronConfig;
   private TrayMenuTemplate: (MenuItem | MenuItemConstructorOptions)[] = [
-    new MenuItem({ label: 'Quit App', role: 'quit' }),
+    
   ];
-  private AppMenuBarMenuTemplate: (MenuItem | MenuItemConstructorOptions)[] = [
-    { role: process.platform === 'darwin' ? 'appMenu' : 'fileMenu' },
-    { role: 'viewMenu' },
-  ];
+
   private mainWindowState;
   private loadWebApp;
   private customScheme: string;
 
   constructor(
     capacitorFileConfig: CapacitorElectronConfig,
-    trayMenuTemplate?: (MenuItemConstructorOptions | MenuItem)[],
-    appMenuBarMenuTemplate?: (MenuItemConstructorOptions | MenuItem)[]
   ) {
     this.CapacitorFileConfig = capacitorFileConfig;
 
     this.customScheme = this.CapacitorFileConfig.electron?.customUrlScheme ?? 'capacitor-electron';
+    Menu.setApplicationMenu(null);
 
-    if (trayMenuTemplate) {
-      this.TrayMenuTemplate = trayMenuTemplate;
-    }
-
-    if (appMenuBarMenuTemplate) {
-      this.AppMenuBarMenuTemplate = appMenuBarMenuTemplate;
-    }
 
     // Setup our web app loader, this lets us load apps like react, vue, and angular without changing their build chains.
     this.loadWebApp = electronServe({
@@ -164,7 +153,6 @@ export class ElectronCapacitorApp {
     }
 
     // Setup the main manu bar at the top of our window.
-    Menu.setApplicationMenu(Menu.buildFromTemplate(this.AppMenuBarMenuTemplate));
 
     // If the splashscreen is enabled, show it first while the main window loads then switch it out for the main window, or just load the main window from the start.
     if (this.CapacitorFileConfig.electron?.splashScreenEnabled) {
