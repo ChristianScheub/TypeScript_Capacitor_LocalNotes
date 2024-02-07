@@ -30,5 +30,8 @@
   "settings_Dialog_DeleteBioSuccessful": "Données de connexion effacées ! Vous pouvez maintenant les redéfinir !",
   "settings_Dialog_DeleteBioError": "Erreur lors de la suppression des données de connexion !",
   "settings_Dialog_Import": "Êtes-vous sûr ? Les notes déjà existantes pourraient être écrasées !",
-  "settings_Dialog_ImportSuccessful": "Notes importées avec succès !"
+  "settings_Dialog_ImportSuccessful": "Notes importées avec succès !",
+  "setting_Menu_OpenSourceModulList": "Liste des Modules Open Source Utilisés",
+  "setting_OpenSurceModulListTItle": "Liste des Modules NPM Utilisés",
+  "setting_OpenSourceModulListClose": "Fermer"
 }

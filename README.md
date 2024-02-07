@@ -1,7 +1,7 @@
 
 # LocalNotes
 
-Last Edit: 01.2024 <br>
+Last Edit: 02.2024 <br>
 Language: Typescript React Capacitor<br>
 
 With this app, it is possible to securely store notes locally with AES & Triple DES encryption, edit/delete them and search them.
@@ -99,41 +99,44 @@ Under modules are modules from other projects of mine for which I have not writt
 The goal is actually to have about 80% test coverage. This number appears to be enough as this is a freetime project.
 
 
-File                                                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                         
---------------------------------------------------------|---------|----------|---------|---------|-------------------------------------------
-All files                                               |   86.94 |    63.21 |    87.8 |      87 |                                           
- src                                                    |     100 |      100 |     100 |     100 |                                           
-  App.tsx                                               |     100 |      100 |     100 |     100 |                                           
-  i18n.ts                                               |     100 |      100 |     100 |     100 |                                           
-  index.tsx                                             |     100 |      100 |     100 |     100 |                                           
- src/custom_components/handleNotes                      |      90 |      100 |   85.71 |      90 |                                           
-  encryptionEngine.ts                                   |      90 |      100 |   85.71 |      90 | 23-30                                     
- src/custom_components/handleNotes/editNote             |     100 |       50 |     100 |     100 |                                           
-  container-editNote.tsx                                |     100 |       50 |     100 |     100 | 20-44                                     
-  screen-editNote.tsx                                   |     100 |      100 |     100 |     100 |                                           
- src/custom_components/handleNotes/viewNote             |   95.55 |       70 |     100 |   95.23 |                                           
-  container-viewNote.tsx                                |     100 |      100 |     100 |     100 |                                           
-  getNotes.ts                                           |   96.29 |    66.66 |     100 |      96 | 19                                        
-  screen-viewNote.tsx                                   |   88.88 |       75 |     100 |    87.5 | 24                                        
- src/custom_components/notNotesRelated                  |   97.67 |    92.85 |     100 |   97.67 |                                           
-  fingerprintLogic.ts                                   |   97.67 |    92.85 |     100 |   97.67 | 60                                        
- src/custom_components/notNotesRelated/encryption_modal |     100 |      100 |     100 |     100 |                                           
-  container-encryption-modal.tsx                        |     100 |      100 |     100 |     100 |                                           
-  screen-encryption-modal.tsx                           |     100 |      100 |     100 |     100 |                                           
- src/custom_components/notNotesRelated/navBar           |   86.95 |    58.33 |   85.71 |   86.95 |                                           
-  container-navBar.tsx                                  |   85.71 |       50 |   83.33 |   85.71 | 38-40                                     
-  screen-navBar.tsx                                     |     100 |       75 |     100 |     100 | 59                                        
- src/custom_components/notNotesRelated/settings         |   65.42 |       25 |   63.63 |   65.71 |                                           
-  container_settings.tsx                                |   62.24 |    19.23 |      50 |    62.5 | 21,24,41-58,80-81,134,141,159-179,185-197 
-  screen_settings.tsx                                   |     100 |      100 |     100 |     100 |                                           
- src/modules/app_configuration                          |     100 |      100 |     100 |     100 |                                           
-  app_texts.ts                                          |     100 |      100 |     100 |     100 |                                           
- src/modules/legal                                      |     100 |      100 |     100 |     100 |                                           
-  codeToTextParser.tsx                                  |     100 |      100 |     100 |     100 |                                           
-  datenschutz.tsx                                       |     100 |      100 |     100 |     100 |                                           
-  impressum.tsx                                         |     100 |      100 |     100 |     100 |                                           
- src/modules/ui                                         |     100 |      100 |     100 |     100 |                                           
-  floatingBtn.tsx                                       |     100 |      100 |     100 |     100 |             
+File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------------|---------|----------|---------|---------|-------------------
+All files             |   86.86 |     60.9 |   88.88 |   86.92 |                   
+ src                  |     100 |      100 |     100 |     100 |                   
+  App.tsx             |     100 |      100 |     100 |     100 |                   
+  i18n.ts             |     100 |      100 |     100 |     100 |                   
+  index.tsx           |     100 |      100 |     100 |     100 |                   
+ ...nents/handleNotes |      90 |      100 |   85.71 |      90 |                   
+  encryptionEngine.ts |      90 |      100 |   85.71 |      90 | 23-30             
+ ...dleNotes/editNote |     100 |       50 |     100 |     100 |                   
+  ...ner-editNote.tsx |     100 |       50 |     100 |     100 | 20-44             
+  screen-editNote.tsx |     100 |      100 |     100 |     100 |                   
+ ...dleNotes/viewNote |   95.55 |       70 |     100 |   95.23 |                   
+  ...ner-viewNote.tsx |     100 |      100 |     100 |     100 |                   
+  getNotes.ts         |   96.29 |    66.66 |     100 |      96 | 19                
+  screen-viewNote.tsx |   88.88 |       75 |     100 |    87.5 | 24                
+ ...s/notNotesRelated |   97.67 |    92.85 |     100 |   97.67 |                   
+  fingerprintLogic.ts |   97.67 |    92.85 |     100 |   97.67 | 60                
+ .../encryption_modal |     100 |      100 |     100 |     100 |                   
+  ...yption-modal.tsx |     100 |      100 |     100 |     100 |                   
+  ...yption-modal.tsx |     100 |      100 |     100 |     100 |                   
+ ...tesRelated/navBar |   84.61 |       60 |   85.71 |   84.61 |                   
+  ...ainer-navBar.tsx |   83.33 |    54.54 |   83.33 |   83.33 | 25,44-46          
+  screen-navBar.tsx   |     100 |       75 |     100 |     100 | 59                
+ ...sRelated/settings |   64.03 |    28.94 |   63.63 |   64.28 |                   
+  ...ner_settings.tsx |   60.57 |    16.66 |      50 |   60.78 | ...59-175,181-193 
+  screen_settings.tsx |     100 |       75 |     100 |     100 | 44-56             
+ ...app_configuration |     100 |      100 |     100 |     100 |                   
+  app_texts.ts        |     100 |      100 |     100 |     100 |                   
+ src/modules/legal    |     100 |    71.42 |     100 |     100 |                   
+  ...ToTextParser.tsx |     100 |      100 |     100 |     100 |                   
+  datenschutz.tsx     |     100 |       50 |     100 |     100 | 21-33             
+  impressum.tsx       |     100 |       50 |     100 |     100 | 19-31             
+ ...es/legal/usedLibs |     100 |      100 |     100 |     100 |                   
+  ..._usedLibList.tsx |     100 |      100 |     100 |     100 |                   
+  ..._usedLibList.tsx |     100 |      100 |     100 |     100 |                   
+ src/modules/ui       |     100 |      100 |     100 |     100 |                   
+  floatingBtn.tsx     |     100 |      100 |     100 |     100 |               
      
 
 
@@ -215,3 +218,88 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+
+## Used NPM Modules
+According to the command npm list
+You can see the deeper NPM modules used and which of these are used in the licenses.json.
+
+├── @babel/core@7.23.9
+
+├── @babel/plugin-proposal-private-property-in-object@7.21.11
+
+├── @babel/preset-env@7.23.9
+
+├── @capacitor-community/electron@5.0.1
+
+├── @capacitor/android@5.7.0
+
+├── @capacitor/app@5.0.7
+
+├── @capacitor/cli@5.7.0
+
+├── @capacitor/core@5.7.0
+
+├── @capacitor/device@5.0.7
+
+├── @capacitor/filesystem@5.2.1
+
+├── @capacitor/ios@5.7.0
+
+├── @capacitor/share@5.0.7
+
+├── @emotion/react@11.11.3
+
+├── @emotion/styled@11.11.0
+
+├── @mui/material@5.15.7
+
+├── @testing-library/jest-dom@5.17.0
+
+├── @testing-library/react@13.4.0
+
+├── @testing-library/user-event@13.5.0
+
+├── @types/crypto-js@4.2.2
+
+├── @types/jest@27.5.2
+
+├── @types/node@16.18.79
+
+├── @types/react-dom@18.2.19
+
+├── @types/react@18.2.55
+
+├── babel-jest@29.7.0
+
+├── bootstrap-icons@1.11.3
+
+├── bootstrap@5.3.2
+
+├── capacitor-native-biometric@4.2.2
+
+├── crypto-js@4.2.0
+
+├── electron-builder@24.9.1
+
+├── i18next-browser-languagedetector@7.2.0
+
+├── i18next@23.8.2
+
+├── license-checker@25.0.1
+
+├── react-bootstrap@2.10.0
+
+├── react-dom@18.2.0
+
+├── react-i18next@14.0.5
+
+├── react-icons@4.12.0
+
+├── react-router-dom@6.22.0
+
+├── react-scripts@5.0.1
+
+├── react@18.2.0
+
+└── typescript@4.9.5

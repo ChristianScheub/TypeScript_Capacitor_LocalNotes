@@ -24,6 +24,7 @@ describe('SettingsView Component', () => {
     onExportAllClick: mockOnExportAllClick,
     onFileChange: mockOnFileChange,
     onDeleteNotesClick: mockOnDeleteNotesClick,
+    isAlreadyLoggedIn: true,
   };
 
   beforeEach(() => {

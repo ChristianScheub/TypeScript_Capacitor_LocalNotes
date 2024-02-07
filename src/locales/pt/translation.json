@@ -30,6 +30,9 @@
     "settings_Dialog_DeleteBioSuccessful": "Dados de login excluídos! Agora você pode redefini-los!",
     "settings_Dialog_DeleteBioError": "Erro ao excluir dados de login!",
     "settings_Dialog_Import": "Tem certeza? Notas existentes podem ser substituídas!",
-    "settings_Dialog_ImportSuccessful": "Notas importadas com sucesso!"
+    "settings_Dialog_ImportSuccessful": "Notas importadas com sucesso!",
+    "setting_Menu_OpenSourceModulList": "Lista de Módulos de Código Aberto Utilizados",
+    "setting_OpenSurceModulListTItle": "Lista de Módulos NPM Utilizados",
+    "setting_OpenSourceModulListClose": "Fechar"
   }
   

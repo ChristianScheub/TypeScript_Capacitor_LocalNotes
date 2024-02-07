@@ -30,5 +30,8 @@
   "settings_Dialog_DeleteBioSuccessful": "¡Datos de inicio de sesión eliminados! Ahora puedes restablecerlos!",
   "settings_Dialog_DeleteBioError": "¡Error al borrar los datos de acceso!",
   "settings_Dialog_Import": "¿Estás seguro? Las notas existentes podrían sobrescribirse!",
-  "settings_Dialog_ImportSuccessful": "¡Notas importadas con éxito!"
+  "settings_Dialog_ImportSuccessful": "¡Notas importadas con éxito!",
+  "setting_Menu_OpenSourceModulList": "Lista de Módulos de Código Abierto Utilizados",
+  "setting_OpenSurceModulListTItle": "Lista de Módulos NPM Utilizados",
+  "setting_OpenSourceModulListClose": "Cerrar"
 }

@@ -70,7 +70,7 @@ const EncryptionKeyModalContainer: React.FC<
       activateFingerprint={activateFingerprint}
       handleKeySubmit={handleKeySubmit}
       inputRef={inputRef}
-      navigateToPrivacy={() => navigate("/datenschutz")}
+      navigateToPrivacy={() => navigate("/settingsHome")}
     />
   );
 };

@@ -15,9 +15,15 @@ const NavBarContainer: React.FC<NavBarContainerProps> = ({ setSearchQuery }) => 
 
   const noteID =
     location.pathname.split("/")[location.pathname.split("/").length - 1];
+    const isAlreadyLoggedIn = !location.pathname.includes("Home");
+
 
   const handleImpressumClick = () => {
-    navigate("/settings");
+    if (isAlreadyLoggedIn) {
+      navigate("/settings");
+    } else {
+      navigate("/settingsHome");
+    }
   };
 
   const handleBackClick = () => {
@@ -47,6 +53,7 @@ const NavBarContainer: React.FC<NavBarContainerProps> = ({ setSearchQuery }) => 
       showBackButton={location.pathname.includes("/datenschutz") ||
                       location.pathname.includes("/impressum") ||
                       location.pathname.includes("/settings") ||
+                      location.pathname.includes("/settingsHome") ||
                       location.pathname.includes("/edit")}
       showDeleteBtn={location.pathname.includes("/edit")}
       onBackClick={handleBackClick}

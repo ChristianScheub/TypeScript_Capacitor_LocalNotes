@@ -4,25 +4,35 @@ import SettingsView from "./screen_settings";
 import React, { useState, useEffect } from "react";
 import { availableBiometric } from "../fingerprintLogic";
 import { Filesystem, Directory } from "@capacitor/filesystem";
+import { useLocation } from "react-router-dom";
 import { Share } from "@capacitor/share";
 import { Capacitor } from "@capacitor/core";
 import {
   makeReadyForExport,
   makeReadyForImport,
 } from "../../handleNotes/encryptionEngine";
-import { useTranslation } from 'react-i18next';
-
+import { useTranslation } from "react-i18next";
 
 const SettingsContainer: React.FC = () => {
   const { t } = useTranslation();
 
-
   const handleImpressumClick = (navigate: NavigateFunction) => {
-    navigate("/impressum");
+    if (isAlreadyLoggedIn) {
+      navigate("/impressum");
+    } else {
+      navigate("/impressumHome");
+    }
   };
   const handleDatenschutzClick = (navigate: NavigateFunction) => {
-    navigate("/datenschutz");
+    if (isAlreadyLoggedIn) {
+      navigate("/datenschutz");
+    } else {
+      navigate("/datenschutzHome");
+    }
   };
+
+  const location = useLocation();
+  const isAlreadyLoggedIn = !location.pathname.includes("settingsHome");
 
   const [showFingerprintBtn, setShowFingerprintBtn] = useState(false);
   useEffect(() => {
@@ -38,11 +48,7 @@ const SettingsContainer: React.FC = () => {
     showFingerprintBtn: boolean,
     navigate: NavigateFunction
   ): Promise<void> => {
-    if (
-      window.confirm(
-        t('settings_Dialog_DeleteAll')
-      )
-    ) {
+    if (window.confirm(t("settings_Dialog_DeleteAll"))) {
       localStorage.clear();
       if (showFingerprintBtn) {
         try {
@@ -55,31 +61,27 @@ const SettingsContainer: React.FC = () => {
       }
       navigate("/");
       window.location.reload();
-      alert(t('settings_Dialog_DeleteAllSuccessful'));
+      alert(t("settings_Dialog_DeleteAllSuccessful"));
     }
   };
 
   const handleDeleteNotesClick = async (): Promise<void> => {
-    if (window.confirm(t('settings_Dialog_DeleteNotes'))) {
+    if (window.confirm(t("settings_Dialog_DeleteNotes"))) {
       localStorage.clear();
-      alert(t('settings_Dialog_DeleteNotesSuccessful'));
+      alert(t("settings_Dialog_DeleteNotesSuccessful"));
     }
   };
 
   const handleDeleteBiometryClick = async () => {
-    if (
-      window.confirm(t('settings_Dialog_DeleteBio')
-      )
-    ) {
+    if (window.confirm(t("settings_Dialog_DeleteBio"))) {
       try {
         await NativeBiometric.deleteCredentials({
           server: "www.LocalNotes.com",
         });
-        alert(t('settings_Dialog_DeleteBioSuccessful'));
+        alert(t("settings_Dialog_DeleteBioSuccessful"));
       } catch (error) {
         console.error("Error at delete Credentials", error);
-        alert(t('settings_Dialog_DeleteBioError'));
-
+        alert(t("settings_Dialog_DeleteBioError"));
       }
     }
   };
@@ -87,12 +89,12 @@ const SettingsContainer: React.FC = () => {
   const generateFileName = () => {
     const now = new Date();
     const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const day = now.getDate().toString().padStart(2, '0');
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-  
+    const month = (now.getMonth() + 1).toString().padStart(2, "0");
+    const day = now.getDate().toString().padStart(2, "0");
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+
     return `notes-${year}${month}${day}-${hours}${minutes}${seconds}.txt`;
   };
 
@@ -110,7 +112,7 @@ const SettingsContainer: React.FC = () => {
     }
 
     try {
-    const fileName = generateFileName();
+      const fileName = generateFileName();
       const base64Data = btoa(notes);
 
       const filePath = `${Directory.Documents}/${fileName}`;
@@ -123,16 +125,14 @@ const SettingsContainer: React.FC = () => {
       });
 
       try {
-        
         const uriResult = await Filesystem.getUri({
           directory: Directory.Documents,
           path: fileName,
         });
         shareUrl = uriResult.uri;
-      
 
         await Share.share({
-          url: uriResult.uri
+          url: uriResult.uri,
         });
       } catch (shareError) {
         downloadFile(notes, fileName);
@@ -142,7 +142,7 @@ const SettingsContainer: React.FC = () => {
     }
   };
 
-   const downloadFile = (base64Data: string, fileName: string) => {
+  const downloadFile = (base64Data: string, fileName: string) => {
     const blob = new Blob([base64Data], { type: "text/plain" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
@@ -157,11 +157,7 @@ const SettingsContainer: React.FC = () => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const file = event.target.files ? event.target.files[0] : null;
-    if (
-      window.confirm(
-        t('settings_Dialog_Import')
-      )
-    ) {
+    if (window.confirm(t("settings_Dialog_Import"))) {
       if (file) {
         const fileContent = await readFileContent(file);
         if (fileContent) {
@@ -176,7 +172,7 @@ const SettingsContainer: React.FC = () => {
             }
           }
         }
-        alert(t('settings_Dialog_ImportSuccessful'));
+        alert(t("settings_Dialog_ImportSuccessful"));
       }
     }
   };
@@ -208,6 +204,7 @@ const SettingsContainer: React.FC = () => {
       onExportAllClick={handleExportAllClick}
       onFileChange={handleFileChange}
       onDeleteNotesClick={handleDeleteNotesClick}
+      isAlreadyLoggedIn={isAlreadyLoggedIn}
     />
   );
 };

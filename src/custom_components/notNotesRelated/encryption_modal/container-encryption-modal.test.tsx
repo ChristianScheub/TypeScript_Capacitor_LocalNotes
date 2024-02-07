@@ -116,7 +116,7 @@ describe("<EncryptionKeyModal />", () => {
         fireEvent.click(privacyButton1);
       });
 
-      expect(window.location.pathname).toBe("/datenschutz");
+      expect(window.location.pathname).toBe("/settingsHome");
     });
   });
 

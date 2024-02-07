@@ -30,5 +30,8 @@
   "settings_Dialog_DeleteBioSuccessful": "लॉगिन डेटा हटाया गया! आप इसे अब नए सिरे से सेट कर सकते हैं!",
   "settings_Dialog_DeleteBioError": "लॉगिन डेटा हटाने में त्रुटि!",
   "settings_Dialog_Import": "क्या आप सुनिश्चित हैं? इससे पहले से मौजूद नोट्स ओवरराइट हो सकते हैं!",
-  "settings_Dialog_ImportSuccessful": "नोट्स सफलतापूर्वक आयात किए गए!"
+  "settings_Dialog_ImportSuccessful": "नोट्स सफलतापूर्वक आयात किए गए!",
+  "setting_Menu_OpenSourceModulList": "उपयोग किए गए ओपन सोर्स मॉड्यूल की सूची",
+  "setting_OpenSurceModulListTItle": "उपयोग किए गए एनपीएम मॉड्यूल की सूची",
+  "setting_OpenSourceModulListClose": "बंद करें"
 }

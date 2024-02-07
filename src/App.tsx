@@ -20,12 +20,13 @@ const App: React.FC = () => {
         <div>
           <Router>
             <Routes>
-              <Route path="/datenschutz" element={<Datenschutz />} />
+              <Route path="/datenschutzHome" element={<Datenschutz />} />
               <Route
                 path="/"
                 element={<EncryptionKeyModalContainer onSubmit={setEncryptionKey} />}
               />
-              
+              <Route path="/settingsHome" element={<SettingsContainer />} />
+              <Route path="/impressumHome" element={<Impressum />} />
             </Routes>
           </Router>
         </div>
@@ -47,6 +48,7 @@ const App: React.FC = () => {
                 <Route path="/impressum" element={<Impressum />} />
 
                 <Route path="/settings" element={<SettingsContainer />} />
+
 
                 <Route
                   path="/edit/:noteId"

@@ -30,5 +30,8 @@
   "settings_Dialog_DeleteBioSuccessful": "تم حذف بيانات تسجيل الدخول! يمكنك الآن إعادة تعيينها!",
   "settings_Dialog_DeleteBioError": "خطأ أثناء حذف بيانات تسجيل الدخول!",
   "settings_Dialog_Import": "هل أنت متأكد؟ قد يتم الكتابة فوق الملاحظات الموجودة مسبقًا!",
-  "settings_Dialog_ImportSuccessful": "تم استيراد الملاحظات بنجاح!"
+  "settings_Dialog_ImportSuccessful": "تم استيراد الملاحظات بنجاح!",
+  "setting_Menu_OpenSourceModulList": "قائمة وحدات المصدر المفتوح",
+  "setting_OpenSurceModulListTItle": "قائمة وحدات NPM المستخدمة",
+  "setting_OpenSourceModulListClose": "إغلاق"
 }

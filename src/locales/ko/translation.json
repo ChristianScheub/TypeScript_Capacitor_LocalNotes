@@ -30,5 +30,8 @@
   "settings_Dialog_DeleteBioSuccessful": "로그인 데이터가 삭제되었습니다! 이제 새로 설정할 수 있습니다!",
   "settings_Dialog_DeleteBioError": "로그인 데이터 삭제 중 오류가 발생했습니다!",
   "settings_Dialog_Import": "정말로 하시겠습니까? 기존 노트가 덮어쓰여질 수 있습니다!",
-  "settings_Dialog_ImportSuccessful": "노트가 성공적으로 가져오기 되었습니다!"
+  "settings_Dialog_ImportSuccessful": "노트가 성공적으로 가져오기 되었습니다!",
+  "setting_Menu_OpenSourceModulList": "사용된 오픈 소스 모듈 목록",
+  "setting_OpenSurceModulListTItle": "사용된 NPM 모듈 목록",
+  "setting_OpenSourceModulListClose": "닫기"
 }

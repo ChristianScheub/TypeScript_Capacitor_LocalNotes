@@ -30,5 +30,8 @@
   "settings_Dialog_DeleteBioSuccessful": "Login data deleted! You can now reset them!",
   "settings_Dialog_DeleteBioError": "Error while deleting the credentials!",
   "settings_Dialog_Import": "Are you sure? Existing notes could be overwritten!",
-  "settings_Dialog_ImportSuccessful": "Notes successfully imported!"
+  "settings_Dialog_ImportSuccessful": "Notes successfully imported!",
+  "setting_Menu_OpenSourceModulList": "Used Open Source Modules",
+  "setting_OpenSurceModulListTItle": "Used NPM Modules",
+  "setting_OpenSourceModulListClose": "Close"
 }
