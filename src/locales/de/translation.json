@@ -33,5 +33,21 @@
   "settings_Dialog_ImportSuccessful": "Notizen erfolgreich importiert!",
   "setting_Menu_OpenSourceModulList": "Verwendete Bibilotheken",
   "setting_OpenSurceModulListTItle": "Verwendete NPM Bibilotheken",
-  "setting_OpenSourceModulListClose": "Schließen"
+  "setting_OpenSourceModulListClose": "Schließen",
+
+  "viewNote_hint": "Um eine Notiz zu erstellen klicke hier!",
+  "welcomeOverlay.h1": "Wilkommen bei Local Notes!",
+  "welcomeOverlay.p1": "Diese App legt einen besonderen Fokus auf die sichere Verwahrung der Notizen.",
+  "welcomeOverlay.p2": "Dementsprechend müssen sie gleich ein Passwort eingeben mit welchem die Notizen verschlüsselt werden. Merken sie sich das gut, da wir diese nicht mehr wiederherstellen können.",
+  "welcomeOverlay.p3": "Diese App verwendet eine AES256 Verschlüsselung kombiniert mit einer TripleDES Verschlüsselung, ist Open Source und ist komplett offline. ",
+  "welcomeOverlay.p3_bold": "Folglich können sie hier sicher ihre Notizen erstellen.",
+  "welcomeOverlay.p4": "Weitere Informationen zu unseren Sicherheitsmaßnahmen finden sie in unserem GitHub Repo.",
+  "welcomeOverlay.buttonText": "Weiter",
+  "furtherFeatures.h1": "Weitere Funktionen",
+  "furtherFeatures.li1": "Mithilfe unseres Biometrischen Logins können sie schnell all ihre Notizen aufrufen.",
+  "furtherFeatures.li3": "Mithilfe unser Export und Import Funktion können sie ihre Notizen exportieren, teilen und wieder importieren. Diese bleiben verschlüsselt mit ihrem gesetzten Passwort.",
+  "furtherFeatures.li4": "Die Suchfunktion erlaubt es Ihnen, Ihre Notizen leicht und schnell zu durchsuchen.",
+  "furtherFeatures.li5": "Sie können mit verschiedenen Passwörter verschiedene Notizen Gruppen abspeichern. Aber Achtung, bei einem Export werden alle exportiert!",
+  "encryption-modal_hint": "Geben Sie ihr Passwort ein und klicken sie anschließend auf diesen Button um das Passwort zu speichern.",
+  "encryption-modal_password_stored": "Passwort gespeichert!" 
 }

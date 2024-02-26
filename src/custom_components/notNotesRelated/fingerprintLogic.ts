@@ -88,7 +88,8 @@ export const storePasswordFromFingerprint = async (
       username: "user",
       password: CryptoJS.TripleDES.encrypt(getPBKDF2_Password(password), hashedDeviceId).toString(),
     });
-    
+    localStorage.setItem("setFingerprint", "yey");
+
     onSuccess();
   } catch (e) {
     onError(t('fingerprint_error'));

@@ -33,5 +33,20 @@
   "settings_Dialog_ImportSuccessful": "Notes successfully imported!",
   "setting_Menu_OpenSourceModulList": "Used Open Source Modules",
   "setting_OpenSurceModulListTItle": "Used NPM Modules",
-  "setting_OpenSourceModulListClose": "Close"
+  "setting_OpenSourceModulListClose": "Close",
+  "viewNote_hint": "To create a note, click here!",
+  "welcomeOverlay.h1": "Welcome to Local Notes!",
+  "welcomeOverlay.p1": "This app puts special emphasis on securely storing your notes.",
+  "welcomeOverlay.p2": "Therefore, you need to enter a password immediately to encrypt the notes. Remember it well, as we won't be able to recover it again.",
+  "welcomeOverlay.p3": "This app uses AES256 encryption combined with TripleDES encryption, is open-source, and completely offline.",
+  "welcomeOverlay.p3_bold": "Thus, you can safely create your notes here.",
+  "welcomeOverlay.p4": "You can find more information about our security measures in our GitHub repo.",
+  "welcomeOverlay.buttonText": "Continue",
+  "furtherFeatures.h1": "Further Features",
+  "furtherFeatures.li1": "With our biometric login, you can quickly access all your notes.",
+  "furtherFeatures.li3": "With our export and import feature, you can export, share, and re-import your notes. These remain encrypted with your set password.",
+  "furtherFeatures.li4": "The search function allows you to easily and quickly search through your notes.",
+  "furtherFeatures.li5": "You can save different groups of notes with different passwords. But beware, upon export, all will be exported!",
+  "encryption-modal_hint": "Enter your password and then click this button to store the password.",
+  "encryption-modal_password_stored": "Password stored!"
 }

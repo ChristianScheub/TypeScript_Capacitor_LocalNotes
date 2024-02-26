@@ -33,5 +33,20 @@
   "settings_Dialog_ImportSuccessful": "노트가 성공적으로 가져오기 되었습니다!",
   "setting_Menu_OpenSourceModulList": "사용된 오픈 소스 모듈 목록",
   "setting_OpenSurceModulListTItle": "사용된 NPM 모듈 목록",
-  "setting_OpenSourceModulListClose": "닫기"
+  "setting_OpenSourceModulListClose": "닫기",
+  "viewNote_hint": "노트를 만들려면 여기를 클릭하세요!",
+  "welcomeOverlay.h1": "로컬 노트에 오신 것을 환영합니다!",
+  "welcomeOverlay.p1": "이 앱은 노트를 안전하게 저장하는 데 특별한 주의를 기울입니다.",
+  "welcomeOverlay.p2": "따라서 노트를 암호화하려면 즉시 비밀번호를 입력해야 합니다. 잘 기억해주세요. 다시 복구할 수 없기 때문입니다.",
+  "welcomeOverlay.p3": "이 앱은 AES256 암호화를 사용하며 TripleDES 암호화와 결합되어 있으며 오픈 소스이며 완전히 오프라인입니다.",
+  "welcomeOverlay.p3_bold": "따라서 여기에서 안전하게 노트를 작성할 수 있습니다.",
+  "welcomeOverlay.p4": "보안 조치에 대한 자세한 정보는 GitHub 리포지토리에서 확인할 수 있습니다.",
+  "welcomeOverlay.buttonText": "계속",
+  "furtherFeatures.h1": "추가 기능",
+  "furtherFeatures.li1": "생체 인식 로그인을 사용하여 모든 노트에 빠르게 액세스할 수 있습니다.",
+  "furtherFeatures.li3": "내보내기 및 가져오기 기능을 사용하여 노트를 내보내고 공유하고 다시 가져올 수 있습니다. 이러한 노트는 설정한 비밀번호로 암호화된 채로 유지됩니다.",
+  "furtherFeatures.li4": "검색 기능을 사용하여 노트를 쉽고 빠르게 검색할 수 있습니다.",
+  "furtherFeatures.li5": "다른 비밀번호로 다른 노트 그룹을 저장할 수 있습니다. 그러나 내보내기할 때 모두 내보내집니다!",
+  "encryption-modal_hint": "비밀번호를 입력한 후 비밀번호를 저장하려면이 버튼을 클릭하십시오.",
+  "encryption-modal_password_stored": "비밀번호가 저장되었습니다!"
 }

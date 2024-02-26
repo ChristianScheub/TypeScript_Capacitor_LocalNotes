@@ -8,9 +8,10 @@ interface NavBarViewProps {
   tempSearch: string;
   showBackButton: boolean;
   showDeleteBtn: boolean;
+  showSettingsButton: boolean;
   onBackClick: () => void;
   onDeleteClick: () => void;
-  onImpressumClick: () => void;
+  onSettingsClick: () => void;
   onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSearchSubmit: (e: React.FormEvent) => void;
   t: TFunction;
@@ -20,9 +21,10 @@ const NavBarView: React.FC<NavBarViewProps> = ({
   tempSearch,
   showBackButton,
   showDeleteBtn,
+  showSettingsButton,
   onBackClick,
   onDeleteClick,
-  onImpressumClick,
+  onSettingsClick,
   onSearchChange,
   onSearchSubmit,
   t,
@@ -96,14 +98,15 @@ const NavBarView: React.FC<NavBarViewProps> = ({
             />
           </Form>
         )}
-
-        <Button
-          variant="link"
-          onClick={onImpressumClick}
-          style={{ height: "2em" }}
-        >
-          <MdOutlineSettings size="1.5em" />
-        </Button>
+          {showSettingsButton && (
+            <Button
+              variant="link"
+              onClick={onSettingsClick}
+              style={{ height: "2em" }}
+            >
+              <MdOutlineSettings size="1.5em" />
+            </Button>
+          )}
       </Container>
     </Navbar>
   );

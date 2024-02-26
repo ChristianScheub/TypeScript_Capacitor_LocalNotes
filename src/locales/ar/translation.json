@@ -33,5 +33,20 @@
   "settings_Dialog_ImportSuccessful": "تم استيراد الملاحظات بنجاح!",
   "setting_Menu_OpenSourceModulList": "قائمة وحدات المصدر المفتوح",
   "setting_OpenSurceModulListTItle": "قائمة وحدات NPM المستخدمة",
-  "setting_OpenSourceModulListClose": "إغلاق"
+  "setting_OpenSourceModulListClose": "إغلاق",
+  "viewNote_hint": "لإنشاء مذكرة، انقر هنا!",
+  "welcomeOverlay.h1": "مرحبًا بك في الملاحظات المحلية!",
+  "welcomeOverlay.p1": "تضع هذا التطبيق تركيزًا خاصًا على تأمين حفظ الملاحظات.",
+  "welcomeOverlay.p2": "لذلك، يجب عليك إدخال كلمة مرور فورية لتشفير الملاحظات. حافظ عليها جيدًا، لأنه لن نتمكن من استعادتها مرة أخرى.",
+  "welcomeOverlay.p3": "يستخدم هذا التطبيق تشفير AES256 مقترنًا بتشفير TripleDES، وهو مفتوح المصدر ومتصل بالشبكة بشكل كامل.",
+  "welcomeOverlay.p3_bold": "بالتالي، يمكنك إنشاء ملاحظاتك بأمان هنا.",
+  "welcomeOverlay.p4": "يمكنك العثور على مزيد من المعلومات حول إجراءات الأمان الخاصة بنا في مستودع GitHub الخاص بنا.",
+  "welcomeOverlay.buttonText": "التالي",
+  "furtherFeatures.h1": "ميزات إضافية",
+  "furtherFeatures.li1": "باستخدام تسجيل الدخول الحيوي، يمكنك الوصول بسرعة إلى جميع ملاحظاتك.",
+  "furtherFeatures.li3": "مع وظيفة التصدير والاستيراد، يمكنك تصدير ملاحظاتك ومشاركتها واستيرادها مرة أخرى. تظل مشفرة باستخدام كلمة المرور التي قمت بتعيينها.",
+  "furtherFeatures.li4": "يتيح لك وظيفة البحث البحث السهل والسريع في ملاحظاتك.",
+  "furtherFeatures.li5": "يمكنك حفظ مجموعات ملاحظات مختلفة باستخدام كلمات مرور مختلفة. ولكن احذر، فعند التصدير، يتم تصدير الكل!",
+  "encryption-modal_hint": "أدخل كلمة المرور الخاصة بك ثم انقر فوق هذا الزر لحفظ كلمة المرور.",
+  "encryption-modal_password_stored": "تم حفظ كلمة المرور!"
 }

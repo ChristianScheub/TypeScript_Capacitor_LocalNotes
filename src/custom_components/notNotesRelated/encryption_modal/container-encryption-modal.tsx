@@ -19,6 +19,9 @@ const EncryptionKeyModalContainer: React.FC<
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const [showFingerprintBtn, setShowFingerprintBtn] = useState(false);
+  const [showFingerprintHint, setShowFingerprintHint] = useState<
+  boolean
+>(showFingerprintBtn&& localStorage.length <= 2);
   const { t } = useTranslation();
 
 
@@ -30,6 +33,10 @@ const EncryptionKeyModalContainer: React.FC<
     };
     checkBiometrics();
   }, []);
+
+  useEffect(() => {
+    setShowFingerprintHint(showFingerprintBtn && localStorage.length <= 2);
+  }, [showFingerprintBtn, localStorage.length]);
 
   const handleKeySubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -44,7 +51,7 @@ const EncryptionKeyModalContainer: React.FC<
         storePasswordFromFingerprint(
           inputRef.current?.value || "",
           () => {
-            alert("Passwort gespeichert!");
+            alert(t("encryption-modal_password_stored"));
             const password = getPBKDF2_Password(inputRef.current!.value);
             onSubmit(password);
           },
@@ -67,6 +74,7 @@ const EncryptionKeyModalContainer: React.FC<
   return (
     <EncryptionKeyModalScreen
       showFingerprintBtn={showFingerprintBtn}
+      showFingerprintHint={showFingerprintHint}
       activateFingerprint={activateFingerprint}
       handleKeySubmit={handleKeySubmit}
       inputRef={inputRef}

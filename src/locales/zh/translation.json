@@ -33,5 +33,20 @@
   "settings_Dialog_ImportSuccessful": "已成功导入笔记！",
   "setting_Menu_OpenSourceModulList": "使用的开源模块列表",
   "setting_OpenSurceModulListTItle": "使用的NPM模块列表",
-  "setting_OpenSourceModulListClose": "关闭"
+  "setting_OpenSourceModulListClose": "关闭",
+  "viewNote_hint": "要创建笔记，请单击此处！",
+  "welcomeOverlay.h1": "欢迎使用本地笔记！",
+  "welcomeOverlay.p1": "此应用特别强调安全存储您的笔记。",
+  "welcomeOverlay.p2": "因此，您需要立即输入密码以加密笔记。请记住，我们将无法再次恢复它。",
+  "welcomeOverlay.p3": "此应用使用AES256加密结合TripleDES加密，是开源且完全脱机的。",
+  "welcomeOverlay.p3_bold": "因此，您可以在这里安全地创建您的笔记。",
+  "welcomeOverlay.p4": "您可以在我们的GitHub存储库中找到有关我们安全措施的更多信息。",
+  "welcomeOverlay.buttonText": "继续",
+  "furtherFeatures.h1": "更多功能",
+  "furtherFeatures.li1": "通过我们的生物识别登录，您可以快速访问所有笔记。",
+  "furtherFeatures.li3": "通过我们的导出和导入功能，您可以导出、分享和重新导入您的笔记。这些将使用您设置的密码进行加密。",
+  "furtherFeatures.li4": "搜索功能允许您轻松快速地搜索您的笔记。",
+  "furtherFeatures.li5": "您可以使用不同的密码保存不同的笔记组。但是请注意，导出时将全部导出！",
+  "encryption-modal_hint": "输入您的密码，然后单击此按钮以存储密码。",
+  "encryption-modal_password_stored": "密码已存储！"
 }

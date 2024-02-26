@@ -111,7 +111,7 @@ const SettingsView: React.FC<SettingsProps> = ({
                   data-testid="settings-notes-import2"
                 >
                   <input
-                    accept="*"
+                    accept=".txt"
                     id="file-input"
                     multiple
                     type="file"

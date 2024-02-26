@@ -33,5 +33,20 @@
   "settings_Dialog_ImportSuccessful": "Notes importées avec succès !",
   "setting_Menu_OpenSourceModulList": "Liste des Modules Open Source Utilisés",
   "setting_OpenSurceModulListTItle": "Liste des Modules NPM Utilisés",
-  "setting_OpenSourceModulListClose": "Fermer"
+  "setting_OpenSourceModulListClose": "Fermer",
+  "viewNote_hint": "Pour créer une note, cliquez ici !",
+  "welcomeOverlay.h1": "Bienvenue sur Local Notes !",
+  "welcomeOverlay.p1": "Cette application met l'accent sur le stockage sécurisé de vos notes.",
+  "welcomeOverlay.p2": "Par conséquent, vous devez immédiatement entrer un mot de passe pour crypter les notes. Souvenez-vous bien de celui-ci, car nous ne pourrons pas le récupérer.",
+  "welcomeOverlay.p3": "Cette application utilise un cryptage AES256 combiné avec un cryptage TripleDES, est open source et complètement hors ligne.",
+  "welcomeOverlay.p3_bold": "Ainsi, vous pouvez créer vos notes en toute sécurité ici.",
+  "welcomeOverlay.p4": "Vous pouvez trouver plus d'informations sur nos mesures de sécurité dans notre dépôt GitHub.",
+  "welcomeOverlay.buttonText": "Continuer",
+  "furtherFeatures.h1": "Fonctionnalités Supplémentaires",
+  "furtherFeatures.li1": "Avec notre connexion biométrique, vous pouvez accéder rapidement à toutes vos notes.",
+  "furtherFeatures.li3": "Avec notre fonction d'exportation et d'importation, vous pouvez exporter, partager et réimporter vos notes. Celles-ci restent cryptées avec votre mot de passe défini.",
+  "furtherFeatures.li4": "La fonction de recherche vous permet de rechercher facilement et rapidement dans vos notes.",
+  "furtherFeatures.li5": "Vous pouvez enregistrer différents groupes de notes avec des mots de passe différents. Mais attention, lors de l'exportation, toutes seront exportées !",
+  "encryption-modal_hint": "Entrez votre mot de passe, puis cliquez sur ce bouton pour le stocker.",
+  "encryption-modal_password_stored": "Mot de passe stocké !"
 }

@@ -99,44 +99,46 @@ Under modules are modules from other projects of mine for which I have not writt
 The goal is actually to have about 80% test coverage. This number appears to be enough as this is a freetime project.
 
 
-File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------------------|---------|----------|---------|---------|-------------------
-All files             |   86.86 |     60.9 |   88.88 |   86.92 |                   
- src                  |     100 |      100 |     100 |     100 |                   
-  App.tsx             |     100 |      100 |     100 |     100 |                   
-  i18n.ts             |     100 |      100 |     100 |     100 |                   
-  index.tsx           |     100 |      100 |     100 |     100 |                   
- ...nents/handleNotes |      90 |      100 |   85.71 |      90 |                   
-  encryptionEngine.ts |      90 |      100 |   85.71 |      90 | 23-30             
- ...dleNotes/editNote |     100 |       50 |     100 |     100 |                   
-  ...ner-editNote.tsx |     100 |       50 |     100 |     100 | 20-44             
-  screen-editNote.tsx |     100 |      100 |     100 |     100 |                   
- ...dleNotes/viewNote |   95.55 |       70 |     100 |   95.23 |                   
-  ...ner-viewNote.tsx |     100 |      100 |     100 |     100 |                   
-  getNotes.ts         |   96.29 |    66.66 |     100 |      96 | 19                
-  screen-viewNote.tsx |   88.88 |       75 |     100 |    87.5 | 24                
- ...s/notNotesRelated |   97.67 |    92.85 |     100 |   97.67 |                   
-  fingerprintLogic.ts |   97.67 |    92.85 |     100 |   97.67 | 60                
- .../encryption_modal |     100 |      100 |     100 |     100 |                   
-  ...yption-modal.tsx |     100 |      100 |     100 |     100 |                   
-  ...yption-modal.tsx |     100 |      100 |     100 |     100 |                   
- ...tesRelated/navBar |   84.61 |       60 |   85.71 |   84.61 |                   
-  ...ainer-navBar.tsx |   83.33 |    54.54 |   83.33 |   83.33 | 25,44-46          
-  screen-navBar.tsx   |     100 |       75 |     100 |     100 | 59                
- ...sRelated/settings |   64.03 |    28.94 |   63.63 |   64.28 |                   
-  ...ner_settings.tsx |   60.57 |    16.66 |      50 |   60.78 | ...59-175,181-193 
-  screen_settings.tsx |     100 |       75 |     100 |     100 | 44-56             
- ...app_configuration |     100 |      100 |     100 |     100 |                   
-  app_texts.ts        |     100 |      100 |     100 |     100 |                   
- src/modules/legal    |     100 |    71.42 |     100 |     100 |                   
-  ...ToTextParser.tsx |     100 |      100 |     100 |     100 |                   
-  datenschutz.tsx     |     100 |       50 |     100 |     100 | 21-33             
-  impressum.tsx       |     100 |       50 |     100 |     100 | 19-31             
- ...es/legal/usedLibs |     100 |      100 |     100 |     100 |                   
-  ..._usedLibList.tsx |     100 |      100 |     100 |     100 |                   
-  ..._usedLibList.tsx |     100 |      100 |     100 |     100 |                   
- src/modules/ui       |     100 |      100 |     100 |     100 |                   
-  floatingBtn.tsx     |     100 |      100 |     100 |     100 |               
+File                                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------------------------------|---------|----------|---------|---------|-------------------
+All files                                      |   87.16 |    65.32 |   88.42 |   87.22 |                   
+ src                                           |     100 |      100 |     100 |     100 |                   
+  App.tsx                                      |     100 |      100 |     100 |     100 |                   
+  i18n.ts                                      |     100 |      100 |     100 |     100 |                   
+  index.tsx                                    |     100 |      100 |     100 |     100 |                   
+ src/custom_components/handleNotes             |      90 |      100 |   85.71 |      90 |                   
+  encryptionEngine.ts                          |      90 |      100 |   85.71 |      90 | 23-30             
+ src/custom_components/handleNotes/editNote    |     100 |       50 |     100 |     100 |                   
+  container-editNote.tsx                       |     100 |       50 |     100 |     100 | 20-44             
+  screen-editNote.tsx                          |     100 |      100 |     100 |     100 |                   
+ src/custom_components/handleNotes/viewNote    |   95.55 |       70 |     100 |   95.23 |                   
+  container-viewNote.tsx                       |     100 |      100 |     100 |     100 |                   
+  getNotes.ts                                  |   96.29 |    66.66 |     100 |      96 | 19                
+  screen-viewNote.tsx                          |   88.88 |       75 |     100 |    87.5 | 28                
+ src/custom_components/notNotesRelated         |   97.72 |    92.85 |     100 |   97.72 |                   
+  fingerprintLogic.ts                          |   97.72 |    92.85 |     100 |   97.72 | 60                
+ ...omponents/notNotesRelated/encryption_modal |   97.05 |      100 |   93.33 |   97.05 |                   
+  container-encryption-modal.tsx               |     100 |      100 |     100 |     100 |                   
+  screen-encryption-modal.tsx                  |   83.33 |      100 |   66.66 |   83.33 | 45                
+ src/custom_components/notNotesRelated/navBar  |   84.61 |    68.42 |   85.71 |   84.61 |                   
+  container-navBar.tsx                         |   83.33 |    61.53 |   83.33 |   83.33 | 26,45-47          
+  screen-navBar.tsx                            |     100 |    83.33 |     100 |     100 | 61                
+ ...custom_components/notNotesRelated/settings |   64.03 |    28.94 |   63.63 |   64.28 |                   
+  container_settings.tsx                       |   60.57 |    16.66 |      50 |   60.78 | ...59-175,181-193 
+  screen_settings.tsx                          |     100 |       75 |     100 |     100 | 44-61             
+ ..._components/notNotesRelated/welcomeOverlay |     100 |      100 |     100 |     100 |                   
+  welcomeOverlay.tsx                           |     100 |      100 |     100 |     100 |                   
+ src/modules/app_configuration                 |     100 |      100 |     100 |     100 |                   
+  app_texts.ts                                 |     100 |      100 |     100 |     100 |                   
+ src/modules/legal                             |     100 |    71.42 |     100 |     100 |                   
+  codeToTextParser.tsx                         |     100 |      100 |     100 |     100 |                   
+  datenschutz.tsx                              |     100 |       50 |     100 |     100 | 20-37             
+  impressum.tsx                                |     100 |       50 |     100 |     100 | 17-34             
+ src/modules/legal/usedLibs                    |     100 |      100 |     100 |     100 |                   
+  container_usedLibList.tsx                    |     100 |      100 |     100 |     100 |                   
+  screen_usedLibList.tsx                       |     100 |      100 |     100 |     100 |                   
+ src/modules/ui                                |     100 |      100 |     100 |     100 |                   
+  floatingBtn.tsx                              |     100 |      100 |     100 |     100 |               
      
 
 

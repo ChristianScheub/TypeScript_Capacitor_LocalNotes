@@ -33,5 +33,20 @@
   "settings_Dialog_ImportSuccessful": "¡Notas importadas con éxito!",
   "setting_Menu_OpenSourceModulList": "Lista de Módulos de Código Abierto Utilizados",
   "setting_OpenSurceModulListTItle": "Lista de Módulos NPM Utilizados",
-  "setting_OpenSourceModulListClose": "Cerrar"
+  "setting_OpenSourceModulListClose": "Cerrar",
+  "viewNote_hint": "¡Para crear una nota, haz clic aquí!",
+  "welcomeOverlay.h1": "¡Bienvenido a Notas Locales!",
+  "welcomeOverlay.p1": "Esta aplicación pone un énfasis especial en almacenar de forma segura tus notas.",
+  "welcomeOverlay.p2": "Por lo tanto, debes ingresar una contraseña de inmediato para cifrar las notas. Recuérdala bien, ya que no podremos recuperarla nuevamente.",
+  "welcomeOverlay.p3": "Esta aplicación utiliza cifrado AES256 combinado con cifrado TripleDES, es de código abierto y completamente fuera de línea.",
+  "welcomeOverlay.p3_bold": "Por lo tanto, puedes crear tus notas de forma segura aquí.",
+  "welcomeOverlay.p4": "Puedes encontrar más información sobre nuestras medidas de seguridad en nuestro repositorio de GitHub.",
+  "welcomeOverlay.buttonText": "Continuar",
+  "furtherFeatures.h1": "Funciones Adicionales",
+  "furtherFeatures.li1": "Con nuestro inicio de sesión biométrico, puedes acceder rápidamente a todas tus notas.",
+  "furtherFeatures.li3": "Con nuestra función de exportación e importación, puedes exportar, compartir y volver a importar tus notas. Estas permanecen cifradas con tu contraseña establecida.",
+  "furtherFeatures.li4": "La función de búsqueda te permite buscar fácil y rápidamente entre tus notas.",
+  "furtherFeatures.li5": "Puedes guardar diferentes grupos de notas con contraseñas diferentes. ¡Pero cuidado, al exportar, todas se exportarán!",
+  "encryption-modal_hint": "Ingresa tu contraseña y luego haz clic en este botón para almacenar la contraseña.",
+  "encryption-modal_password_stored": "¡Contraseña almacenada!"
 }

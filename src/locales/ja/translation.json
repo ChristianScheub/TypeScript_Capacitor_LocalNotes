@@ -33,5 +33,20 @@
   "settings_Dialog_ImportSuccessful": "ノートは正常にインポートされました！",
   "setting_Menu_OpenSourceModulList": "使用されたオープンソースモジュールのリスト",
   "setting_OpenSurceModulListTItle": "使用されたNPMモジュールのリスト",
-  "setting_OpenSourceModulListClose": "閉じる"
+  "setting_OpenSourceModulListClose": "閉じる",
+  "viewNote_hint": "ノートを作成するには、ここをクリックしてください！",
+  "welcomeOverlay.h1": "ローカルノートへようこそ！",
+  "welcomeOverlay.p1": "このアプリは、ノートの安全な保存に重点を置いています。",
+  "welcomeOverlay.p2": "そのため、ノートを暗号化するためにすぐにパスワードを入力する必要があります。これをよく覚えておいてください。なぜなら、私たちはそれを再度回復することができないからです。",
+  "welcomeOverlay.p3": "このアプリは、AES256暗号化とTripleDES暗号化を組み合わせたものを使用しています。オープンソースで完全にオフラインです。",
+  "welcomeOverlay.p3_bold": "したがって、ここで安全にノートを作成できます。",
+  "welcomeOverlay.p4": "当社のセキュリティ対策に関する詳細情報は、当社のGitHubリポジトリで確認できます。",
+  "welcomeOverlay.buttonText": "続行",
+  "furtherFeatures.h1": "その他の機能",
+  "furtherFeatures.li1": "バイオメトリックログインを使用すると、すべてのノートに迅速にアクセスできます。",
+  "furtherFeatures.li3": "エクスポートおよびインポート機能を使用すると、ノートをエクスポート、共有、再インポートできます。これらは設定したパスワードで暗号化されたままです。",
+  "furtherFeatures.li4": "検索機能を使用すると、ノートを簡単かつ迅速に検索できます。",
+  "furtherFeatures.li5": "異なるパスワードで異なるノートグループを保存できます。ただし、エクスポート時にはすべてがエクスポートされます！",
+  "encryption-modal_hint": "パスワードを入力し、その後このボタンをクリックしてパスワードを保存します。",
+  "encryption-modal_password_stored": "パスワードが保存されました！"
 }
