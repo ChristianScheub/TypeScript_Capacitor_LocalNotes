@@ -11,7 +11,7 @@ import { MemoryRouter } from "react-router-dom";
 import { encryptAndStore } from "../../handleNotes/encryptionEngine";
 import { NativeBiometric } from "capacitor-native-biometric";
 import * as fingerprintLogic from "../fingerprintLogic";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 
 jest.mock("capacitor-native-biometric", () => ({
   NativeBiometric: {

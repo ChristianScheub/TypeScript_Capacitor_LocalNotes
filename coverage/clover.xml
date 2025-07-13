@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1752405771861" clover="3.2.0">
-  <project timestamp="1752405771861" name="All files">
+<coverage generated="1752406135029" clover="3.2.0">
+  <project timestamp="1752406135029" name="All files">
     <metrics statements="402" coveredstatements="351" conditionals="126" coveredconditionals="83" methods="98" coveredmethods="84" elements="626" coveredelements="518" complexity="0" loc="402" ncloc="402" packages="13" files="24" classes="24"/>
     <package name="src">
       <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -49,8 +49,8 @@
         <line num="63" count="24" type="cond" truecount="2" falsecount="0"/>
         <line num="64" count="2" type="stmt"/>
         <line num="67" count="22" type="stmt"/>
-        <line num="72" count="21" type="stmt"/>
-        <line num="73" count="21" type="stmt"/>
+        <line num="72" count="22" type="stmt"/>
+        <line num="73" count="22" type="stmt"/>
         <line num="74" count="16" type="stmt"/>
         <line num="80" count="16" type="stmt"/>
         <line num="83" count="5" type="stmt"/>
@@ -98,9 +98,9 @@
       <file name="screen-editNote.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/custom_components/handleNotes/editNote/screen-editNote.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="16" count="3" type="stmt"/>
-        <line num="24" count="14" type="stmt"/>
-        <line num="27" count="14" type="stmt"/>
-        <line num="29" count="14" type="stmt"/>
+        <line num="24" count="15" type="stmt"/>
+        <line num="27" count="15" type="stmt"/>
+        <line num="29" count="15" type="stmt"/>
         <line num="45" count="3" type="stmt"/>
         <line num="89" count="3" type="stmt"/>
       </file>
@@ -256,29 +256,29 @@
       <file name="container-navBar.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/custom_components/notNotesRelated/navBar/container-navBar.tsx">
         <metrics statements="24" coveredstatements="20" conditionals="13" coveredconditionals="8" methods="6" coveredmethods="5"/>
         <line num="10" count="7" type="stmt"/>
-        <line num="13" count="10" type="stmt"/>
-        <line num="14" count="10" type="stmt"/>
-        <line num="15" count="10" type="stmt"/>
-        <line num="16" count="10" type="stmt"/>
-        <line num="19" count="10" type="stmt"/>
-        <line num="20" count="10" type="stmt"/>
-        <line num="22" count="10" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="15" count="12" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="19" count="12" type="stmt"/>
+        <line num="20" count="12" type="stmt"/>
+        <line num="22" count="12" type="stmt"/>
         <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="24" count="1" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="30" count="10" type="stmt"/>
+        <line num="30" count="12" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
-        <line num="34" count="10" type="stmt"/>
+        <line num="34" count="12" type="stmt"/>
         <line num="35" count="2" type="stmt"/>
         <line num="36" count="2" type="stmt"/>
-        <line num="39" count="10" type="stmt"/>
+        <line num="39" count="12" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="44" count="10" type="stmt"/>
+        <line num="44" count="12" type="stmt"/>
         <line num="45" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="51" count="10" type="stmt"/>
+        <line num="51" count="12" type="stmt"/>
       </file>
       <file name="screen-navBar.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/custom_components/notNotesRelated/navBar/screen-navBar.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
@@ -477,26 +477,26 @@
       <file name="container_usedLibList.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/modules/legal/usedLibs/container_usedLibList.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="27" count="5" type="stmt"/>
-        <line num="28" count="22" type="stmt"/>
-        <line num="29" count="22" type="stmt"/>
-        <line num="31" count="22" type="stmt"/>
-        <line num="32" count="5280" type="stmt"/>
-        <line num="33" count="5280" type="stmt"/>
-        <line num="43" count="22" type="stmt"/>
+        <line num="28" count="24" type="stmt"/>
+        <line num="29" count="24" type="stmt"/>
+        <line num="31" count="24" type="stmt"/>
+        <line num="32" count="5760" type="stmt"/>
+        <line num="33" count="5760" type="stmt"/>
+        <line num="43" count="24" type="stmt"/>
         <line num="44" count="2" type="stmt"/>
-        <line num="47" count="22" type="stmt"/>
+        <line num="47" count="24" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
-        <line num="51" count="22" type="stmt"/>
+        <line num="51" count="24" type="stmt"/>
       </file>
       <file name="screen_usedLibList.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/modules/legal/usedLibs/screen_usedLibList.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="13" count="6" type="stmt"/>
         <line num="32" count="6" type="stmt"/>
-        <line num="37" count="23" type="stmt"/>
-        <line num="38" count="23" type="stmt"/>
+        <line num="37" count="25" type="stmt"/>
+        <line num="38" count="25" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
-        <line num="42" count="23" type="stmt"/>
-        <line num="55" count="5281" type="stmt"/>
+        <line num="42" count="25" type="stmt"/>
+        <line num="55" count="5761" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
       </file>
     </package>

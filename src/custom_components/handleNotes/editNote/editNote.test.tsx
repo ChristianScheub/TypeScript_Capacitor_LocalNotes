@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import EditNoteContainer from "./container-editNote";
 import { encryptAndStore, decryptFromStorage } from "../encryptionEngine";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 import { useState, useEffect } from "react";
 
 const mockEncryptionKey = "some-encryption-key";

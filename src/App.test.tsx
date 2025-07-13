@@ -7,7 +7,7 @@ import {
   decryptFromStorage,
   getPBKDF2_Password
 } from "./custom_components/handleNotes/encryptionEngine";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 
 
 const mockEncryptionKey = "some-encryption-key";
