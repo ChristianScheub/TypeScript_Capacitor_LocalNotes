@@ -1,18 +1,16 @@
 import { Card } from "react-bootstrap";
 import { datenschutz_text } from "../app_configuration/app_texts";
 import CodeToTextParser from "./codeToTextParser";
-import { useNavigate } from "react-router-dom";
-import { MdArrowBack } from "react-icons/md";
 import NavBarContainer from "../../custom_components/notNotesRelated/navBar/container-navBar";
 import { useLocation } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 
 const Datenschutz: React.FC = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const isAlreadyLoggedIn = !location.pathname.includes("Home");
-  const [searchQueryPlaceholder, setSearchQueryPlaceholder] =
-    useState<string>("");
+  
+  // Dummy function for NavBarContainer since search is not needed on legal pages
+  const handleSearchQuery = () => {};
 
   return (
     <div
@@ -36,7 +34,7 @@ const Datenschutz: React.FC = () => {
       >
         {!isAlreadyLoggedIn && (
           <>
-            <NavBarContainer setSearchQuery={setSearchQueryPlaceholder} />
+            <NavBarContainer setSearchQuery={handleSearchQuery} />
           </>
         )}
         <div className="after-login-container">

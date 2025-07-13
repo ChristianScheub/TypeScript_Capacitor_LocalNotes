@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UsedLibListScreen from "./screen_usedLibList";
 import { useTranslation } from "react-i18next";
 import licensesData from "./licenses.json";

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 import { NavigateFunction } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { useTranslation } from "react-i18next";
@@ -34,9 +34,9 @@ const SettingsView: React.FC<SettingsProps> = ({
 }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-
-  const [searchQueryPlaceholder, setSearchQueryPlaceholder] =
-    useState<string>("");
+  
+  // Dummy function for NavBarContainer since search is not needed on settings page
+  const handleSearchQuery = () => {};
 
   return (
     <div
@@ -60,7 +60,7 @@ const SettingsView: React.FC<SettingsProps> = ({
       >
         {!isAlreadyLoggedIn && (
           <>
-            <NavBarContainer setSearchQuery={setSearchQueryPlaceholder} />
+            <NavBarContainer setSearchQuery={handleSearchQuery} />
           </>
         )}
 

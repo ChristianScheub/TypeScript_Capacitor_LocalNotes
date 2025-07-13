@@ -2,7 +2,6 @@ import { NativeBiometric } from "capacitor-native-biometric";
 import CryptoJS from "crypto-js";
 import { Device } from "@capacitor/device";
 import { getPBKDF2_Password } from "../handleNotes/encryptionEngine";
-import { useTranslation } from 'react-i18next';
 
 const getDeviceIdHash = async (): Promise<string> => {
   const info = await Device.getId();

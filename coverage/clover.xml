@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1752404987105" clover="3.2.0">
-  <project timestamp="1752404987105" name="All files">
-    <metrics statements="407" coveredstatements="355" conditionals="124" coveredconditionals="81" methods="95" coveredmethods="84" elements="626" coveredelements="520" complexity="0" loc="407" ncloc="407" packages="13" files="24" classes="24"/>
+<coverage generated="1752405771861" clover="3.2.0">
+  <project timestamp="1752405771861" name="All files">
+    <metrics statements="402" coveredstatements="351" conditionals="126" coveredconditionals="83" methods="98" coveredmethods="84" elements="626" coveredelements="518" complexity="0" loc="402" ncloc="402" packages="13" files="24" classes="24"/>
     <package name="src">
       <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/App.tsx">
@@ -106,7 +106,7 @@
       </file>
     </package>
     <package name="src.custom_components.handleNotes.viewNote">
-      <metrics statements="42" coveredstatements="40" conditionals="10" coveredconditionals="7" methods="13" coveredmethods="13"/>
+      <metrics statements="41" coveredstatements="39" conditionals="12" coveredconditionals="9" methods="13" coveredmethods="13"/>
       <file name="container-viewNote.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/custom_components/handleNotes/viewNote/container-viewNote.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="13" count="3" type="stmt"/>
@@ -120,12 +120,11 @@
         <line num="27" count="12" type="stmt"/>
       </file>
       <file name="getNotes.ts" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/custom_components/handleNotes/viewNote/getNotes.ts">
-        <metrics statements="25" coveredstatements="24" conditionals="6" coveredconditionals="4" methods="6" coveredmethods="6"/>
+        <metrics statements="24" coveredstatements="23" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="6"/>
         <line num="13" count="3" type="stmt"/>
         <line num="14" count="10" type="stmt"/>
         <line num="15" count="10" type="stmt"/>
-        <line num="16" count="10" type="stmt"/>
-        <line num="17" count="10" type="stmt"/>
+        <line num="17" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="19" count="0" type="stmt"/>
         <line num="23" count="3" type="stmt"/>
         <line num="24" count="12" type="stmt"/>
@@ -163,50 +162,50 @@
       <metrics statements="44" coveredstatements="43" conditionals="14" coveredconditionals="13" methods="6" coveredmethods="6"/>
       <file name="fingerprintLogic.ts" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/custom_components/notNotesRelated/fingerprintLogic.ts">
         <metrics statements="44" coveredstatements="43" conditionals="14" coveredconditionals="13" methods="6" coveredmethods="6"/>
-        <line num="7" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
         <line num="20" count="5" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="23" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="35" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="42" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="41" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="1" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="57" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="58" count="1" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="65" count="3" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="56" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
+        <line num="71" count="4" type="stmt"/>
         <line num="72" count="4" type="stmt"/>
-        <line num="73" count="4" type="stmt"/>
-        <line num="75" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="74" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="75" count="1" type="stmt"/>
         <line num="76" count="1" type="stmt"/>
-        <line num="77" count="1" type="stmt"/>
-        <line num="80" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="79" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="80" count="1" type="stmt"/>
         <line num="81" count="1" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
-        <line num="86" count="1" type="stmt"/>
-        <line num="91" count="1" type="stmt"/>
-        <line num="93" count="1" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
-        <line num="99" count="3" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="98" count="3" type="stmt"/>
+        <line num="99" count="5" type="stmt"/>
         <line num="100" count="5" type="stmt"/>
-        <line num="101" count="5" type="stmt"/>
-        <line num="103" count="5" type="stmt"/>
+        <line num="102" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.custom_components.notNotesRelated.encryption_modal">
@@ -288,9 +287,9 @@
       </file>
     </package>
     <package name="src.custom_components.notNotesRelated.settings">
-      <metrics statements="112" coveredstatements="72" conditionals="38" coveredconditionals="11" methods="22" coveredmethods="14"/>
+      <metrics statements="109" coveredstatements="70" conditionals="38" coveredconditionals="11" methods="23" coveredmethods="14"/>
       <file name="container_settings.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/custom_components/notNotesRelated/settings/container_settings.tsx">
-        <metrics statements="102" coveredstatements="62" conditionals="30" coveredconditionals="5" methods="16" coveredmethods="8"/>
+        <metrics statements="99" coveredstatements="60" conditionals="30" coveredconditionals="5" methods="16" coveredmethods="8"/>
         <line num="16" count="3" type="stmt"/>
         <line num="17" count="8" type="stmt"/>
         <line num="19" count="8" type="stmt"/>
@@ -351,51 +350,48 @@
         <line num="115" count="1" type="stmt"/>
         <line num="116" count="1" type="stmt"/>
         <line num="118" count="1" type="stmt"/>
-        <line num="119" count="1" type="stmt"/>
-        <line num="121" count="1" type="stmt"/>
-        <line num="127" count="1" type="stmt"/>
-        <line num="128" count="1" type="stmt"/>
-        <line num="132" count="1" type="stmt"/>
-        <line num="134" count="0" type="stmt"/>
-        <line num="138" count="1" type="stmt"/>
-        <line num="141" count="0" type="stmt"/>
-        <line num="145" count="8" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="134" count="1" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="141" count="8" type="stmt"/>
+        <line num="142" count="1" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+        <line num="144" count="1" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
         <line num="146" count="1" type="stmt"/>
         <line num="147" count="1" type="stmt"/>
         <line num="148" count="1" type="stmt"/>
         <line num="149" count="1" type="stmt"/>
-        <line num="150" count="1" type="stmt"/>
-        <line num="151" count="1" type="stmt"/>
-        <line num="152" count="1" type="stmt"/>
-        <line num="153" count="1" type="stmt"/>
-        <line num="156" count="8" type="stmt"/>
+        <line num="152" count="8" type="stmt"/>
+        <line num="155" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="156" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="157" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="158" count="0" type="stmt"/>
         <line num="159" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="160" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="161" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="160" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
         <line num="162" count="0" type="stmt"/>
         <line num="163" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="164" count="0" type="stmt"/>
         <line num="165" count="0" type="stmt"/>
-        <line num="166" count="0" type="stmt"/>
-        <line num="167" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="168" count="0" type="stmt"/>
-        <line num="169" count="0" type="stmt"/>
-        <line num="170" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="166" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="167" count="0" type="stmt"/>
         <line num="171" count="0" type="stmt"/>
-        <line num="175" count="0" type="stmt"/>
-        <line num="180" count="8" type="stmt"/>
+        <line num="176" count="8" type="stmt"/>
+        <line num="177" count="0" type="stmt"/>
+        <line num="178" count="0" type="stmt"/>
+        <line num="180" count="0" type="stmt"/>
         <line num="181" count="0" type="stmt"/>
         <line num="182" count="0" type="stmt"/>
-        <line num="184" count="0" type="stmt"/>
         <line num="185" count="0" type="stmt"/>
         <line num="186" count="0" type="stmt"/>
         <line num="189" count="0" type="stmt"/>
-        <line num="190" count="0" type="stmt"/>
-        <line num="193" count="0" type="stmt"/>
-        <line num="197" count="8" type="stmt"/>
+        <line num="193" count="8" type="stmt"/>
       </file>
       <file name="screen_settings.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/custom_components/notNotesRelated/settings/screen_settings.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="8" coveredconditionals="6" methods="6" coveredmethods="6"/>
+        <metrics statements="10" coveredstatements="10" conditionals="8" coveredconditionals="6" methods="7" coveredmethods="6"/>
         <line num="24" count="4" type="stmt"/>
         <line num="35" count="16" type="stmt"/>
         <line num="36" count="16" type="stmt"/>
@@ -433,7 +429,7 @@
       </file>
     </package>
     <package name="src.modules.legal">
-      <metrics statements="33" coveredstatements="33" conditionals="14" coveredconditionals="10" methods="5" coveredmethods="5"/>
+      <metrics statements="32" coveredstatements="32" conditionals="14" coveredconditionals="10" methods="7" coveredmethods="5"/>
       <file name="codeToTextParser.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/modules/legal/codeToTextParser.tsx">
         <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="7" count="5" type="stmt"/>
@@ -460,21 +456,20 @@
         <line num="39" count="11" type="stmt"/>
       </file>
       <file name="datenschutz.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/modules/legal/datenschutz.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-      </file>
-      <file name="impressum.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/modules/legal/impressum.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+      </file>
+      <file name="impressum.tsx" path="/home/runner/work/TypeScript_Capacitor_LocalNotes/TypeScript_Capacitor_LocalNotes/src/modules/legal/impressum.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="1"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.modules.legal.usedLibs">

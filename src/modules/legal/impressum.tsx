@@ -3,13 +3,14 @@ import { impressum_text } from "../app_configuration/app_texts";
 import CodeToTextParser from "./codeToTextParser";
 import NavBarContainer from "../../custom_components/notNotesRelated/navBar/container-navBar";
 import { useLocation } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 
 const Impressum: React.FC = () => {
   const location = useLocation();
   const isAlreadyLoggedIn = !location.pathname.includes("Home");
-  const [searchQueryPlaceholder, setSearchQueryPlaceholder] =
-    useState<string>("");
+  
+  // Dummy function for NavBarContainer since search is not needed on legal pages
+  const handleSearchQuery = () => {};
 
   return (
     <div
@@ -33,7 +34,7 @@ const Impressum: React.FC = () => {
       >
         {!isAlreadyLoggedIn && (
           <>
-            <NavBarContainer setSearchQuery={setSearchQueryPlaceholder} />
+            <NavBarContainer setSearchQuery={handleSearchQuery} />
           </>
         )}
         <div className="after-login-container">
