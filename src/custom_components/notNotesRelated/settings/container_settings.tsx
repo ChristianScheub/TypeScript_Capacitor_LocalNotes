@@ -6,7 +6,7 @@ import { availableBiometric } from "../fingerprintLogic";
 import { Filesystem, Directory } from "@capacitor/filesystem";
 import { useLocation } from "react-router-dom";
 import { Share } from "@capacitor/share";
-import { Capacitor } from "@capacitor/core";
+
 import {
   makeReadyForExport,
   makeReadyForImport,
@@ -115,9 +115,6 @@ const SettingsContainer: React.FC = () => {
       const fileName = generateFileName();
       const base64Data = btoa(notes);
 
-      const filePath = `${Directory.Documents}/${fileName}`;
-      let shareUrl = filePath;
-
       await Filesystem.writeFile({
         path: fileName,
         data: base64Data,
@@ -129,7 +126,6 @@ const SettingsContainer: React.FC = () => {
           directory: Directory.Documents,
           path: fileName,
         });
-        shareUrl = uriResult.uri;
 
         await Share.share({
           url: uriResult.uri,

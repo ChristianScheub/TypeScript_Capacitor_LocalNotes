@@ -90,6 +90,32 @@ If this is not used, the password is not saved either.
 - Windows: With the help of Electron, it is distributed in the Microsoft App Store as MSI. Installation. (Without support for Windows Hello/fingerprint scanner)
 - Mac: It is possible to use the Electron app from the repo. However, it is recommended to simply download the iOS app from the Apple App Store for M1 MacBooks. This app also supports Touch ID etc. directly.
 
+## Automated Build & Deployment
+
+This project uses GitHub Actions for automated building and deployment:
+
+### Continuous Integration
+- **Automatic testing**: Every push and pull request triggers automated tests with coverage reporting
+- **Build validation**: Ensures the app builds successfully across all target platforms
+- **Dependency security**: Automated security auditing and vulnerability detection
+
+### Deployment Workflows
+- **iOS Deployment**: Automated build and deployment to TestFlight for beta testing and App Store for production
+- **Android Deployment**: Automated build and deployment to Google Play Store with internal testing
+- **Release Management**: Tagged releases automatically trigger deployment to both platforms
+
+### Setup & Configuration
+For detailed setup instructions including required secrets and deployment configuration, see [GitHub Actions Setup Guide](.github/DEPLOY.md).
+
+Quick deployment:
+```bash
+# Create and push a release tag to trigger deployment
+git tag v1.4.1
+git push origin v1.4.1
+```
+
+Or manually trigger deployment from the Actions tab in GitHub.
+
 ## Testing
 The Jest testing framework is used for testing.
 The tests here are always written in Typescript. 
@@ -226,33 +252,33 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 According to the command npm list
 You can see the deeper NPM modules used and which of these are used in the licenses.json.
 
-├── @babel/core@7.23.9
+├── @babel/core@7.28.0
 
 ├── @babel/plugin-proposal-private-property-in-object@7.21.11
 
-├── @babel/preset-env@7.23.9
+├── @babel/preset-env@7.28.0
 
 ├── @capacitor-community/electron@5.0.1
 
-├── @capacitor/android@5.7.0
+├── @capacitor/android@5.7.8
 
-├── @capacitor/app@5.0.7
+├── @capacitor/app@5.0.8
 
-├── @capacitor/cli@5.7.0
+├── @capacitor/cli@5.7.8
 
-├── @capacitor/core@5.7.0
+├── @capacitor/core@5.7.8
 
-├── @capacitor/device@5.0.7
+├── @capacitor/device@5.0.8
 
-├── @capacitor/filesystem@5.2.1
+├── @capacitor/filesystem@5.2.2
 
-├── @capacitor/ios@5.7.0
+├── @capacitor/ios@5.7.8
 
-├── @capacitor/share@5.0.7
+├── @capacitor/share@5.0.8
 
-├── @emotion/react@11.11.3
+├── @emotion/react@11.14.0
 
-├── @emotion/styled@11.11.0
+├── @emotion/styled@11.14.1
 
 ├── @mui/material@5.15.7
 
@@ -266,35 +292,35 @@ You can see the deeper NPM modules used and which of these are used in the licen
 
 ├── @types/jest@27.5.2
 
-├── @types/node@16.18.79
+├── @types/node@16.18.126
 
-├── @types/react-dom@18.2.19
+├── @types/react-dom@18.3.7
 
-├── @types/react@18.2.55
+├── @types/react@18.3.23
 
 ├── babel-jest@29.7.0
 
-├── bootstrap-icons@1.11.3
+├── bootstrap-icons@1.13.1
 
-├── bootstrap@5.3.2
+├── bootstrap@5.3.7
 
 ├── capacitor-native-biometric@4.2.2
 
 ├── crypto-js@4.2.0
 
-├── electron-builder@24.9.1
+├── electron-builder@24.13.3
 
-├── i18next-browser-languagedetector@7.2.0
+├── i18next-browser-languagedetector@7.2.2
 
-├── i18next@23.8.2
+├── i18next@23.16.8
 
 ├── license-checker@25.0.1
 
-├── react-bootstrap@2.10.0
+├── react-bootstrap@2.10.10
 
-├── react-dom@18.2.0
+├── react-dom@18.3.1
 
-├── react-i18next@14.0.5
+├── react-i18next@14.1.3
 
 ├── react-icons@4.12.0
 
@@ -302,6 +328,6 @@ You can see the deeper NPM modules used and which of these are used in the licen
 
 ├── react-scripts@5.0.1
 
-├── react@18.2.0
+├── react@18.3.1
 
 └── typescript@4.9.5

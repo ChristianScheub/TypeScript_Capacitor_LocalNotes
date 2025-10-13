@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { fireEvent } from '@testing-library/dom';
 import '@testing-library/jest-dom';
 import WelcomeOverlay from './welcomeOverlay'; // Stellen Sie sicher, dass dieser Pfad korrekt ist
 

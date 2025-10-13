@@ -1,5 +1,6 @@
 import React from "react";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import { render, waitFor, screen } from "@testing-library/react";
+import { fireEvent } from "@testing-library/dom";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import {
@@ -7,7 +8,7 @@ import {
   decryptFromStorage,
   getPBKDF2_Password
 } from "./custom_components/handleNotes/encryptionEngine";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 
 
 const mockEncryptionKey = "some-encryption-key";

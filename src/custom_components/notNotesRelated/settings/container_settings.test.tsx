@@ -1,17 +1,17 @@
 import React from "react";
 import {
   render,
-  fireEvent,
   RenderResult,
   screen,
   waitFor,
 } from "@testing-library/react";
+import { fireEvent } from "@testing-library/dom";
 import SettingsContainer from "./container_settings";
 import { MemoryRouter } from "react-router-dom";
 import { encryptAndStore } from "../../handleNotes/encryptionEngine";
 import { NativeBiometric } from "capacitor-native-biometric";
 import * as fingerprintLogic from "../fingerprintLogic";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 
 jest.mock("capacitor-native-biometric", () => ({
   NativeBiometric: {

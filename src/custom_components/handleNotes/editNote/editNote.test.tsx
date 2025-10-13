@@ -1,12 +1,13 @@
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent } from "@testing-library/dom";
+import "@testing-library/jest-dom";
 import { renderHook } from "@testing-library/react";
 import getAllNotes from "../viewNote/getNotes";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import EditNoteContainer from "./container-editNote";
 import { encryptAndStore, decryptFromStorage } from "../encryptionEngine";
-import { act } from "react-dom/test-utils";
+import { act } from "react";
 import { useState, useEffect } from "react";
 
 const mockEncryptionKey = "some-encryption-key";

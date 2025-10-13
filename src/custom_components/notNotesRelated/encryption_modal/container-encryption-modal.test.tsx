@@ -1,12 +1,12 @@
 import React from "react";
 import {
   render,
-  fireEvent,
   screen,
   waitFor,
   act,
 } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import { fireEvent } from "@testing-library/dom";
+import "@testing-library/jest-dom";
 import EncryptionKeyModalContainer from "./container-encryption-modal";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as fingerprintLogic from "../fingerprintLogic";

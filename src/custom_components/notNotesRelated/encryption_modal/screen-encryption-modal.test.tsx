@@ -1,7 +1,8 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import { fireEvent } from "@testing-library/dom";
 import EncryptionKeyModalView from "./screen-encryption-modal";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 
 describe("EncryptionKeyModalView", () => {
   const mockHandleKeySubmit = jest.fn();

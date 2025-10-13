@@ -36,7 +36,7 @@ const EncryptionKeyModalContainer: React.FC<
 
   useEffect(() => {
     setShowFingerprintHint(showFingerprintBtn && localStorage.length <= 2);
-  }, [showFingerprintBtn, localStorage.length]);
+  }, [showFingerprintBtn]); // localStorage.length is not a valid dependency
 
   const handleKeySubmit = (event: FormEvent) => {
     event.preventDefault();

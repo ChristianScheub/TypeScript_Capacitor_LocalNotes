@@ -13,8 +13,8 @@ interface Note {
 const isJsonString = (str: string): boolean => {
   try {
     const data = JSON.parse(str);
-    const test = data.content + data.title;
-    return true;
+    // Validate that data has the expected structure
+    return data.content !== undefined && data.title !== undefined;
   } catch (e) {
     return false;
   }
