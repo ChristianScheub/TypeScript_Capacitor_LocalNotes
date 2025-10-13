@@ -1,6 +1,7 @@
 import React from "react";
 import { act } from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent } from "@testing-library/dom";
 import ViewNoteContainer from "./container-viewNote";
 import { BrowserRouter as Router } from "react-router-dom";
 import { encryptAndStore } from "../encryptionEngine";

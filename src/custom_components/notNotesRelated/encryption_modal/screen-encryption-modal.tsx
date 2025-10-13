@@ -14,7 +14,7 @@ interface EncryptionKeyModalViewProps {
   showFingerprintBtn: boolean;
   showFingerprintHint: boolean;
   navigateToPrivacy: () => void;
-  inputRef: RefObject<HTMLInputElement>;
+  inputRef: RefObject<HTMLInputElement | null>;
 }
 
 const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
@@ -66,7 +66,7 @@ const EncryptionKeyModalView: React.FC<EncryptionKeyModalViewProps> = ({
         <Form onSubmit={handleKeySubmit}>
           <Form.Group>
             <Form.Control
-              ref={inputRef}
+              ref={inputRef as React.RefObject<HTMLInputElement>}
               type="password"
               placeholder={t("encryption-modal_placeholder")}
               data-testid="password-input"

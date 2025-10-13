@@ -1,11 +1,11 @@
 import React from "react";
 import {
   render,
-  fireEvent,
   RenderResult,
   screen,
   waitFor,
 } from "@testing-library/react";
+import { fireEvent } from "@testing-library/dom";
 import SettingsContainer from "./container_settings";
 import { MemoryRouter } from "react-router-dom";
 import { encryptAndStore } from "../../handleNotes/encryptionEngine";

@@ -1,5 +1,6 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import { fireEvent } from "@testing-library/dom";
 import {
   MemoryRouter,
   BrowserRouter as Router,

@@ -5,7 +5,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useTranslation } from "react-i18next";
@@ -52,8 +52,7 @@ const UsedLibListScreen: React.FC<UsedLibListScreenProps> = ({
         <DialogContent dividers>
           <List data-testid="used-lib-list-modal">
             {npmModules.map((module, index) => (
-              <ListItem
-                button
+              <ListItemButton
                 key={index}
                 onClick={() => handleModuleClick(module.repository)}
               >
@@ -61,7 +60,7 @@ const UsedLibListScreen: React.FC<UsedLibListScreenProps> = ({
                   primary={`${module.name}@${module.version}`}
                   secondary={`License: ${module.licenses}`}
                 />
-              </ListItem>
+              </ListItemButton>
             ))}
           </List>
         </DialogContent>

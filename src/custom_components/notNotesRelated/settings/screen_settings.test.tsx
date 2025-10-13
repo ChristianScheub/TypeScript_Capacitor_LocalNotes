@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent, screen,RenderResult } from '@testing-library/react';
+import { render, screen, RenderResult } from '@testing-library/react';
+import { fireEvent } from '@testing-library/dom';
 import '@testing-library/jest-dom';
 import SettingsView from './screen_settings'; 
 import { BrowserRouter as Router } from 'react-router-dom';
