@@ -252,82 +252,84 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 According to the command npm list
 You can see the deeper NPM modules used and which of these are used in the licenses.json.
 
-├── @babel/core@7.28.0
+├── @babel/core@7.28.4
 
 ├── @babel/plugin-proposal-private-property-in-object@7.21.11
 
-├── @babel/preset-env@7.28.0
+├── @babel/preset-env@7.28.3
 
 ├── @capacitor-community/electron@5.0.1
 
-├── @capacitor/android@5.7.8
+├── @capacitor/android@7.4.3
 
-├── @capacitor/app@5.0.8
+├── @capacitor/app@7.1.0
 
-├── @capacitor/cli@5.7.8
+├── @capacitor/cli@7.4.3
 
-├── @capacitor/core@5.7.8
+├── @capacitor/core@7.4.3
 
-├── @capacitor/device@5.0.8
+├── @capacitor/device@7.0.2
 
-├── @capacitor/filesystem@5.2.2
+├── @capacitor/filesystem@7.1.4
 
-├── @capacitor/ios@5.7.8
+├── @capacitor/ios@7.4.3
 
-├── @capacitor/share@5.0.8
+├── @capacitor/share@7.0.2
 
 ├── @emotion/react@11.14.0
 
 ├── @emotion/styled@11.14.1
 
-├── @mui/material@5.15.7
+├── @mui/material@7.3.4
 
-├── @testing-library/jest-dom@5.17.0
+├── @testing-library/jest-dom@6.9.1
 
-├── @testing-library/react@13.4.0
+├── @testing-library/react@16.3.0
 
-├── @testing-library/user-event@13.5.0
+├── @testing-library/user-event@14.6.1
 
 ├── @types/crypto-js@4.2.2
 
-├── @types/jest@27.5.2
+├── @types/jest@30.0.0
 
-├── @types/node@16.18.126
+├── @types/node@24.7.2
 
-├── @types/react-dom@18.3.7
+├── @types/react-dom@19.0.4
 
-├── @types/react@18.3.23
+├── @types/react@19.0.7
 
-├── babel-jest@29.7.0
+├── babel-jest@30.2.0
 
 ├── bootstrap-icons@1.13.1
 
-├── bootstrap@5.3.7
+├── bootstrap@5.3.8
 
 ├── capacitor-native-biometric@4.2.2
 
 ├── crypto-js@4.2.0
 
-├── electron-builder@24.13.3
+├── electron-builder@26.0.12
 
-├── i18next-browser-languagedetector@7.2.2
+├── i18next-browser-languagedetector@8.2.0
 
-├── i18next@23.16.8
+├── i18next@25.6.0
 
 ├── license-checker@25.0.1
 
 ├── react-bootstrap@2.10.10
 
-├── react-dom@18.3.1
+├── react-dom@19.2.0
 
-├── react-i18next@14.1.3
+├── react-i18next@16.0.1
 
-├── react-icons@4.12.0
+├── react-icons@5.5.0
 
-├── react-router-dom@6.22.0
+├── react-router-dom@7.9.4
+
+├── react-router@7.9.4
 
 ├── react-scripts@5.0.1
 
-├── react@18.3.1
+├── react@19.2.0
 
-└── typescript@4.9.5
+└── typescript@5.9.3
