@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/';
+import '@testing-library/jest-dom';
 import CodeToTextParser from './codeToTextParser';
 
 describe('CodeToTextParser Component', () => {

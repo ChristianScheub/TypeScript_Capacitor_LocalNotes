@@ -207,127 +207,95 @@ export interface RequestHeaders extends OutgoingHttpHeaders {
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory you can run the following npm scripts (current scripts are taken from `package.json`):
 
-### `npm start`
+### `npm run dev` or `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm test -- --coverage --watchAll`
-
-Returns the complete test coverage rate in the form of a table for all files.
-
+Starts the development server using Vite.
+Open http://localhost:5173 in your browser (Vite's default port) to view the app.
+The page reloads on changes and hot module replacement (HMR) is enabled.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Creates a production build using Vite and outputs optimized files to the `dist` folder.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run preview`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Locally previews the production build (serves the `dist` output).
 
-### `npm run eject`
+### `npm test`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Runs the Jest test suite (configured to use `ts-jest` for TypeScript). This is the project's primary test command and runs tests in a single process.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `npm run test:vitest`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+An alias to run Vitest (optional). The project currently uses Jest by default but a Vitest configuration remains available as an alternative.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `npm run electron-pack`
+
+Builds an unpacked Electron application (developer-friendly output). This uses `electron-builder` with the `--dir` option.
+
+### `npm run electron-dist`
+
+Creates distributable packages for desktop platforms (platform-specific targets like `dmg`, `nsis`, etc.) via `electron-builder`.
+
+Notes
+- Dev server: Vite serves on port 5173 by default. If you have a different port configured or a proxy, adjust accordingly.
+- Tests: run `npm test` for Jest. If you prefer Vitest, use the `test:vitest` script, but some tests rely on Jest semantics (e.g. jest.mock hoisting).
+- If you encounter engine or install warnings (EBADENGINE), consider using a stable Node LTS (18.x or 20.x) via nvm.
+
 
 
 ## Used NPM Modules
 According to the command npm list
 You can see the deeper NPM modules used and which of these are used in the licenses.json.
 
-├── @babel/core@7.28.0
-
-├── @babel/plugin-proposal-private-property-in-object@7.21.11
-
-├── @babel/preset-env@7.28.0
-
-├── @capacitor-community/electron@5.0.1
-
-├── @capacitor/android@5.7.8
-
-├── @capacitor/app@5.0.8
-
-├── @capacitor/cli@5.7.8
-
-├── @capacitor/core@5.7.8
-
-├── @capacitor/device@5.0.8
-
-├── @capacitor/filesystem@5.2.2
-
-├── @capacitor/ios@5.7.8
-
-├── @capacitor/share@5.0.8
-
-├── @emotion/react@11.14.0
-
-├── @emotion/styled@11.14.1
-
-├── @mui/material@5.15.7
-
-├── @testing-library/jest-dom@5.17.0
-
-├── @testing-library/react@13.4.0
-
-├── @testing-library/user-event@13.5.0
-
-├── @types/crypto-js@4.2.2
-
-├── @types/jest@27.5.2
-
-├── @types/node@16.18.126
-
-├── @types/react-dom@18.3.7
-
-├── @types/react@18.3.23
-
-├── babel-jest@29.7.0
-
-├── bootstrap-icons@1.13.1
-
-├── bootstrap@5.3.7
-
-├── capacitor-native-biometric@4.2.2
-
-├── crypto-js@4.2.0
-
-├── electron-builder@24.13.3
-
-├── i18next-browser-languagedetector@7.2.2
-
-├── i18next@23.16.8
-
-├── license-checker@25.0.1
-
-├── react-bootstrap@2.10.10
-
-├── react-dom@18.3.1
-
-├── react-i18next@14.1.3
-
-├── react-icons@4.12.0
-
-├── react-router-dom@6.22.0
-
-├── react-scripts@5.0.1
-
-├── react@18.3.1
-
-└── typescript@4.9.5
+<br /> ├── @babel/core@7.28.4
+<br /> ├── @babel/plugin-proposal-private-property-in-object@7.21.11
+<br /> ├── @babel/preset-env@7.28.3
+<br /> ├── @capacitor-community/electron@5.0.1
+<br /> ├── @capacitor/android@7.4.3
+<br /> ├── @capacitor/app@7.1.0
+<br /> ├── @capacitor/cli@7.4.3
+<br /> ├── @capacitor/core@7.4.3
+<br /> ├── @capacitor/device@7.0.2
+<br /> ├── @capacitor/filesystem@7.1.4
+<br /> ├── @capacitor/ios@7.4.3
+<br /> ├── @capacitor/share@7.0.2
+<br /> ├── @emotion/react@11.14.0
+<br /> ├── @emotion/styled@11.14.1
+<br /> ├── @mui/material@7.3.4
+<br /> ├── @testing-library/dom@10.4.1
+<br /> ├── @testing-library/jest-dom@6.9.1
+<br /> ├── @testing-library/react@16.3.0
+<br /> ├── @testing-library/user-event@14.6.1
+<br /> ├── @types/crypto-js@4.2.2
+<br /> ├── @types/jest@30.0.0
+<br /> ├── @types/node@24.7.2
+<br /> ├── @types/react-dom@19.2.2
+<br /> ├── @types/react@19.2.2
+<br /> ├── @vitejs/plugin-react@5.0.4
+<br /> ├── babel-jest@30.2.0
+<br /> ├── bootstrap-icons@1.13.1
+<br /> ├── bootstrap@5.3.8
+<br /> ├── capacitor-native-biometric@4.2.2
+<br /> ├── crypto-js@4.2.0
+<br /> ├── electron-builder@26.0.12
+<br /> ├── i18next-browser-languagedetector@8.2.0
+<br /> ├── i18next@25.6.0
+<br /> ├── identity-obj-proxy@3.0.0
+<br /> ├── jest-environment-jsdom@30.2.0
+<br /> ├── jest@30.2.0
+<br /> ├── jsdom@27.0.0
+<br /> ├── license-checker@25.0.1
+<br /> ├── react-bootstrap@2.10.10
+<br /> ├── react-dom@19.2.0
+<br /> ├── react-i18next@16.0.1
+<br /> ├── react-icons@5.5.0
+<br /> ├── react-router-dom@7.9.4
+<br /> ├── react-router@7.9.4
+<br /> ├── react@19.2.0
+<br /> ├── ts-jest@29.4.5
+<br /> ├── typescript@5.9.3
+<br /> ├── vite@7.1.9
+└── vitest@3.2.4
