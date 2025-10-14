@@ -869,16 +869,16 @@
     "repository": "https://github.com/mathiasbynens/emoji-regex",
     "publisher": "Mathias Bynens",
     "url": "https://mathiasbynens.be/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/string-width/node_modules/emoji-regex",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/string-width/node_modules/emoji-regex/LICENSE-MIT.txt"
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/emoji-regex",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/emoji-regex/LICENSE-MIT.txt"
   },
   "emoji-regex@9.2.2": {
     "licenses": "MIT",
     "repository": "https://github.com/mathiasbynens/emoji-regex",
     "publisher": "Mathias Bynens",
     "url": "https://mathiasbynens.be/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/emoji-regex",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/emoji-regex/LICENSE-MIT.txt"
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/emoji-regex",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/emoji-regex/LICENSE-MIT.txt"
   },
   "env-paths@2.2.1": {
     "licenses": "MIT",
@@ -1972,8 +1972,8 @@
     "repository": "https://github.com/eemeli/yaml",
     "publisher": "Eemeli Aro",
     "email": "eemeli@gmail.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/yaml",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/yaml/LICENSE"
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/cosmiconfig/node_modules/yaml",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/cosmiconfig/node_modules/yaml/LICENSE"
   },
   "yauzl@2.10.0": {
     "licenses": "MIT",

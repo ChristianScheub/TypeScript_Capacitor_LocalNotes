@@ -286,7 +286,7 @@ You can see the deeper NPM modules used and which of these are used in the licen
 <br /> ├── identity-obj-proxy@3.0.0
 <br /> ├── jest-environment-jsdom@30.2.0
 <br /> ├── jest@30.2.0
-<br /> ├── jsdom@24.1.3
+<br /> ├── jsdom@27.0.0
 <br /> ├── license-checker@25.0.1
 <br /> ├── react-bootstrap@2.10.10
 <br /> ├── react-dom@19.2.0
@@ -297,5 +297,5 @@ You can see the deeper NPM modules used and which of these are used in the licen
 <br /> ├── react@19.2.0
 <br /> ├── ts-jest@29.4.5
 <br /> ├── typescript@5.9.3
-<br /> ├── vite@5.4.20
-<br /> └── vitest@1.6.1
+<br /> ├── vite@7.1.9
+└── vitest@3.2.4
