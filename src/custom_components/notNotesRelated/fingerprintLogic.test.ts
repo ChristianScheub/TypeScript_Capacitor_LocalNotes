@@ -169,8 +169,11 @@ describe("storePasswordFromFingerprint", () => {
 
   it('handles error during password storing', async () => {
     const onError = jest.fn();
+    // Ensure biometric is available so setCredentials() is actually called
+    (NativeBiometric.isAvailable as jest.Mock).mockResolvedValue({ isAvailable: true });
     (NativeBiometric.setCredentials as jest.Mock).mockRejectedValue(new Error('Test error'));
     await storePasswordFromFingerprint('testPassword', jest.fn(), onError,t);
+    // The implementation falls back to a generic error on setCredentials rejection
     expect(onError).toHaveBeenCalledWith("Ein Fehler ist aufgetreten. Bitte versuchen sie es erneut!");
   });
 
