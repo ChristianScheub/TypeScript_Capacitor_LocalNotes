@@ -30,8 +30,10 @@
     "react-router-dom": "^7.9.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron-pack": "electron-builder --dir",
@@ -72,6 +74,8 @@
     "electron-builder": "^26.0.12",
     "license-checker": "^25.0.1",
     "react-scripts": "5.0.1",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
     "typescript": "^5.9.3"
   },
   "jest": {
@@ -87,8 +91,7 @@
   },
   "overrides": {
     "react-scripts": {
-      "typescript": "^5.9.3",
-      "webpack-dev-server": "^5.2.1"
+      "typescript": "^5.9.3"
     },
     "nth-check": "^2.1.1",
     "postcss": "^8.4.31",
