@@ -38,10 +38,10 @@ const App: React.FC = () => {
             flexDirection: "column",
             minHeight: "100vh",
             backgroundColor: "#1E1E1E",
-            color: "white",
+            color: "white"
           }}
         >
-          <div style={{ marginTop: "8vh" }}>
+          <div style={{ marginTop: "8vh"}}>
             <Router>
               <Routes>
                 <Route path="/datenschutz" element={<Datenschutz />} />

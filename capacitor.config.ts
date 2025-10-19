@@ -7,6 +7,12 @@ const config: CapacitorConfig = {
   server: {
     androidScheme: 'https'
   },
+  ios: {
+    contentInset: 'never',
+    scrollEnabled: true,
+    overrideUserAgent: undefined,
+    preferredContentMode: 'mobile'
+  },
   plugins: {
     Filesystem: {
       androidPermissions: [

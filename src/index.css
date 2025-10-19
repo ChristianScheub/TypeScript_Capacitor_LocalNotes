@@ -1,10 +1,40 @@
+html {
+  overflow-x: clip;
+  overflow-y: auto;
+  overscroll-behavior-x: none;
+  width: 100%;
+  max-width: 100%;
+}
+
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 100%;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:not(input):not(textarea):not(select) {
+  max-width: 100%;
+}
+
+#root {
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
 }
 
 code {

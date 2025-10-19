@@ -5,6 +5,9 @@ export default async () => {
   const react = (await import('@vitejs/plugin-react')).default
   return defineConfig({
     plugins: [react()],
+    build: {
+      outDir: 'build'
+    },
     test: {
       environment: 'jsdom',
       globals: true,
