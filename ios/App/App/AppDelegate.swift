@@ -34,15 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let bridge = (self.window?.rootViewController as? CAPBridgeViewController) {
                 bridge.webView?.allowsBackForwardNavigationGestures = true
                 
-                // Disable horizontal scrolling
+                // Completely disable horizontal scrolling
                 bridge.webView?.scrollView.alwaysBounceHorizontal = false
                 bridge.webView?.scrollView.showsHorizontalScrollIndicator = false
                 bridge.webView?.scrollView.bounces = true
                 bridge.webView?.scrollView.alwaysBounceVertical = true
+                bridge.webView?.scrollView.isDirectionalLockEnabled = true
                 
-                // Prevent horizontal panning
+                // Lock content width to frame width
                 if let scrollView = bridge.webView?.scrollView {
-                    scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.contentSize.height)
+                    // Add observer to constantly enforce width
+                    scrollView.contentInsetAdjustmentBehavior = .never
                 }
             }
         }

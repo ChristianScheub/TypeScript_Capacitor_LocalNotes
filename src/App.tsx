@@ -41,7 +41,7 @@ const App: React.FC = () => {
             color: "white"
           }}
         >
-          <div style={{ marginTop: "8vh", overflow: "hidden" }}>
+          <div style={{ marginTop: "8vh"}}>
             <Router>
               <Routes>
                 <Route path="/datenschutz" element={<Datenschutz />} />
