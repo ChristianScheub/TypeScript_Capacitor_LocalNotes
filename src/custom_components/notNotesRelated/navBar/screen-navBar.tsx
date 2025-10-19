@@ -34,12 +34,12 @@ const NavBarView: React.FC<NavBarViewProps> = ({
       variant="dark"
       className="justify-content-between"
       style={{
-        position: "fixed",
-        top: 0,
+        position: "absolute",
+        top: "0vw",
+        paddingTop: "env(safe-area-inset-top)",
         width: "100%",
         backgroundColor: "#161616",
         borderBottom: "1px solid #6c757d",
-        paddingTop: "env(safe-area-inset-top)",
       }}
     >
       <Container style={{ width: "90vw", maxWidth: "90vw", height: "3em" }}>

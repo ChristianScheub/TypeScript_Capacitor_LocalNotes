@@ -1,5 +1,6 @@
 import UIKit
 import Capacitor
+import WebKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,6 +28,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        // Enable back/forward swipe gestures in WKWebView
+        DispatchQueue.main.async {
+            if let bridge = (self.window?.rootViewController as? CAPBridgeViewController) {
+                bridge.webView?.allowsBackForwardNavigationGestures = true
+                
+                // Disable horizontal scrolling
+                bridge.webView?.scrollView.alwaysBounceHorizontal = false
+                bridge.webView?.scrollView.showsHorizontalScrollIndicator = false
+                bridge.webView?.scrollView.bounces = true
+                bridge.webView?.scrollView.alwaysBounceVertical = true
+                
+                // Prevent horizontal panning
+                if let scrollView = bridge.webView?.scrollView {
+                    scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.contentSize.height)
+                }
+            }
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
