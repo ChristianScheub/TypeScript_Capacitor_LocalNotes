@@ -44,8 +44,10 @@ describe('SettingsView Component', () => {
     const file = new File(['hello'], 'hello.png', { type: 'image/png' });
     renderWithRouter(<SettingsView {...defaultProps} />);
 
-    const fileInput = screen.getByLabelText('Select file');
-    fireEvent.change(fileInput, { target: { files: [file] } });
+    const fileInput = screen.getByTestId('settings-notes-import');
+    fireEvent.click(fileInput);
+    const input = screen.getByTestId('file-input');
+    fireEvent.change(input, { target: { files: [file] } });
 
     expect(mockOnFileChange).toHaveBeenCalledWith(expect.anything());
   });

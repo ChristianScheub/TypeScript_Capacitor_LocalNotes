@@ -1,20 +1,6 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Modal, Button, ListGroup } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
 
 interface NpmModule {
   name: string;
@@ -40,37 +26,39 @@ const UsedLibListScreen: React.FC<UsedLibListScreenProps> = ({
   };
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        scroll="paper"
-        maxWidth="sm"
-        fullWidth
-      >
-        <DialogTitle data-testid="setting_OpenSurceModulListTItle">{t("setting_OpenSurceModulListTItle")}</DialogTitle>
-        <DialogContent dividers>
-          <List data-testid="used-lib-list-modal">
-            {npmModules.map((module, index) => (
-              <ListItemButton
-                key={index}
-                onClick={() => handleModuleClick(module.repository)}
-              >
-                <ListItemText
-                  primary={`${module.name}@${module.version}`}
-                  secondary={`License: ${module.licenses}`}
-                />
-              </ListItemButton>
-            ))}
-          </List>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} data-testid="close-btn-lib-list-modal">
-            {t("setting_OpenSourceModulListClose")}
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </ThemeProvider>
+    <Modal
+      show={open}
+      onHide={handleClose}
+      size="sm"
+      centered
+      data-bs-theme="dark"
+    >
+      <Modal.Header closeButton>
+        <Modal.Title data-testid="setting_OpenSurceModulListTItle">{t("setting_OpenSurceModulListTItle")}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <ListGroup data-testid="used-lib-list-modal" variant="flush">
+          {npmModules.map((module, index) => (
+            <ListGroup.Item
+              key={index}
+              action
+              onClick={() => handleModuleClick(module.repository)}
+              className="bg-dark text-light"
+            >
+              <div>
+                <strong>{`${module.name}@${module.version}`}</strong>
+              </div>
+              <div className="text-muted">License: {module.licenses}</div>
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose} data-testid="close-btn-lib-list-modal">
+          {t("setting_OpenSourceModulListClose")}
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 

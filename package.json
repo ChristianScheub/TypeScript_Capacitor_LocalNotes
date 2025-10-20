@@ -1,6 +1,6 @@
 {
   "name": "local-notes",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "dependencies": {
     "@capacitor/android": "^7.4.3",
@@ -11,7 +11,6 @@
     "@capacitor/filesystem": "^7.1.4",
     "@capacitor/ios": "^7.4.3",
     "@capacitor/share": "^7.0.2",
-    "@mui/material": "^7.3.4",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "capacitor-native-biometric": "^4.2.2",

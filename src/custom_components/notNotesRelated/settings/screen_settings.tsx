@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { NavigateFunction } from "react-router-dom";
-import Button from "@mui/material/Button";
+import { Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import UsedLibsListContainer from "../../../modules/legal/usedLibs/container_usedLibList";
 import NavBarContainer from "../navBar/container-navBar";
@@ -117,11 +117,11 @@ const SettingsView: React.FC<SettingsProps> = ({
                     type="file"
                     style={{ display: "none" }}
                     onChange={onFileChange}
+                    data-testid="file-input"
                   />
                   <Button
-                    variant="contained"
-                    color="primary"
-                    component="span"
+                    as="span"
+                    variant="primary"
                     data-testid="settings-notes-import"
                   >
                     {t("settings_ImportNotesBtn")}

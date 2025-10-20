@@ -88,54 +88,6 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/synapse",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/synapse/LICENSE.md"
   },
-  "@emotion/cache@11.14.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/emotion-js/emotion/tree/main/packages/cache",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/cache",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/cache/LICENSE"
-  },
-  "@emotion/hash@0.9.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/emotion-js/emotion/tree/main/packages/hash",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/hash",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/hash/LICENSE"
-  },
-  "@emotion/memoize@0.9.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/emotion-js/emotion/tree/main/packages/memoize",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/memoize",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/memoize/LICENSE"
-  },
-  "@emotion/serialize@1.3.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/emotion-js/emotion/tree/main/packages/serialize",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/serialize",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/serialize/LICENSE"
-  },
-  "@emotion/sheet@1.4.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/emotion-js/emotion/tree/main/packages/sheet",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/sheet",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/sheet/LICENSE"
-  },
-  "@emotion/unitless@0.10.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/emotion-js/emotion/tree/main/packages/unitless",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/unitless",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/unitless/LICENSE"
-  },
-  "@emotion/utils@1.4.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/emotion-js/emotion/tree/main/packages/utils",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/utils",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/utils/LICENSE"
-  },
-  "@emotion/weak-memoize@0.4.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/emotion-js/emotion/tree/main/packages/weak-memoize",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/weak-memoize",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@emotion/weak-memoize/LICENSE"
-  },
   "@ionic/cli-framework-output@2.2.8": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/ionic-cli",
@@ -226,55 +178,6 @@
     "email": "ben@npmjs.com",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/LICENSE.txt"
-  },
-  "@mui/core-downloads-tracker@7.3.4": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mui/material-ui",
-    "publisher": "MUI Team",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/core-downloads-tracker",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/core-downloads-tracker/LICENSE"
-  },
-  "@mui/material@7.3.4": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mui/material-ui",
-    "publisher": "MUI Team",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/material",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/material/LICENSE"
-  },
-  "@mui/private-theming@7.3.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mui/material-ui",
-    "publisher": "MUI Team",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/private-theming",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/private-theming/LICENSE"
-  },
-  "@mui/styled-engine@7.3.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mui/material-ui",
-    "publisher": "MUI Team",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/styled-engine",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/styled-engine/LICENSE"
-  },
-  "@mui/system@7.3.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mui/material-ui",
-    "publisher": "MUI Team",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/system",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/system/LICENSE"
-  },
-  "@mui/types@7.4.7": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mui/material-ui",
-    "publisher": "MUI Team",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/types",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/types/LICENSE"
-  },
-  "@mui/utils@7.3.3": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mui/material-ui",
-    "publisher": "MUI Team",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/utils",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@mui/utils/LICENSE"
   },
   "@popperjs/core@2.11.8": {
     "licenses": "MIT",
@@ -492,15 +395,6 @@
     "publisher": "Jed Watson",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/classnames",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/classnames/LICENSE"
-  },
-  "clsx@2.1.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/lukeed/clsx",
-    "publisher": "Luke Edwards",
-    "email": "luke.edwards05@gmail.com",
-    "url": "https://lukeed.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/clsx",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/clsx/license"
   },
   "color-convert@2.0.1": {
     "licenses": "MIT",
@@ -813,7 +707,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/kleur",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/kleur/license"
   },
-  "local-notes@1.4.0": {
+  "local-notes@1.5.0": {
     "licenses": "UNLICENSED",
     "private": true,
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes",
@@ -1021,12 +915,6 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/prop-types/node_modules/react-is",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/prop-types/node_modules/react-is/LICENSE"
   },
-  "react-is@19.2.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/facebook/react",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-is",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-is/LICENSE"
-  },
   "react-lifecycles-compat@3.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/reactjs/react-lifecycles-compat",
@@ -1222,14 +1110,6 @@
     "url": "https://sindresorhus.com",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/strip-ansi",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/strip-ansi/license"
-  },
-  "stylis@4.2.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/thysultan/stylis.js",
-    "publisher": "Sultan Tarimo",
-    "email": "sultantarimo@me.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/stylis",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/stylis/LICENSE"
   },
   "tar@6.2.1": {
     "licenses": "ISC",
