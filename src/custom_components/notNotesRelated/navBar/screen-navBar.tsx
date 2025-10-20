@@ -42,9 +42,16 @@ const NavBarView: React.FC<NavBarViewProps> = ({
         borderBottom: "1px solid #6c757d",
       }}
     >
-      <Container style={{ width: "90vw", maxWidth: "90vw", height: "3em" }}>
+      <Container style={{ 
+        width: "90vw", 
+        maxWidth: "90vw", 
+        height: "3em",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between"
+      }}>
         {showBackButton ? (
-          <div style={{ width: "80vw" }}>
+          <div style={{ width: "80vw", display: "flex", alignItems: "center" }}>
             <Button
               onClick={onBackClick}
               data-testid="back-button"
@@ -76,7 +83,7 @@ const NavBarView: React.FC<NavBarViewProps> = ({
             )}
           </div>
         ) : (
-          <Form onSubmit={onSearchSubmit}>
+          <Form onSubmit={onSearchSubmit} style={{ flex: 1 }}>
             <input
               type="search"
               aria-label="Search"
@@ -85,14 +92,12 @@ const NavBarView: React.FC<NavBarViewProps> = ({
               data-testid="navbar_searchForm"
               value={tempSearch}
               style={{
-                flex: 1,
                 border: "none",
-                padding: "0.75rem 1rem",
-                marginLeft: "10vw",
+                padding: "0.5rem 1rem",
                 borderRadius: "30px",
                 color: "#fff",
                 backgroundColor: "#25262B",
-                width: "70vw",
+                width: "100%",
                 marginTop: "1vh",
               }}
             />
@@ -102,7 +107,11 @@ const NavBarView: React.FC<NavBarViewProps> = ({
             <Button
               variant="link"
               onClick={onSettingsClick}
-              style={{ height: "2em" }}
+              style={{ 
+                height: "2em",
+                flexShrink: 0,
+                marginLeft: "0.75rem"
+              }}
             >
               <MdOutlineSettings size="1.5em" />
             </Button>

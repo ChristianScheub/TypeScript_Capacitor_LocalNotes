@@ -1,7 +1,8 @@
 
 # LocalNotes
 
-Last Edit: 02.2024 <br>
+Last Changes: 02.2024 <br>
+Last Dependencies update: 10.2025
 Language: Typescript React Capacitor<br>
 
 With this app, it is possible to securely store notes locally with AES & Triple DES encryption, edit/delete them and search them.
@@ -244,58 +245,46 @@ Notes
 - Tests: run `npm test` for Jest. If you prefer Vitest, use the `test:vitest` script, but some tests rely on Jest semantics (e.g. jest.mock hoisting).
 - If you encounter engine or install warnings (EBADENGINE), consider using a stable Node LTS (18.x or 20.x) via nvm.
 
-
+### `./node_modules/.bin/license-checker --json --production --out licenses.json`
+Generate the JSON with the licenses of the NPM packages used. This can then replace the existing license json under modules/legal/usedLibs.
 
 ## Used NPM Modules
 According to the command npm list
 You can see the deeper NPM modules used and which of these are used in the licenses.json.
 
-<br /> ├── @babel/core@7.28.4
-<br /> ├── @babel/plugin-proposal-private-property-in-object@7.21.11
-<br /> ├── @babel/preset-env@7.28.3
-<br /> ├── @capacitor-community/electron@5.0.1
-<br /> ├── @capacitor/android@7.4.3
-<br /> ├── @capacitor/app@7.1.0
-<br /> ├── @capacitor/cli@7.4.3
-<br /> ├── @capacitor/core@7.4.3
-<br /> ├── @capacitor/device@7.0.2
-<br /> ├── @capacitor/filesystem@7.1.4
-<br /> ├── @capacitor/ios@7.4.3
-<br /> ├── @capacitor/share@7.0.2
-<br /> ├── @emotion/react@11.14.0
-<br /> ├── @emotion/styled@11.14.1
-<br /> ├── @mui/material@7.3.4
-<br /> ├── @testing-library/dom@10.4.1
-<br /> ├── @testing-library/jest-dom@6.9.1
-<br /> ├── @testing-library/react@16.3.0
-<br /> ├── @testing-library/user-event@14.6.1
-<br /> ├── @types/crypto-js@4.2.2
-<br /> ├── @types/jest@30.0.0
-<br /> ├── @types/node@24.7.2
-<br /> ├── @types/react-dom@19.2.2
-<br /> ├── @types/react@19.2.2
-<br /> ├── @vitejs/plugin-react@5.0.4
-<br /> ├── babel-jest@30.2.0
-<br /> ├── bootstrap-icons@1.13.1
-<br /> ├── bootstrap@5.3.8
-<br /> ├── capacitor-native-biometric@4.2.2
-<br /> ├── crypto-js@4.2.0
-<br /> ├── electron-builder@26.0.12
-<br /> ├── i18next-browser-languagedetector@8.2.0
-<br /> ├── i18next@25.6.0
-<br /> ├── identity-obj-proxy@3.0.0
-<br /> ├── jest-environment-jsdom@30.2.0
-<br /> ├── jest@30.2.0
-<br /> ├── jsdom@27.0.0
-<br /> ├── license-checker@25.0.1
-<br /> ├── react-bootstrap@2.10.10
-<br /> ├── react-dom@19.2.0
-<br /> ├── react-i18next@16.0.1
-<br /> ├── react-icons@5.5.0
-<br /> ├── react-router-dom@7.9.4
-<br /> ├── react-router@7.9.4
-<br /> ├── react@19.2.0
-<br /> ├── ts-jest@29.4.5
-<br /> ├── typescript@5.9.3
-<br /> ├── vite@7.1.9
-└── vitest@3.2.4
+<br /> ├──  @capacitor/android@7.4.3
+<br /> ├──  @capacitor/app@7.1.0
+<br /> ├──  @capacitor/cli@7.4.3
+<br /> ├──  @capacitor/core@7.4.3
+<br /> ├──  @capacitor/device@7.0.2
+<br /> ├──  @capacitor/filesystem@7.1.4
+<br /> ├──  @capacitor/ios@7.4.3
+<br /> ├──  @capacitor/share@7.0.2
+<br /> ├──  @testing-library/dom@10.4.1
+<br /> ├──  @testing-library/jest-dom@6.9.1
+<br /> ├──  @testing-library/react@16.3.0
+<br /> ├──  @types/crypto-js@4.2.2
+<br /> ├──  @types/jest@30.0.0
+<br /> ├──  @types/react-dom@19.2.2
+<br /> ├──  @types/react@19.2.2
+<br /> ├──  @vitejs/plugin-react@5.0.4
+<br /> ├──  bootstrap-icons@1.13.1
+<br /> ├──  bootstrap@5.3.8
+<br /> ├──  capacitor-native-biometric@4.2.2
+<br /> ├──  crypto-js@4.2.0
+<br /> ├──  i18next-browser-languagedetector@8.2.0
+<br /> ├──  i18next@25.6.0
+<br /> ├──  jest-environment-jsdom@30.2.0
+<br /> ├──  jest@30.2.0
+<br /> ├──  jsdom@27.0.0
+<br /> ├──  license-checker@25.0.1
+<br /> ├──  react-bootstrap@2.10.10
+<br /> ├──  react-dom@19.2.0
+<br /> ├──  react-i18next@16.0.1
+<br /> ├──  react-icons@5.5.0
+<br /> ├──  react-router-dom@7.9.4
+<br /> ├──  react-router@7.9.4
+<br /> ├──  react@19.2.0
+<br /> ├──  ts-jest@29.4.5
+<br /> ├──  typescript@5.9.3
+<br />└── vite@7.1.9

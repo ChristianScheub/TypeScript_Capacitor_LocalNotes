@@ -1,6 +1,6 @@
 {
   "name": "local-notes",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "dependencies": {
     "@capacitor/android": "^7.4.3",
@@ -11,9 +11,6 @@
     "@capacitor/filesystem": "^7.1.4",
     "@capacitor/ios": "^7.4.3",
     "@capacitor/share": "^7.0.2",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/material": "^7.3.4",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "capacitor-native-biometric": "^4.2.2",
@@ -55,29 +52,21 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.28.4",
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/preset-env": "^7.28.3",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^14.6.1",
     "@types/crypto-js": "^4.2.2",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.7.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.0.4",
-    "babel-jest": "^30.2.0",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
     "jsdom": "^27.0.0",
     "license-checker": "^25.0.1",
     "ts-jest": "^29.4.5",
     "typescript": "^5.9.3",
-    "vite": "^7.1.9",
-    "vitest": "^3.2.4"
+    "vite": "^7.1.9"
   },
   "overrides": {
     "react-scripts": {

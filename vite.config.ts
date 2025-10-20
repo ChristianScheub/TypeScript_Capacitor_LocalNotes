@@ -7,14 +7,6 @@ export default async () => {
     plugins: [react()],
     build: {
       outDir: 'build'
-    },
-    test: {
-      environment: 'jsdom',
-      globals: true,
-      setupFiles: 'src/setupTests.ts',
-      coverage: {
-        provider: 'v8'
-      }
     }
   }) as any
 }

@@ -49,7 +49,6 @@ export const getPasswordFromFingerprint = async (
       credentials.password,
       hashedDeviceId
     ).toString(CryptoJS.enc.Utf8);
-
     onPasswordRetrieved(decryptedPassword);
   } catch (e) {
     //console.log(e);

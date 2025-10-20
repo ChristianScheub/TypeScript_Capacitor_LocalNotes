@@ -9,7 +9,3 @@ import './i18n';
 import { TextEncoder, TextDecoder } from 'util';
 (global as any).TextEncoder = TextEncoder as any;
 (global as any).TextDecoder = TextDecoder as any;
-
-// Jest compatibility shim for tests that use `jest.*` helpers (maps to Vitest's `vi`).
-// This keeps most existing tests working without rewriting them.
-(global as any).jest = (global as any).jest || (global as any).vi
