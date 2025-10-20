@@ -2,7 +2,7 @@
 # LocalNotes
 
 Last Changes: 02.2024 <br>
-Last Dependencies update: 10.2025
+Last Dependencies update: 10.2025<br>
 Language: Typescript React Capacitor<br>
 
 With this app, it is possible to securely store notes locally with AES & Triple DES encryption, edit/delete them and search them.
