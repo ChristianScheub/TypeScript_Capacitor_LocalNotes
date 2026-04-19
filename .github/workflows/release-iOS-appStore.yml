@@ -47,6 +47,21 @@ jobs:
       - name: Sync Capacitor (iOS)
         run: npx cap sync ios
 
+      - name: Disable code signing for CocoaPods targets
+        run: |
+          ruby -e "
+            require 'xcodeproj'
+            project = Xcodeproj::Project.open('ios/App/Pods/Pods.xcodeproj')
+            project.targets.each do |target|
+              target.build_configurations.each do |config|
+                config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+                config.build_settings['CODE_SIGNING_REQUIRED'] = 'NO'
+                config.build_settings.delete('PROVISIONING_PROFILE_SPECIFIER')
+              end
+            end
+            project.save
+          "
+
       # ── 3. Code Signing ──────────────────────────────────────────────────────
       - name: Create temporary keychain
         run: |
@@ -129,7 +144,7 @@ jobs:
             -archivePath "$RUNNER_TEMP/FireRechner.xcarchive" \
             CODE_SIGN_STYLE=Manual \
             CODE_SIGN_IDENTITY="Apple Distribution" \
-            PROVISIONING_PROFILE_SPECIFIER="${{ secrets.IOS_PROVISIONING_PROFILE_NAME }}" \
+            PROVISIONING_PROFILE_SPECIFIER="${PROVISIONING_PROFILE_UUID}" \
             DEVELOPMENT_TEAM="${{ secrets.APPLE_TEAM_ID }}" \
             OTHER_CODE_SIGN_FLAGS="--keychain ${KEYCHAIN_PATH}" \
             archive
