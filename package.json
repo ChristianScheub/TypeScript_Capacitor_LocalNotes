@@ -1,6 +1,6 @@
 {
   "name": "local-notes",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "private": true,
   "dependencies": {
     "@capacitor/android": "^7.4.3",
@@ -28,7 +28,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "./node_modules/.bin/license-checker --json --production --out src/modules/legal/usedLibs/licenses.json && vite build",
     "preview": "vite preview",
     "test": "jest -i",
     "test:vitest": "vitest"

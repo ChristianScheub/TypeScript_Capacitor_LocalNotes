@@ -1,5 +1,5 @@
 {
-  "@babel/runtime@7.28.4": {
+  "@babel/runtime@7.29.2": {
     "licenses": "MIT",
     "repository": "https://github.com/babel/babel",
     "publisher": "The Babel Team",
@@ -7,7 +7,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@babel/runtime",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@babel/runtime/LICENSE"
   },
-  "@capacitor/android@7.4.3": {
+  "@capacitor/android@7.6.2": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/capacitor",
     "publisher": "Ionic Team",
@@ -16,7 +16,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/android",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/android/LICENSE"
   },
-  "@capacitor/app@7.1.0": {
+  "@capacitor/app@7.1.2": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/capacitor-plugins",
     "publisher": "Ionic",
@@ -24,7 +24,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/app",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/app/LICENSE"
   },
-  "@capacitor/cli@7.4.3": {
+  "@capacitor/cli@7.6.2": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/capacitor",
     "publisher": "Ionic Team",
@@ -42,7 +42,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/capacitor-native-biometric/node_modules/@capacitor/core",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/capacitor-native-biometric/node_modules/@capacitor/core/LICENSE"
   },
-  "@capacitor/core@7.4.3": {
+  "@capacitor/core@7.6.2": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/capacitor",
     "publisher": "Ionic Team",
@@ -51,7 +51,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/core",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/core/LICENSE"
   },
-  "@capacitor/device@7.0.2": {
+  "@capacitor/device@7.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/capacitor-plugins",
     "publisher": "Ionic",
@@ -59,14 +59,14 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/device",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/device/LICENSE"
   },
-  "@capacitor/filesystem@7.1.4": {
+  "@capacitor/filesystem@7.1.8": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/capacitor-filesystem",
     "publisher": "Outsystems",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/filesystem",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/filesystem/LICENSE"
   },
-  "@capacitor/ios@7.4.3": {
+  "@capacitor/ios@7.6.2": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/capacitor",
     "publisher": "Ionic Team",
@@ -75,7 +75,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/ios",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/ios/LICENSE"
   },
-  "@capacitor/share@7.0.2": {
+  "@capacitor/share@7.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/capacitor-plugins",
     "publisher": "Ionic",
@@ -87,6 +87,24 @@
     "licenses": "ISC",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/synapse",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/synapse/LICENSE.md"
+  },
+  "@internationalized/date@3.12.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/adobe/react-spectrum/tree/main/packages/@internationalized/date",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@internationalized/date",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@internationalized/date/LICENSE"
+  },
+  "@internationalized/number@3.6.6": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/adobe/react-spectrum",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@internationalized/number",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@internationalized/number/LICENSE"
+  },
+  "@internationalized/string@3.2.8": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/adobe/react-spectrum",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@internationalized/string",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@internationalized/string/LICENSE"
   },
   "@ionic/cli-framework-output@2.2.8": {
     "licenses": "MIT",
@@ -160,24 +178,12 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@ionic/utils-terminal",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@ionic/utils-terminal/LICENSE"
   },
-  "@isaacs/balanced-match@4.0.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/isaacs/balanced-match",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/balanced-match",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/balanced-match/LICENSE.md"
-  },
-  "@isaacs/brace-expansion@5.0.0": {
-    "licenses": "MIT",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/brace-expansion",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/brace-expansion/LICENSE"
-  },
-  "@isaacs/cliui@8.0.2": {
+  "@isaacs/fs-minipass@4.0.1": {
     "licenses": "ISC",
-    "repository": "https://github.com/yargs/cliui",
-    "publisher": "Ben Coe",
-    "email": "ben@npmjs.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/LICENSE.txt"
+    "repository": "https://github.com/npm/fs-minipass",
+    "publisher": "Isaac Z. Schlueter",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/fs-minipass",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/fs-minipass/LICENSE"
   },
   "@popperjs/core@2.11.8": {
     "licenses": "MIT",
@@ -187,11 +193,17 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@popperjs/core",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@popperjs/core/LICENSE.md"
   },
-  "@react-aria/ssr@3.9.10": {
+  "@react-aria/ssr@3.10.0": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/adobe/react-spectrum",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@react-aria/ssr",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@react-aria/ssr/LICENSE"
+  },
+  "@react-types/shared@3.34.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/adobe/react-spectrum",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@react-types/shared",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@react-types/shared/LICENSE"
   },
   "@restart/hooks@0.4.16": {
     "licenses": "MIT",
@@ -217,7 +229,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@restart/ui",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@restart/ui/LICENSE"
   },
-  "@swc/helpers@0.5.17": {
+  "@swc/helpers@0.5.21": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/swc-project/swc",
     "publisher": "강동윤",
@@ -231,7 +243,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/fs-extra",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/fs-extra/LICENSE"
   },
-  "@types/node@24.7.2": {
+  "@types/node@25.6.0": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/node",
@@ -249,7 +261,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/react-transition-group",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/react-transition-group/LICENSE"
   },
-  "@types/react@19.2.2": {
+  "@types/react@19.2.14": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/react",
@@ -261,13 +273,13 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/slice-ansi",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/slice-ansi/LICENSE"
   },
-  "@types/warning@3.0.3": {
+  "@types/warning@3.0.4": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/warning",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@types/warning/LICENSE"
   },
-  "@xmldom/xmldom@0.8.11": {
+  "@xmldom/xmldom@0.8.13": {
     "licenses": "MIT",
     "repository": "https://github.com/xmldom/xmldom",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@xmldom/xmldom",
@@ -282,15 +294,6 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/ansi-regex",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/ansi-regex/license"
   },
-  "ansi-regex@6.2.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/chalk/ansi-regex",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/ansi-regex",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/ansi-regex/license"
-  },
   "ansi-styles@4.3.0": {
     "licenses": "MIT",
     "repository": "https://github.com/chalk/ansi-styles",
@@ -300,14 +303,13 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/ansi-styles",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/ansi-styles/license"
   },
-  "ansi-styles@6.2.3": {
+  "aria-hidden@1.2.6": {
     "licenses": "MIT",
-    "repository": "https://github.com/chalk/ansi-styles",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/ansi-styles",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/ansi-styles/license"
+    "repository": "https://github.com/theKashey/aria-hidden",
+    "publisher": "Anton Korzunov",
+    "email": "thekashey@gmail.com",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/aria-hidden",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/aria-hidden/LICENSE"
   },
   "astral-regex@2.0.0": {
     "licenses": "MIT",
@@ -325,6 +327,12 @@
     "email": "opensrc@ryanzim.com",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/at-least-node",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/at-least-node/LICENSE"
+  },
+  "balanced-match@4.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/juliangruber/balanced-match",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/balanced-match",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/balanced-match/LICENSE.md"
   },
   "base64-js@1.5.1": {
     "licenses": "MIT",
@@ -365,6 +373,12 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/bplist-parser",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/bplist-parser/README.md"
   },
+  "brace-expansion@5.0.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/juliangruber/brace-expansion",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/brace-expansion",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/brace-expansion/LICENSE"
+  },
   "buffer-crc32@0.2.13": {
     "licenses": "MIT",
     "repository": "https://github.com/brianloveswords/buffer-crc32",
@@ -380,14 +394,14 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/capacitor-native-biometric",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/capacitor-native-biometric/README.md"
   },
-  "chownr@2.0.0": {
-    "licenses": "ISC",
+  "chownr@3.0.0": {
+    "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/chownr",
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "http://blog.izs.me/",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/chownr",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/chownr/LICENSE"
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/chownr/LICENSE.md"
   },
   "classnames@2.5.1": {
     "licenses": "MIT",
@@ -395,6 +409,15 @@
     "publisher": "Jed Watson",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/classnames",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/classnames/LICENSE"
+  },
+  "clsx@2.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lukeed/clsx",
+    "publisher": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "https://lukeed.com",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/clsx",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/clsx/license"
   },
   "color-convert@2.0.1": {
     "licenses": "MIT",
@@ -420,7 +443,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/commander",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/commander/LICENSE"
   },
-  "cookie@1.0.2": {
+  "cookie@1.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/jshttp/cookie",
     "publisher": "Roman Shtylman",
@@ -444,7 +467,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/crypto-js",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/crypto-js/LICENSE"
   },
-  "csstype@3.1.3": {
+  "csstype@3.2.3": {
     "licenses": "MIT",
     "repository": "https://github.com/frenic/csstype",
     "publisher": "Fredrik Nicol",
@@ -486,13 +509,6 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/dom-helpers",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/dom-helpers/LICENSE"
   },
-  "eastasianwidth@0.2.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/komagata/eastasianwidth",
-    "publisher": "Masaki Komagata",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/eastasianwidth",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/eastasianwidth/README.md"
-  },
   "elementtree@0.1.7": {
     "licenses": "Apache-2.0",
     "repository": "https://github.com/racker/node-elementtree",
@@ -508,14 +524,6 @@
     "url": "https://mathiasbynens.be/",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/emoji-regex",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/emoji-regex/LICENSE-MIT.txt"
-  },
-  "emoji-regex@9.2.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/mathiasbynens/emoji-regex",
-    "publisher": "Mathias Bynens",
-    "url": "https://mathiasbynens.be/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/emoji-regex",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/emoji-regex/LICENSE-MIT.txt"
   },
   "env-paths@2.2.1": {
     "licenses": "MIT",
@@ -534,22 +542,13 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/fd-slicer",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/fd-slicer/LICENSE"
   },
-  "foreground-child@3.3.1": {
-    "licenses": "ISC",
-    "repository": "https://github.com/tapjs/foreground-child",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/foreground-child",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/foreground-child/LICENSE"
-  },
-  "fs-extra@11.3.2": {
+  "fs-extra@11.3.4": {
     "licenses": "MIT",
     "repository": "https://github.com/jprichardson/node-fs-extra",
     "publisher": "JP Richardson",
     "email": "jprichardson@gmail.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/cli/node_modules/fs-extra",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/cli/node_modules/fs-extra/LICENSE"
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/fs-extra",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/fs-extra/LICENSE"
   },
   "fs-extra@9.1.0": {
     "licenses": "MIT",
@@ -559,23 +558,14 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@ionic/utils-fs/node_modules/fs-extra",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@ionic/utils-fs/node_modules/fs-extra/LICENSE"
   },
-  "fs-minipass@2.1.0": {
-    "licenses": "ISC",
-    "repository": "https://github.com/npm/fs-minipass",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/fs-minipass",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/fs-minipass/LICENSE"
-  },
-  "glob@11.0.3": {
-    "licenses": "ISC",
+  "glob@13.0.6": {
+    "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/node-glob",
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "https://blog.izs.me/",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/glob",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/glob/LICENSE"
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/glob/LICENSE.md"
   },
   "graceful-fs@4.2.11": {
     "licenses": "ISC",
@@ -591,7 +581,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/html-parse-stringify",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/html-parse-stringify/README.md"
   },
-  "i18next-browser-languagedetector@8.2.0": {
+  "i18next-browser-languagedetector@8.2.1": {
     "licenses": "MIT",
     "repository": "https://github.com/i18next/i18next-browser-languageDetector",
     "publisher": "Jan Mühlemann",
@@ -600,7 +590,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/i18next-browser-languagedetector",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/i18next-browser-languagedetector/LICENSE"
   },
-  "i18next@25.6.0": {
+  "i18next@25.10.10": {
     "licenses": "MIT",
     "repository": "https://github.com/i18next/i18next",
     "publisher": "Jan Mühlemann",
@@ -666,14 +656,6 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/isexe",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/isexe/LICENSE"
   },
-  "jackspeak@4.1.1": {
-    "licenses": "BlueOak-1.0.0",
-    "repository": "https://github.com/isaacs/jackspeak",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/jackspeak",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/jackspeak/LICENSE.md"
-  },
   "js-tokens@4.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/lydell/js-tokens",
@@ -721,51 +703,33 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/loose-envify",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/loose-envify/LICENSE"
   },
-  "lru-cache@11.2.2": {
-    "licenses": "ISC",
+  "lru-cache@11.3.5": {
+    "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/node-lru-cache",
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/lru-cache",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/lru-cache/LICENSE"
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/lru-cache/LICENSE.md"
   },
-  "minimatch@10.0.3": {
-    "licenses": "ISC",
+  "minimatch@10.2.5": {
+    "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/minimatch",
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "http://blog.izs.me",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minimatch",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minimatch/LICENSE"
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/minimatch",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/minimatch/LICENSE.md"
   },
-  "minipass@3.3.6": {
-    "licenses": "ISC",
+  "minipass@7.1.3": {
+    "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/minipass",
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "http://blog.izs.me/",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minipass",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minipass/LICENSE"
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minipass/LICENSE.md"
   },
-  "minipass@5.0.0": {
-    "licenses": "ISC",
-    "repository": "https://github.com/isaacs/minipass",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar/node_modules/minipass",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar/node_modules/minipass/LICENSE"
-  },
-  "minipass@7.1.2": {
-    "licenses": "ISC",
-    "repository": "https://github.com/isaacs/minipass",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/minipass",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/node_modules/minipass/LICENSE"
-  },
-  "minizlib@2.1.2": {
+  "minizlib@3.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/isaacs/minizlib",
     "publisher": "Isaac Z. Schlueter",
@@ -774,19 +738,13 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minizlib",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minizlib/LICENSE"
   },
-  "mkdirp@1.0.4": {
-    "licenses": "MIT",
-    "repository": "https://github.com/isaacs/node-mkdirp",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar/node_modules/mkdirp",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar/node_modules/mkdirp/LICENSE"
-  },
   "ms@2.1.3": {
     "licenses": "MIT",
     "repository": "https://github.com/vercel/ms",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/ms",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/ms/license.md"
   },
-  "native-run@2.0.1": {
+  "native-run@2.0.3": {
     "licenses": "MIT",
     "repository": "https://github.com/ionic-team/native-run",
     "publisher": "Ionic Team",
@@ -831,7 +789,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/path-key",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/path-key/license"
   },
-  "path-scurry@2.0.0": {
+  "path-scurry@2.0.2": {
     "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/path-scurry",
     "publisher": "Isaac Z. Schlueter",
@@ -879,6 +837,12 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/prop-types",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/prop-types/LICENSE"
   },
+  "react-aria@3.48.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/adobe/react-spectrum",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-aria",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-aria/LICENSE"
+  },
   "react-bootstrap@2.10.10": {
     "licenses": "MIT",
     "repository": "https://github.com/react-bootstrap/react-bootstrap",
@@ -887,13 +851,13 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-bootstrap",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-bootstrap/LICENSE"
   },
-  "react-dom@19.2.0": {
+  "react-dom@19.2.5": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-dom",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-dom/LICENSE"
   },
-  "react-i18next@16.0.1": {
+  "react-i18next@16.6.6": {
     "licenses": "MIT",
     "repository": "https://github.com/i18next/react-i18next",
     "publisher": "Jan Mühlemann",
@@ -902,7 +866,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-i18next",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-i18next/LICENSE"
   },
-  "react-icons@5.5.0": {
+  "react-icons@5.6.0": {
     "licenses": "MIT",
     "repository": "https://github.com/react-icons/react-icons",
     "publisher": "Goran Gajic",
@@ -921,7 +885,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-lifecycles-compat",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-lifecycles-compat/LICENSE.md"
   },
-  "react-router-dom@7.9.4": {
+  "react-router-dom@7.14.1": {
     "licenses": "MIT",
     "repository": "https://github.com/remix-run/react-router",
     "publisher": "Remix Software",
@@ -929,7 +893,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-router-dom",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-router-dom/LICENSE.md"
   },
-  "react-router@7.9.4": {
+  "react-router@7.14.1": {
     "licenses": "MIT",
     "repository": "https://github.com/remix-run/react-router",
     "publisher": "Remix Software",
@@ -937,13 +901,19 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-router",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-router/LICENSE.md"
   },
+  "react-stately@3.46.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/adobe/react-spectrum",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-stately",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-stately/LICENSE"
+  },
   "react-transition-group@4.4.5": {
     "licenses": "BSD-3-Clause",
     "repository": "https://github.com/reactjs/react-transition-group",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-transition-group",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react-transition-group/LICENSE"
   },
-  "react@19.2.0": {
+  "react@19.2.5": {
     "licenses": "MIT",
     "repository": "https://github.com/facebook/react",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/react",
@@ -955,14 +925,14 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/readable-stream",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/readable-stream/LICENSE"
   },
-  "rimraf@6.0.1": {
-    "licenses": "ISC",
+  "rimraf@6.1.3": {
+    "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/rimraf",
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "http://blog.izs.me/",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/LICENSE"
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/rimraf/LICENSE.md"
   },
   "safe-buffer@5.2.1": {
     "licenses": "MIT",
@@ -979,15 +949,6 @@
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "http://blog.izs.me/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/elementtree/node_modules/sax",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/elementtree/node_modules/sax/LICENSE"
-  },
-  "sax@1.4.1": {
-    "licenses": "ISC",
-    "repository": "https://github.com/isaacs/sax-js",
-    "publisher": "Isaac Z. Schlueter",
-    "email": "i@izs.me",
-    "url": "http://blog.izs.me/",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/sax",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/sax/LICENSE"
   },
@@ -997,14 +958,14 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/scheduler",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/scheduler/LICENSE"
   },
-  "semver@7.7.3": {
+  "semver@7.7.4": {
     "licenses": "ISC",
     "repository": "https://github.com/npm/node-semver",
     "publisher": "GitHub Inc.",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/cli/node_modules/semver",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@capacitor/cli/node_modules/semver/LICENSE"
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/semver",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/semver/LICENSE"
   },
-  "set-cookie-parser@2.7.1": {
+  "set-cookie-parser@2.7.2": {
     "licenses": "MIT",
     "repository": "https://github.com/nfriedly/set-cookie-parser",
     "publisher": "Nathan Friedly",
@@ -1038,14 +999,6 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/signal-exit",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/signal-exit/LICENSE.txt"
   },
-  "signal-exit@4.1.0": {
-    "licenses": "ISC",
-    "repository": "https://github.com/tapjs/signal-exit",
-    "publisher": "Ben Coe",
-    "email": "ben@npmjs.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/foreground-child/node_modules/signal-exit",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/foreground-child/node_modules/signal-exit/LICENSE.txt"
-  },
   "sisteransi@1.0.5": {
     "licenses": "MIT",
     "repository": "https://github.com/terkelg/sisteransi",
@@ -1078,15 +1031,6 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/string-width",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/string-width/license"
   },
-  "string-width@5.1.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/sindresorhus/string-width",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/string-width",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/string-width/license"
-  },
   "string_decoder@1.3.0": {
     "licenses": "MIT",
     "repository": "https://github.com/nodejs/string_decoder",
@@ -1102,21 +1046,12 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/strip-ansi",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/strip-ansi/license"
   },
-  "strip-ansi@7.1.2": {
-    "licenses": "MIT",
-    "repository": "https://github.com/chalk/strip-ansi",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/strip-ansi",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/strip-ansi/license"
-  },
-  "tar@6.2.1": {
-    "licenses": "ISC",
+  "tar@7.5.13": {
+    "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/node-tar",
-    "publisher": "GitHub Inc.",
+    "publisher": "Isaac Z. Schlueter",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar/LICENSE"
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar/LICENSE.md"
   },
   "through2@4.0.2": {
     "licenses": "MIT",
@@ -1166,7 +1101,7 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@restart/ui/node_modules/uncontrollable",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@restart/ui/node_modules/uncontrollable/LICENSE"
   },
-  "undici-types@7.14.0": {
+  "undici-types@7.19.2": {
     "licenses": "MIT",
     "repository": "https://github.com/nodejs/undici",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/undici-types",
@@ -1188,6 +1123,12 @@
     "url": "sindresorhus.com",
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/untildify",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/untildify/license"
+  },
+  "use-sync-external-store@1.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/use-sync-external-store",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/use-sync-external-store/LICENSE"
   },
   "util-deprecate@1.0.2": {
     "licenses": "MIT",
@@ -1232,15 +1173,6 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/wrap-ansi",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/wrap-ansi/license"
   },
-  "wrap-ansi@8.1.0": {
-    "licenses": "MIT",
-    "repository": "https://github.com/chalk/wrap-ansi",
-    "publisher": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "https://sindresorhus.com",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/wrap-ansi",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/@isaacs/cliui/node_modules/wrap-ansi/license"
-  },
   "xml2js@0.6.2": {
     "licenses": "MIT",
     "repository": "https://github.com/Leonidas-from-XIV/node-xml2js",
@@ -1266,14 +1198,14 @@
     "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/xmlbuilder",
     "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/xmlbuilder/LICENSE"
   },
-  "yallist@4.0.0": {
-    "licenses": "ISC",
+  "yallist@5.0.0": {
+    "licenses": "BlueOak-1.0.0",
     "repository": "https://github.com/isaacs/yallist",
     "publisher": "Isaac Z. Schlueter",
     "email": "i@izs.me",
     "url": "http://blog.izs.me/",
-    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minipass/node_modules/yallist",
-    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/minipass/node_modules/yallist/LICENSE"
+    "path": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar/node_modules/yallist",
+    "licenseFile": "/Users/christianscheub/Documents/Develope/Capacitor/Repos/LocalNotes/TypeScript_Capacitor_LocalNotes/node_modules/tar/node_modules/yallist/LICENSE.md"
   },
   "yauzl@2.10.0": {
     "licenses": "MIT",

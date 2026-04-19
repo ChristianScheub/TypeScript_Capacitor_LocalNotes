@@ -1,19 +1,19 @@
 PODS:
-  - Capacitor (7.4.3):
+  - Capacitor (7.6.2):
     - CapacitorCordova
-  - CapacitorApp (7.1.0):
+  - CapacitorApp (7.1.2):
     - Capacitor
-  - CapacitorCordova (7.4.3)
-  - CapacitorDevice (7.0.2):
+  - CapacitorCordova (7.6.2)
+  - CapacitorDevice (7.0.5):
     - Capacitor
-  - CapacitorFilesystem (7.1.4):
+  - CapacitorFilesystem (7.1.8):
     - Capacitor
-    - IONFilesystemLib (~> 1.0.1)
+    - IONFilesystemLib (~> 1.1.1)
   - CapacitorNativeBiometric (0.0.1):
     - Capacitor
-  - CapacitorShare (7.0.2):
+  - CapacitorShare (7.0.4):
     - Capacitor
-  - IONFilesystemLib (1.0.1)
+  - IONFilesystemLib (1.1.2)
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
@@ -45,14 +45,14 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/share"
 
 SPEC CHECKSUMS:
-  Capacitor: b4741ca7affb32c1b70debd03df92cbf522d8a80
-  CapacitorApp: 846d4b4a1dbb19dd1e9029c08ba6f028aa7be862
-  CapacitorCordova: 435121e81a2df4d0034f0fb11fcefab5104cfdb5
-  CapacitorDevice: a50a45f0d075e55e2392c7a4be5404d4f69515de
-  CapacitorFilesystem: ac0a386949ed6c295a3dffa129ecd26b881ae5be
+  Capacitor: 6a4db05694acab0f1ea4ecb5ae06e520d101c4f1
+  CapacitorApp: 6b89831465d6bc99bc89779b1b7f5327e33011ce
+  CapacitorCordova: 8214697bed435f6e7c5e3ed86d1632a8c42f7d77
+  CapacitorDevice: 12b136398a320a395ddc8d227ab532848058d796
+  CapacitorFilesystem: f54cd6b76be06fa7ceb219cf313d32e0d626ea87
   CapacitorNativeBiometric: b47637a8cd349bdac014424bb4ddcae9ee5d4919
-  CapacitorShare: 051c3ceee0ddf3bb54574851a622bbb317eed5bd
-  IONFilesystemLib: 89258b8e3e85465da93127d25d7ce37f977e8a6f
+  CapacitorShare: 14b5d7f0a2c6de86dcad8995da80fb707ee32f62
+  IONFilesystemLib: 21a63377696b2d8fab5632ecfb7d2ac67bddb68a
 
 PODFILE CHECKSUM: 1e7d113cf5274cd7107faff408df0fda86cce4b5
 
