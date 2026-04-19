@@ -68,17 +68,21 @@ jobs:
             -keypass "${{ secrets.KEY_PASSWORD }}" \
             android/app/build/outputs/bundle/release/app-release.aab \
             "${{ secrets.KEY_ALIAS }}"
-      - name: Verify AAB signing
-        run: |
-          jarsigner -verify -verbose -certs android/app/build/outputs/bundle/release/app-release.aab | tail -40
+      - name: Install fastlane
+        run: gem install fastlane --no-document
 
-      - name: Upload to Google Play
-        uses: r0adkll/upload-google-play@v1
+      - name: Upload to Google Play (fastlane supply)
         env:
-          ACTIONS_STEP_DEBUG: true
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
-          packageName: de.scheub.localNotes
-          releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
-          track: internal
-          status: completed
+          SUPPLY_JSON_KEY_DATA: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          fastlane supply \
+            --package_name de.scheub.localNotes \
+            --aab android/app/build/outputs/bundle/release/app-release.aab \
+            --track internal \
+            --release_status completed \
+            --skip_upload_apk true \
+            --skip_upload_metadata true \
+            --skip_upload_changelogs true \
+            --skip_upload_images true \
+            --skip_upload_screenshots true \
+            --verbose
