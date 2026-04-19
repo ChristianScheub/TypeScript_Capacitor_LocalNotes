@@ -68,6 +68,11 @@ jobs:
             -keypass "${{ secrets.KEY_PASSWORD }}" \
             android/app/build/outputs/bundle/release/app-release.aab \
             "${{ secrets.KEY_ALIAS }}"
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
       - name: Install fastlane
         run: gem install fastlane --no-document
 
