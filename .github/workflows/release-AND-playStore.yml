@@ -68,11 +68,17 @@ jobs:
             -keypass "${{ secrets.KEY_PASSWORD }}" \
             android/app/build/outputs/bundle/release/app-release.aab \
             "${{ secrets.KEY_ALIAS }}"
+      - name: Verify AAB signing
+        run: |
+          jarsigner -verify -verbose -certs android/app/build/outputs/bundle/release/app-release.aab | tail -40
+
       - name: Upload to Google Play
-        uses: r0adkll/upload-google-play@v1.1.3
+        uses: r0adkll/upload-google-play@v1
+        env:
+          ACTIONS_STEP_DEBUG: true
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
           packageName: de.scheub.localNotes
           releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
           track: internal
-          status: draft
+          status: completed
